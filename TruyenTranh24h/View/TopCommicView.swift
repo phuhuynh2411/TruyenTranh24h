@@ -8,22 +8,30 @@
 import SwiftUI
 
 struct TopCommicView: View {
-    let stories = [StoryThumbnailView(), StoryThumbnailView(), StoryThumbnailView()]
+    @State var stories: [Story]
     
     var body: some View {
         VStack{
             // Title
-            
-            Text("Top commics")
+            Text("top-commic-title")
             
             // Story thumbnails
-            
+            let columns: [GridItem] =
+                     Array(repeating: .init(.flexible()), count: 3)
+             ScrollView {
+                 LazyVGrid(columns: columns) {
+                    ForEach(stories) { Story in
+                        StoryThumbnailView(story: Story)
+                    }
+                 }
+                 .padding(5)
+             }
         }
     }
 }
 
 struct TopCommic_Previews: PreviewProvider {
     static var previews: some View {
-        TopCommicView()
+        TopCommicView(stories: SampleData.stories())
     }
 }

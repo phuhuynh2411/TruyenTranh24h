@@ -7,11 +7,12 @@
 
 import SwiftUI
 
-struct StoryThumbnailView: View{
+struct StoryThumbnailView: View {
+    @State var story: Story
     
     var body: some View {
-        VStack{
-            ZStack(alignment: .topLeading){
+        VStack {
+            ZStack(alignment: .topLeading) {
                 Image("trongsinh_thumbnail")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -19,33 +20,38 @@ struct StoryThumbnailView: View{
                 
                 
                 // Top buttoms
-                HStack(){
+                HStack() {
                     // Chapter
-                    Text("Chương 1")
+                    Text(story.lastChapter.title)
                         .padding(2)
                         .foregroundColor(Color("chapterButtonFg"))
                         .background(Color("chapterButtonBg"))
                         .cornerRadius(3.0)
                         .padding(5)
+                        .font(.system(size: 10))
                     
                     // Add space
                     Spacer()
                     
                     // Hot button
-                    Text("Hot")
-                        .padding(2)
-                        .foregroundColor(Color("hotButtonFg"))
-                        .background(Color("hotButtonBg"))
-                        .cornerRadius(3.0)
-                        .padding(5)
+                    // Only Hot button when the story is hot
+                    if story.isHot {
+                        Text("hot-title")
+                            .padding(2)
+                            .foregroundColor(Color("hotButtonFg"))
+                            .background(Color("hotButtonBg"))
+                            .cornerRadius(3.0)
+                            .padding(5)
+                            .font(.system(size: 10))
+                    }
                 }
-               
-                
             }
             
-            
-            
+            // Story name
             Text("Trọng sinh ta sau tám vạn năm")
+                .multilineTextAlignment(.center)
+                .font(.system(size: 10))
+            
         }
         
         
@@ -55,7 +61,12 @@ struct StoryThumbnailView: View{
 struct StoryThumbnail_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            StoryThumbnailView()
+            StoryThumbnailView(story: SampleData.stories()[0])
+                .environment(\.locale, .init(identifier: "us"))
+            
+            // hot story
+            StoryThumbnailView(story: SampleData.stories()[1])
+                .environment(\.locale, .init(identifier: "vi"))
         }
     }
 }

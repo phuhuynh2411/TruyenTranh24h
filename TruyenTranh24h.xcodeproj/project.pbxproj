@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		841997F626269C98009BDD4B /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841997F526269C98009BDD4B /* Chapter.swift */; };
 		8446F9A6262575FF0098635A /* TruyenTranh24hApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446F9A5262575FF0098635A /* TruyenTranh24hApp.swift */; };
 		8446F9A8262575FF0098635A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446F9A7262575FF0098635A /* ContentView.swift */; };
 		8446F9AA262576020098635A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8446F9A9262576020098635A /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 		8446F9EE26258DBF0098635A /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446F9ED26258DBF0098635A /* Story.swift */; };
 		8446F9FD26258EBA0098635A /* stories.json in Resources */ = {isa = PBXBuildFile; fileRef = 8446F9FC26258EBA0098635A /* stories.json */; };
 		8446FA02262592110098635A /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446FA01262592110098635A /* SampleData.swift */; };
+		849EF3E32626A7A300EB6429 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 849EF3E52626A7A300EB6429 /* Localizable.strings */; };
 		84CFF93D262598CD0034CACB /* SampleDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF93C262598CD0034CACB /* SampleDataTest.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		841997F526269C98009BDD4B /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
 		8446F9A2262575FF0098635A /* TruyenTranh24h.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TruyenTranh24h.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8446F9A5262575FF0098635A /* TruyenTranh24hApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruyenTranh24hApp.swift; sourceTree = "<group>"; };
 		8446F9A7262575FF0098635A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -47,6 +50,8 @@
 		8446F9ED26258DBF0098635A /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		8446F9FC26258EBA0098635A /* stories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = stories.json; sourceTree = "<group>"; };
 		8446FA01262592110098635A /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
+		849EF3E42626A7A300EB6429 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		849EF3E62626A7A800EB6429 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84CFF93C262598CD0034CACB /* SampleDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDataTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				8446F9ED26258DBF0098635A /* Story.swift */,
+				841997F526269C98009BDD4B /* Chapter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -159,6 +165,7 @@
 			children = (
 				8446F9FC26258EBA0098635A /* stories.json */,
 				8446FA01262592110098635A /* SampleData.swift */,
+				849EF3E52626A7A300EB6429 /* Localizable.strings */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -225,7 +232,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				vi,
 			);
 			mainGroup = 8446F999262575FF0098635A;
 			productRefGroup = 8446F9A3262575FF0098635A /* Products */;
@@ -244,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8446F9FD26258EBA0098635A /* stories.json in Resources */,
+				849EF3E32626A7A300EB6429 /* Localizable.strings in Resources */,
 				8446F9AD262576020098635A /* Preview Assets.xcassets in Resources */,
 				8446F9AA262576020098635A /* Assets.xcassets in Resources */,
 			);
@@ -270,6 +278,7 @@
 				8446F9A6262575FF0098635A /* TruyenTranh24hApp.swift in Sources */,
 				8446F9E3262580FC0098635A /* Color+Extension.swift in Sources */,
 				8446F9EE26258DBF0098635A /* Story.swift in Sources */,
+				841997F626269C98009BDD4B /* Chapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +299,18 @@
 			targetProxy = 8446F9B4262576020098635A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		849EF3E52626A7A300EB6429 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				849EF3E42626A7A300EB6429 /* en */,
+				849EF3E62626A7A800EB6429 /* vi */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		8446F9C5262576020098635A /* Debug */ = {
@@ -426,7 +447,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = filesoft.co.TruyenTranh24h;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -448,7 +469,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = filesoft.co.TruyenTranh24h;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

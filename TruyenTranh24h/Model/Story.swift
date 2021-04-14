@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Story: Codable {
+struct Story: Codable, Identifiable {
     let id: Int
     let userId: Int
     let title: String
@@ -16,6 +16,9 @@ struct Story: Codable {
     let isFeature: Bool
     let isAdult: Bool
     let featureImage: String
+    
+    // Chapter
+    let lastChapter: Chapter
 }
 
 /*
