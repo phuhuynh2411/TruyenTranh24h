@@ -17,7 +17,7 @@ struct StoryThumbnailView: View {
                 Image("trongsinh_thumbnail")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .cornerRadius(5.0)
+                    .cornerRadius(7.0)
                 
                 
                 // Top buttoms

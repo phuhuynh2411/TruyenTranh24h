@@ -19,6 +19,10 @@
 		8446F9FD26258EBA0098635A /* stories.json in Resources */ = {isa = PBXBuildFile; fileRef = 8446F9FC26258EBA0098635A /* stories.json */; };
 		8446FA02262592110098635A /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446FA01262592110098635A /* SampleData.swift */; };
 		849EF3E32626A7A300EB6429 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 849EF3E52626A7A300EB6429 /* Localizable.strings */; };
+		84A1693B262825D8001831AD /* SlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A1693A262825D8001831AD /* SlideView.swift */; };
+		84A1693F2628310F001831AD /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A1693E2628310F001831AD /* TestView.swift */; };
+		84A1694326283330001831AD /* SlideThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A1694226283330001831AD /* SlideThumbnailView.swift */; };
+		84CCFC6D262A890E006943C6 /* local_stories.json in Resources */ = {isa = PBXBuildFile; fileRef = 84CCFC6C262A890E006943C6 /* local_stories.json */; };
 		84CFF93D262598CD0034CACB /* SampleDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF93C262598CD0034CACB /* SampleDataTest.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +56,10 @@
 		8446FA01262592110098635A /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		849EF3E42626A7A300EB6429 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		849EF3E62626A7A800EB6429 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		84A1693A262825D8001831AD /* SlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideView.swift; sourceTree = "<group>"; };
+		84A1693E2628310F001831AD /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		84A1694226283330001831AD /* SlideThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideThumbnailView.swift; sourceTree = "<group>"; };
+		84CCFC6C262A890E006943C6 /* local_stories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = local_stories.json; sourceTree = "<group>"; };
 		84CFF93C262598CD0034CACB /* SampleDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDataTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +87,8 @@
 				8446F9A7262575FF0098635A /* ContentView.swift */,
 				8446F9D9262578FF0098635A /* StoryThumbnailView.swift */,
 				8446F9E72625865A0098635A /* TopCommicView.swift */,
+				84CBBCDD262A80E10068750A /* Slider */,
+				84A1693E2628310F001831AD /* TestView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -164,10 +174,20 @@
 			isa = PBXGroup;
 			children = (
 				8446F9FC26258EBA0098635A /* stories.json */,
+				84CCFC6C262A890E006943C6 /* local_stories.json */,
 				8446FA01262592110098635A /* SampleData.swift */,
 				849EF3E52626A7A300EB6429 /* Localizable.strings */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		84CBBCDD262A80E10068750A /* Slider */ = {
+			isa = PBXGroup;
+			children = (
+				84A1693A262825D8001831AD /* SlideView.swift */,
+				84A1694226283330001831AD /* SlideThumbnailView.swift */,
+			);
+			path = Slider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,7 +235,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1230;
-				LastUpgradeCheck = 1230;
+				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					8446F9A1262575FF0098635A = {
 						CreatedOnToolsVersion = 12.3;
@@ -252,6 +272,7 @@
 			files = (
 				8446F9FD26258EBA0098635A /* stories.json in Resources */,
 				849EF3E32626A7A300EB6429 /* Localizable.strings in Resources */,
+				84CCFC6D262A890E006943C6 /* local_stories.json in Resources */,
 				8446F9AD262576020098635A /* Preview Assets.xcassets in Resources */,
 				8446F9AA262576020098635A /* Assets.xcassets in Resources */,
 			);
@@ -275,8 +296,11 @@
 				8446F9DA262578FF0098635A /* StoryThumbnailView.swift in Sources */,
 				8446F9A8262575FF0098635A /* ContentView.swift in Sources */,
 				8446F9E82625865A0098635A /* TopCommicView.swift in Sources */,
+				84A1694326283330001831AD /* SlideThumbnailView.swift in Sources */,
 				8446F9A6262575FF0098635A /* TruyenTranh24hApp.swift in Sources */,
 				8446F9E3262580FC0098635A /* Color+Extension.swift in Sources */,
+				84A1693F2628310F001831AD /* TestView.swift in Sources */,
+				84A1693B262825D8001831AD /* SlideView.swift in Sources */,
 				8446F9EE26258DBF0098635A /* Story.swift in Sources */,
 				841997F626269C98009BDD4B /* Chapter.swift in Sources */,
 			);
@@ -317,6 +341,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -378,6 +403,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

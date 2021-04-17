@@ -11,7 +11,8 @@ import SwiftUI
 struct TruyenTranh24hApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            //ContentView()
+            SlideView(stories: SampleData.localStories().suffix(4))
         }
     }
 }
