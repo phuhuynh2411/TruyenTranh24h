@@ -17,50 +17,56 @@ struct SlideView: View {
     let hStackSpacing:CGFloat = 9.0
     
     var body: some View {
-        ZStack (alignment: .bottom) {
-            GeometryReader { geo in
-                // HStack for the image
-                
-                HStack(spacing: hStackSpacing) {
-                    ForEach(stories) { story in
-                        SlideThumbnailView(story: story)
-                            .frame(width: geo.size.width)
-                    }
-                }
-                .onAppear {
-                    // Add the last item before the last item
-                    // Add the first item after last item
-                    if let lastItem = stories.last, let firstItem = stories.first  {
-                        self.stories.insert(lastItem, at: 0)
-                        self.stories.append(firstItem)
-                    }
-                    // Move to the first item
-                    self.offset = CGPoint(x: -(UIScreen.main.bounds.width + hStackSpacing), y: 0)
-                    
-                    // Move index to the first item
-                    self.index = 1
-                    
-                    // Set the last offset to the offet
-                    self.lastOffset = self.offset
-                }
-                .offset(x: offset.x, y: offset.y)
-                
-                // Add drag events to the scrollview
-                .gesture(drag)
-            }
+        VStack { // Use this view to move the slider to top
             
-            // Index View
-            HStack {
-                //Spacer()
-                ForEach((0...stories.count - 3), id: \.self) { _ in
-                    Circle()
-                        .foregroundColor(.blue)
-                        .frame(width: 10, height: 10)
-                        .padding(.bottom)
+            ZStack (alignment: .bottom) {
+                GeometryReader { geo in
+                    // HStack for the image
+                    
+                    HStack(spacing: hStackSpacing) {
+                        ForEach(stories) { story in
+                            SlideThumbnailView(story: story)
+                                .frame(width: geo.size.width)
+                        }
+                    }
+                    .onAppear {
+                        // Add the last item before the last item
+                        // Add the first item after last item
+                        if let lastItem = stories.last, let firstItem = stories.first  {
+                            self.stories.insert(lastItem, at: 0)
+                            self.stories.append(firstItem)
+                        }
+                        // Move to the first item
+                        self.offset = CGPoint(x: -(UIScreen.main.bounds.width + hStackSpacing), y: 0)
+                        
+                        // Move index to the first item
+                        self.index = 1
+                        
+                        // Set the last offset to the offet
+                        self.lastOffset = self.offset
+                    }
+                    .offset(x: offset.x, y: offset.y)
+                    
+                    // Add drag events to the scrollview
+                    .gesture(drag)
+                }
+                
+                // Index View
+                HStack {
+                    //Spacer()
+                    ForEach((1...stories.count - 2), id: \.self) { i in
+                        Circle()
+                            .foregroundColor(i == self.index ? .blue : .white )
+                            .frame(width: 7, height: 7)
+                            .padding(.bottom)
+                    }
                 }
             }
+            .frame(height: 180)
+            
+            // Move the things above to top
+            Spacer()
         }
-        .frame(height: 180)
     }
     
     var drag: some Gesture {
