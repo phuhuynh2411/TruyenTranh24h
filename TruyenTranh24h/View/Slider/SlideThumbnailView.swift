@@ -14,7 +14,7 @@ struct SlideThumbnailView: View {
         GeometryReader { geo in
             Image(story.featureImage)
                 .resizable()
-                .frame(width: geo.size.width, height: 180)
+                .frame(width: geo.size.width, height: 190)
         }
     }
 }

@@ -36,14 +36,9 @@ struct SlideView: View {
                             self.stories.insert(lastItem, at: 0)
                             self.stories.append(firstItem)
                         }
+                        
                         // Move to the first item
-                        self.offset = CGPoint(x: -(UIScreen.main.bounds.width + hStackSpacing), y: 0)
-                        
-                        // Move index to the first item
-                        self.index = 1
-                        
-                        // Set the last offset to the offet
-                        self.lastOffset = self.offset
+                        changeSide(index: 1)
                     }
                     .offset(x: offset.x, y: offset.y)
                     
@@ -62,11 +57,13 @@ struct SlideView: View {
                     }
                 }
             }
-            .frame(height: 180)
+            .frame(height: 190)
             
             // Move the things above to top
             Spacer()
         }
+        
+        //TODO: Auto change slide in 2 seconds
     }
     
     var drag: some Gesture {
@@ -82,33 +79,34 @@ struct SlideView: View {
                     } else {
                         index += 1
                     }
-                    
-                    self.offset = CGPoint(x: -CGFloat(index) * UIScreen.main.bounds.size.width - (hStackSpacing * CGFloat(index)), y: self.offset.y)
-                    
-                    // Save the last offset for the next times
-                    self.lastOffset = self.offset
+                    changeSide(index: index)
                 }
                 
                 // Cycel the slider
                 // if it's the last item, set the index to 1
                 if index == stories.count - 1 {
                     index = 1
-                    self.offset = CGPoint(x: -CGFloat(index) * UIScreen.main.bounds.size.width - (hStackSpacing * CGFloat(index)), y: self.offset.y)
-                    lastOffset = offset
                 }
                 // if it's on the first item, set the index to the last item
                 if index == 0 {
                     index = stories.count - 2
-                    self.offset = CGPoint(x: -CGFloat(index) * UIScreen.main.bounds.size.width - (hStackSpacing * CGFloat(index)), y: self.offset.y)
-                    lastOffset = offset
                 }
+                changeSide(index: index)
             }
+    }
+    
+    private func changeSide(index: Int) {
+        self.index = index
+        self.offset = CGPoint(x: -CGFloat(index) * UIScreen.main.bounds.size.width - (hStackSpacing * CGFloat(index)), y: self.offset.y)
+        
+        // Save the last offset for the next times
+        self.lastOffset = self.offset
     }
     
 }
 
 struct SlideView_Previews: PreviewProvider {
     static var previews: some View {
-        SlideView(stories: SampleData.stories())
+        SlideView(stories: SampleData.localStories())
     }
 }
