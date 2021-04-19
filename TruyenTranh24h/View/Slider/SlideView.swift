@@ -38,7 +38,14 @@ struct SlideView: View {
                         }
                         
                         // Move to the first item
-                        changeSide(index: 1)
+                        changeSide(newIndex: 1, withAni: false)
+                        
+                        // Auto go to next slide in two seconds
+                        Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { _ in
+                            withAnimation {
+                               // changeSide(index: self.index + 1)
+                            }
+                        }
                     }
                     .offset(x: offset.x, y: offset.y)
                     
@@ -72,35 +79,44 @@ struct SlideView: View {
                 self.offset =  CGPoint(x: state.location.x  - state.startLocation.x + self.lastOffset.x , y: self.offset.y)
             }
             .onEnded { state in
-                withAnimation{
+                withAnimation {
                     self.offset = CGPoint(x: self.offset.x + state.predictedEndLocation.x, y: self.offset.y)
                     if self.offset.x > self.lastOffset.x {
                         index -= 1
                     } else {
                         index += 1
                     }
-                    changeSide(index: index)
                 }
-                
-                // Cycel the slider
-                // if it's the last item, set the index to 1
-                if index == stories.count - 1 {
-                    index = 1
-                }
-                // if it's on the first item, set the index to the last item
-                if index == 0 {
-                    index = stories.count - 2
-                }
-                changeSide(index: index)
+                changeSide(newIndex: index)
             }
     }
     
-    private func changeSide(index: Int) {
-        self.index = index
-        self.offset = CGPoint(x: -CGFloat(index) * UIScreen.main.bounds.size.width - (hStackSpacing * CGFloat(index)), y: self.offset.y)
+    private func changeSide(newIndex: Int, withAni: Bool = true) {
+        if withAni {
+            withAnimation {
+                setIndex(newIndex)
+            }
+        } else {
+            setIndex(newIndex)
+        }
+        
+        // Cycel the slider
+        // if it's the last item, set the index to 1
+        if newIndex == stories.count - 1 {
+            self.index = 1
+            self.offset = CGPoint(x: -CGFloat(self.index) * UIScreen.main.bounds.size.width - (hStackSpacing * CGFloat(self.index)), y: self.offset.y)
+        } else if newIndex == 0 {
+            self.index = stories.count - 2
+            self.offset = CGPoint(x: -CGFloat(self.index) * UIScreen.main.bounds.size.width - (hStackSpacing * CGFloat(self.index)), y: self.offset.y)
+        }
         
         // Save the last offset for the next times
         self.lastOffset = self.offset
+    }
+    
+    private func setIndex(_ newIndex: Int) {
+        self.index = newIndex
+        self.offset = CGPoint(x: -CGFloat(newIndex) * UIScreen.main.bounds.size.width - (hStackSpacing * CGFloat(newIndex)), y: self.offset.y)
     }
     
 }
