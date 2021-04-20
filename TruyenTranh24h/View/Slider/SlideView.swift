@@ -10,11 +10,14 @@ import OSLog
 
 struct SlideView: View {
     @State var  stories: [Story]
+    var isAutoChangeSlide: Bool = true
+    var second: Int = 3
     
     @State private var offset: CGPoint = .zero
     @State private var lastOffset: CGPoint = .zero
     @State private var index: Int = 0
     let hStackSpacing:CGFloat = 9.0
+    @State private var draggingTime = Date()
     
     var body: some View {
         VStack { // Use this view to move the slider to top
@@ -40,10 +43,16 @@ struct SlideView: View {
                         // Move to the first item
                         changeSide(newIndex: 1, withAni: false)
                         
-                        // Auto go to next slide in two seconds
-                        Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { _ in
-                            withAnimation {
-                               // changeSide(index: self.index + 1)
+                        // enable auto change slide
+                        guard isAutoChangeSlide else {
+                            return
+                        }
+                        // Auto go to next slide in three seconds
+                        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+                            let delta = Date().timeIntervalSince(self.draggingTime)
+                            if Int(delta) > self.second - 1 { // 3 seconds
+                                changeSide(newIndex: self.index + 1)
+                                self.draggingTime = Date()
                             }
                         }
                     }
@@ -69,14 +78,15 @@ struct SlideView: View {
             // Move the things above to top
             Spacer()
         }
-        
-        //TODO: Auto change slide in 2 seconds
     }
     
     var drag: some Gesture {
         DragGesture()
             .onChanged { state in
                 self.offset =  CGPoint(x: state.location.x  - state.startLocation.x + self.lastOffset.x , y: self.offset.y)
+                
+                // Update the dragging time
+                self.draggingTime = Date()
             }
             .onEnded { state in
                 withAnimation {
