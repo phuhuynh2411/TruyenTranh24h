@@ -8,15 +8,27 @@
 import SwiftUI
 import OSLog
 
-struct SlideView: View {
+struct CarouselView: View {
     @State var  stories: [Story]
+    
+    /// auto change slide if is it true
     var isAutoChangeSlide: Bool = true
+    
+    /// number of seconds between each transtion
     var second: Int = 3
+    
+    /// show slide indicator if it is true
+    var slideIndicator: Bool = true
+    
+    /// Carousel view's height
+    var height: CGFloat = 190
+    
+    // A space between each slide
+    var hStackSpacing:CGFloat = 9.0
     
     @State private var offset: CGPoint = .zero
     @State private var lastOffset: CGPoint = .zero
     @State private var index: Int = 0
-    let hStackSpacing:CGFloat = 9.0
     @State private var draggingTime = Date()
     
     var body: some View {
@@ -28,7 +40,7 @@ struct SlideView: View {
                     
                     HStack(spacing: hStackSpacing) {
                         ForEach(stories) { story in
-                            SlideThumbnailView(story: story)
+                            CarouselItemlView(story: story)
                                 .frame(width: geo.size.width)
                         }
                     }
@@ -63,17 +75,19 @@ struct SlideView: View {
                 }
                 
                 // Index View
-                HStack {
-                    //Spacer()
-                    ForEach((1...stories.count - 2), id: \.self) { i in
-                        Circle()
-                            .foregroundColor(i == self.index ? .blue : .white )
-                            .frame(width: 7, height: 7)
-                            .padding(.bottom)
+                if self.slideIndicator {
+                    HStack {
+                        //Spacer()
+                        ForEach((1...stories.count - 2), id: \.self) { i in
+                            Circle()
+                                .foregroundColor(i == self.index ? .blue : .white )
+                                .frame(width: 7, height: 7)
+                                .padding(.bottom)
+                        }
                     }
                 }
             }
-            .frame(height: 190)
+            .frame(height: self.height)
             
             // Move the things above to top
             Spacer()
@@ -133,6 +147,6 @@ struct SlideView: View {
 
 struct SlideView_Previews: PreviewProvider {
     static var previews: some View {
-        SlideView(stories: SampleData.localStories())
+        CarouselView(stories: SampleData.localStories())
     }
 }

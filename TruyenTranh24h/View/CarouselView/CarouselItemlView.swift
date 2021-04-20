@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SlideThumbnailView: View {
+struct CarouselItemlView: View {
     @State var story: Story
     
     var body: some View {
@@ -19,8 +19,8 @@ struct SlideThumbnailView: View {
     }
 }
 
-struct SlideThumbnail_Previews: PreviewProvider {
+struct CarouselItemlView_Previews: PreviewProvider {
     static var previews: some View {
-        SlideThumbnailView(story: SampleData.localStories()[0])
+        CarouselItemlView(story: SampleData.localStories()[0])
     }
 }
