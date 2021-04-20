@@ -30,6 +30,7 @@ struct CarouselView: View {
     @State private var lastOffset: CGPoint = .zero
     @State private var index: Int = 0
     @State private var draggingTime = Date()
+    private let screenWidth = UIScreen.main.bounds.width
     
     var body: some View {
         VStack { // Use this view to move the slider to top
@@ -74,7 +75,7 @@ struct CarouselView: View {
                     .gesture(drag)
                 }
                 
-                // Index View
+                // Show slide indicators
                 if self.slideIndicator {
                     HStack {
                         //Spacer()
@@ -97,7 +98,9 @@ struct CarouselView: View {
     var drag: some Gesture {
         DragGesture()
             .onChanged { state in
-                self.offset =  CGPoint(x: state.location.x  - state.startLocation.x + self.lastOffset.x , y: self.offset.y)
+                let distance = state.location.x - state.startLocation.x  + self.lastOffset.x
+                
+                self.offset =  CGPoint(x: distance, y: self.offset.y)
                 
                 // Update the dragging time
                 self.draggingTime = Date()
@@ -105,10 +108,13 @@ struct CarouselView: View {
             .onEnded { state in
                 withAnimation {
                     self.offset = CGPoint(x: self.offset.x + state.predictedEndLocation.x, y: self.offset.y)
-                    if self.offset.x > self.lastOffset.x {
-                        index -= 1
-                    } else {
+                    
+                    let delta = self.offset.x - self.lastOffset.x
+                    
+                    if abs(self.offset.x) > abs(self.lastOffset.x) , abs(delta) > screenWidth/2 {
                         index += 1
+                    } else if abs(delta) - state.predictedEndLocation.x > screenWidth/2  {
+                        index -= 1
                     }
                 }
                 changeSide(newIndex: index)
