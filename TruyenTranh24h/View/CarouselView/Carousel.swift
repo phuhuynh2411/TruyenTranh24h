@@ -10,4 +10,9 @@ import Foundation
 struct Carousel: Identifiable, Decodable {
     let id: Int
     let stringURL: String
+    
+    init(id: Int, stringURL: String) {
+        self.id = id
+        self.stringURL = stringURL
+    }
 }

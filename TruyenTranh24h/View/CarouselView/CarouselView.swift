@@ -161,6 +161,6 @@ struct CarouselView: View {
 
 struct SlideView_Previews: PreviewProvider {
     static var previews: some View {
-        CarouselView(items: SampleData.carousels())
+        CarouselView(items: SampleData.carousels().compactMap { Carousel(id: $0.id, stringURL: "\(URLSetting.baseURL)\($0.stringURL)")})
     }
 }

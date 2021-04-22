@@ -8,5 +8,5 @@
 import Foundation
 
 class URLSetting {
-    static baseURL = ""
+    static let baseURL = "https://truyentranh24h.net/storage/"
 }
