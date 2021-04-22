@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84120C8926314EFD00FECA00 /* URLSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84120C8826314EFD00FECA00 /* URLSetting.swift */; };
 		841997F626269C98009BDD4B /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841997F526269C98009BDD4B /* Chapter.swift */; };
 		8446F9A6262575FF0098635A /* TruyenTranh24hApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446F9A5262575FF0098635A /* TruyenTranh24hApp.swift */; };
 		8446F9A8262575FF0098635A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446F9A7262575FF0098635A /* ContentView.swift */; };
@@ -27,6 +28,8 @@
 		84D3844F262EB37300102BF3 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D3844C262EB37200102BF3 /* ImageModel.swift */; };
 		84D38450262EB37300102BF3 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D3844D262EB37200102BF3 /* RemoteImage.swift */; };
 		84D38451262EB37300102BF3 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D3844E262EB37200102BF3 /* ImageCache.swift */; };
+		84D38455262EB3C300102BF3 /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D38454262EB3C300102BF3 /* Carousel.swift */; };
+		84D38459262EB4F400102BF3 /* carousel.json in Resources */ = {isa = PBXBuildFile; fileRef = 84D38458262EB4F400102BF3 /* carousel.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		84120C8826314EFD00FECA00 /* URLSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSetting.swift; sourceTree = "<group>"; };
 		841997F526269C98009BDD4B /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
 		8446F9A2262575FF0098635A /* TruyenTranh24h.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TruyenTranh24h.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8446F9A5262575FF0098635A /* TruyenTranh24hApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruyenTranh24hApp.swift; sourceTree = "<group>"; };
@@ -67,6 +71,8 @@
 		84D3844C262EB37200102BF3 /* ImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		84D3844D262EB37200102BF3 /* RemoteImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		84D3844E262EB37200102BF3 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		84D38454262EB3C300102BF3 /* Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
+		84D38458262EB4F400102BF3 /* carousel.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = carousel.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				8446F9A5262575FF0098635A /* TruyenTranh24hApp.swift */,
+				84120C8826314EFD00FECA00 /* URLSetting.swift */,
 				84D3844B262EB35100102BF3 /* Remote Image */,
 				8446F9E1262580E50098635A /* Extension */,
 				841997F226269A81009BDD4B /* View */,
@@ -182,6 +189,7 @@
 			children = (
 				8446F9FC26258EBA0098635A /* stories.json */,
 				84CCFC6C262A890E006943C6 /* local_stories.json */,
+				84D38458262EB4F400102BF3 /* carousel.json */,
 				8446FA01262592110098635A /* SampleData.swift */,
 				849EF3E52626A7A300EB6429 /* Localizable.strings */,
 			);
@@ -192,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				84A1693A262825D8001831AD /* CarouselView.swift */,
+				84D38454262EB3C300102BF3 /* Carousel.swift */,
 				84A1694226283330001831AD /* CarouselItemlView.swift */,
 			);
 			path = CarouselView;
@@ -290,6 +299,7 @@
 				8446F9FD26258EBA0098635A /* stories.json in Resources */,
 				849EF3E32626A7A300EB6429 /* Localizable.strings in Resources */,
 				84CCFC6D262A890E006943C6 /* local_stories.json in Resources */,
+				84D38459262EB4F400102BF3 /* carousel.json in Resources */,
 				8446F9AD262576020098635A /* Preview Assets.xcassets in Resources */,
 				8446F9AA262576020098635A /* Assets.xcassets in Resources */,
 			);
@@ -309,9 +319,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84120C8926314EFD00FECA00 /* URLSetting.swift in Sources */,
 				8446FA02262592110098635A /* SampleData.swift in Sources */,
 				8446F9DA262578FF0098635A /* StoryThumbnailView.swift in Sources */,
 				8446F9A8262575FF0098635A /* ContentView.swift in Sources */,
+				84D38455262EB3C300102BF3 /* Carousel.swift in Sources */,
 				8446F9E82625865A0098635A /* TopCommicView.swift in Sources */,
 				84A1694326283330001831AD /* CarouselItemlView.swift in Sources */,
 				8446F9A6262575FF0098635A /* TruyenTranh24hApp.swift in Sources */,

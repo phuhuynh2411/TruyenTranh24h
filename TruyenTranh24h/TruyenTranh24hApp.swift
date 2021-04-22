@@ -12,7 +12,7 @@ struct TruyenTranh24hApp: App {
     var body: some Scene {
         WindowGroup {
             //ContentView()
-            CarouselView(stories: SampleData.localStories().suffix(4))
+            CarouselView(items: SampleData.carousels()).offset(y: -25)
         }
     }
 }

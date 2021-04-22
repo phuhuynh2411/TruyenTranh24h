@@ -9,7 +9,7 @@ import SwiftUI
 import OSLog
 
 struct CarouselView: View {
-    @State var  stories: [Story]
+    @State var  items: [Carousel]
     
     /// auto change slide if is it true
     var isAutoChangeSlide: Bool = true
@@ -40,17 +40,17 @@ struct CarouselView: View {
                     // HStack for the image
                     
                     HStack(spacing: hStackSpacing) {
-                        ForEach(stories) { story in
-                            CarouselItemlView(story: story)
+                        ForEach(items) { item in
+                            CarouselItemlView(item: item)
                                 .frame(width: geo.size.width)
                         }
                     }
                     .onAppear {
                         // Add the last item before the last item
                         // Add the first item after last item
-                        if let lastItem = stories.last, let firstItem = stories.first  {
-                            self.stories.insert(lastItem, at: 0)
-                            self.stories.append(firstItem)
+                        if let lastItem = items.last, let firstItem = items.first  {
+                            self.items.insert(lastItem, at: 0)
+                            self.items.append(firstItem)
                         }
                         
                         // Move to the first item
@@ -79,9 +79,9 @@ struct CarouselView: View {
                 if self.slideIndicator {
                     HStack {
                         //Spacer()
-                        ForEach((1...stories.count - 2), id: \.self) { i in
+                        ForEach((1...items.count - 2), id: \.self) { i in
                             Circle()
-                                .foregroundColor(i == self.index ? .blue : .white )
+                                .foregroundColor(i == self.index ? Color("carouselSelectedIndicatorBg") : Color("carouselIndicatorBg") )
                                 .frame(width: 7, height: 7)
                                 .padding(.bottom)
                         }
@@ -106,6 +106,8 @@ struct CarouselView: View {
                 self.draggingTime = Date()
             }
             .onEnded { state in
+                var fallback = false
+                
                 withAnimation {
                     self.offset = CGPoint(x: self.offset.x + state.predictedEndLocation.x, y: self.offset.y)
                     
@@ -115,13 +117,15 @@ struct CarouselView: View {
                         index += 1
                     } else if abs(delta) - state.predictedEndLocation.x > screenWidth/2  {
                         index -= 1
+                    } else {
+                        fallback = true
                     }
                 }
-                changeSide(newIndex: index)
+                changeSide(newIndex: index, cycleSlide: fallback ? false : true)
             }
     }
     
-    private func changeSide(newIndex: Int, withAni: Bool = true) {
+    private func changeSide(newIndex: Int, withAni: Bool = true, cycleSlide: Bool = true) {
         if withAni {
             withAnimation {
                 setIndex(newIndex)
@@ -132,11 +136,12 @@ struct CarouselView: View {
         
         // Cycel the slider
         // if it's the last item, set the index to 1
-        if newIndex == stories.count - 1 {
+        guard cycleSlide else { return }
+        if newIndex == items.count - 1 {
             self.index = 1
             self.offset = CGPoint(x: -CGFloat(self.index) * UIScreen.main.bounds.size.width - (hStackSpacing * CGFloat(self.index)), y: self.offset.y)
         } else if newIndex == 0 {
-            self.index = stories.count - 2
+            self.index = items.count - 2
             self.offset = CGPoint(x: -CGFloat(self.index) * UIScreen.main.bounds.size.width - (hStackSpacing * CGFloat(self.index)), y: self.offset.y)
         }
         
@@ -147,12 +152,15 @@ struct CarouselView: View {
     private func setIndex(_ newIndex: Int) {
         self.index = newIndex
         self.offset = CGPoint(x: -CGFloat(newIndex) * UIScreen.main.bounds.size.width - (hStackSpacing * CGFloat(newIndex)), y: self.offset.y)
+        
+        // Save the last offset for the next times
+        self.lastOffset = self.offset
     }
     
 }
 
 struct SlideView_Previews: PreviewProvider {
     static var previews: some View {
-        CarouselView(stories: SampleData.localStories())
+        CarouselView(items: SampleData.carousels())
     }
 }

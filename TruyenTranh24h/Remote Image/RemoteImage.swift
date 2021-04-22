@@ -13,8 +13,9 @@ struct RemoteImage : View {
     @ObservedObject var imageModel: ImageModel
     var placeholder: Image
     
-    init(stringURL: String, placeholder: Image = Image(systemName: "photo")) {
+    init(stringURL: String, placeholder: Image = Image("image_placeholder")) {
         self.placeholder = placeholder
+
         if let url = URL(string: stringURL) {
             imageModel = ImageModel(url: url)
             return
@@ -27,8 +28,6 @@ struct RemoteImage : View {
             .image
             .map { Image(uiImage:$0).resizable().renderingMode(.original) }
             ?? placeholder
-                .resizable()
-                
     }
     
 }

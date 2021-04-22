@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct CarouselItemlView: View {
-    @State var story: Story
+    @State var item: Carousel
     
     var body: some View {
         GeometryReader { geo in
-            Image(story.featureImage)
-                .resizable()
+            RemoteImage(stringURL: item.stringURL)
                 .frame(width: geo.size.width, height: 190)
+                .background(Color.secondary)
         }
     }
 }
 
 struct CarouselItemlView_Previews: PreviewProvider {
     static var previews: some View {
-        CarouselItemlView(story: SampleData.localStories()[0])
+        CarouselItemlView(item: SampleData.carousels()[0])
     }
 }
