@@ -297,6 +297,7 @@
 			knownRegions = (
 				en,
 				vi,
+				Base,
 			);
 			mainGroup = 8446F999262575FF0098635A;
 			packageReferences = (
