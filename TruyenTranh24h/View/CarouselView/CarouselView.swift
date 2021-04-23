@@ -115,7 +115,7 @@ struct CarouselView: View {
                     
                     if abs(self.offset.x) > abs(self.lastOffset.x) , abs(delta) > screenWidth/2 {
                         index += 1
-                    } else if abs(delta) - state.predictedEndLocation.x > screenWidth/2  {
+                    } else if abs(delta) - screenWidth > screenWidth/2  {
                         index -= 1
                     } else {
                         fallback = true

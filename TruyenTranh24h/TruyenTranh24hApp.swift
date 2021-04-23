@@ -12,7 +12,7 @@ struct TruyenTranh24hApp: App {
     var body: some Scene {
         WindowGroup {
             //ContentView()
-            CarouselView(items: SampleData.carousels().compactMap { Carousel(id: $0.id, stringURL: "\(URLSetting.baseURL)\($0.stringURL)")}).offset(y: -25)
+            HomeView()
         }
     }
 }
