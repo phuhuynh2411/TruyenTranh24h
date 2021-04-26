@@ -144,6 +144,7 @@ struct CarouselView: View {
             self.index = items.count - 2
             self.offset = CGPoint(x: -CGFloat(self.index) * UIScreen.main.bounds.size.width - (hStackSpacing * CGFloat(self.index)), y: self.offset.y)
         }
+    
         
         // Save the last offset for the next times
         self.lastOffset = self.offset
