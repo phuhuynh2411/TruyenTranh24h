@@ -10,6 +10,7 @@
 		84120C8926314EFD00FECA00 /* URLSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84120C8826314EFD00FECA00 /* URLSetting.swift */; };
 		841997F626269C98009BDD4B /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841997F526269C98009BDD4B /* Chapter.swift */; };
 		84251114263280AB008FD335 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84251113263280AB008FD335 /* HomeView.swift */; };
+		842E33B12636AA5100A9D7A2 /* RemoteImageView in Frameworks */ = {isa = PBXBuildFile; productRef = 842E33B02636AA5100A9D7A2 /* RemoteImageView */; };
 		8441BB062632A53800F08AD9 /* RefreshableScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 8441BB052632A53800F08AD9 /* RefreshableScrollView */; };
 		8441BB092632A56A00F08AD9 /* stories.json in Resources */ = {isa = PBXBuildFile; fileRef = 8446F9FC26258EBA0098635A /* stories.json */; };
 		8441BB0A2632A56A00F08AD9 /* local_stories.json in Resources */ = {isa = PBXBuildFile; fileRef = 84CCFC6C262A890E006943C6 /* local_stories.json */; };
@@ -24,14 +25,11 @@
 		8446F9EE26258DBF0098635A /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446F9ED26258DBF0098635A /* Story.swift */; };
 		8446FA02262592110098635A /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446FA01262592110098635A /* SampleData.swift */; };
 		849EF3E32626A7A300EB6429 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 849EF3E52626A7A300EB6429 /* Localizable.strings */; };
-		84A1693B262825D8001831AD /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A1693A262825D8001831AD /* CarouselView.swift */; };
 		84A1693F2628310F001831AD /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A1693E2628310F001831AD /* TestView.swift */; };
-		84A1694326283330001831AD /* CarouselItemlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A1694226283330001831AD /* CarouselItemlView.swift */; };
 		84CFF93D262598CD0034CACB /* SampleDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF93C262598CD0034CACB /* SampleDataTest.swift */; };
 		84D3844F262EB37300102BF3 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D3844C262EB37200102BF3 /* ImageModel.swift */; };
 		84D38450262EB37300102BF3 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D3844D262EB37200102BF3 /* RemoteImage.swift */; };
 		84D38451262EB37300102BF3 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D3844E262EB37200102BF3 /* ImageCache.swift */; };
-		84D38455262EB3C300102BF3 /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D38454262EB3C300102BF3 /* Carousel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,15 +65,12 @@
 		8446FA01262592110098635A /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		849EF3E42626A7A300EB6429 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		849EF3E62626A7A800EB6429 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
-		84A1693A262825D8001831AD /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		84A1693E2628310F001831AD /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
-		84A1694226283330001831AD /* CarouselItemlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselItemlView.swift; sourceTree = "<group>"; };
 		84CCFC6C262A890E006943C6 /* local_stories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = local_stories.json; sourceTree = "<group>"; };
 		84CFF93C262598CD0034CACB /* SampleDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDataTest.swift; sourceTree = "<group>"; };
 		84D3844C262EB37200102BF3 /* ImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		84D3844D262EB37200102BF3 /* RemoteImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		84D3844E262EB37200102BF3 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
-		84D38454262EB3C300102BF3 /* Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
 		84D38458262EB4F400102BF3 /* carousel.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = carousel.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +80,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8441BB062632A53800F08AD9 /* RefreshableScrollView in Frameworks */,
+				842E33B12636AA5100A9D7A2 /* RemoteImageView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,7 +101,6 @@
 				8446F9A7262575FF0098635A /* ContentView.swift */,
 				8446F9D9262578FF0098635A /* StoryThumbnailView.swift */,
 				8446F9E72625865A0098635A /* TopCommicView.swift */,
-				84CBBCDD262A80E10068750A /* CarouselView */,
 				84A1693E2628310F001831AD /* TestView.swift */,
 			);
 			path = View;
@@ -211,16 +206,6 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
-		84CBBCDD262A80E10068750A /* CarouselView */ = {
-			isa = PBXGroup;
-			children = (
-				84A1693A262825D8001831AD /* CarouselView.swift */,
-				84D38454262EB3C300102BF3 /* Carousel.swift */,
-				84A1694226283330001831AD /* CarouselItemlView.swift */,
-			);
-			path = CarouselView;
-			sourceTree = "<group>";
-		};
 		84D3844B262EB35100102BF3 /* Remote Image */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +234,7 @@
 			name = TruyenTranh24h;
 			packageProductDependencies = (
 				8441BB052632A53800F08AD9 /* RefreshableScrollView */,
+				842E33B02636AA5100A9D7A2 /* RemoteImageView */,
 			);
 			productName = TruyenTranh24h;
 			productReference = 8446F9A2262575FF0098635A /* TruyenTranh24h.app */;
@@ -301,6 +287,7 @@
 			);
 			mainGroup = 8446F999262575FF0098635A;
 			packageReferences = (
+				842E33AF2636AA5100A9D7A2 /* XCRemoteSwiftPackageReference "RemoteImageView" */,
 			);
 			productRefGroup = 8446F9A3262575FF0098635A /* Products */;
 			projectDirPath = "";
@@ -344,16 +331,13 @@
 				8446FA02262592110098635A /* SampleData.swift in Sources */,
 				8446F9DA262578FF0098635A /* StoryThumbnailView.swift in Sources */,
 				8446F9A8262575FF0098635A /* ContentView.swift in Sources */,
-				84D38455262EB3C300102BF3 /* Carousel.swift in Sources */,
 				8446F9E82625865A0098635A /* TopCommicView.swift in Sources */,
 				84251114263280AB008FD335 /* HomeView.swift in Sources */,
-				84A1694326283330001831AD /* CarouselItemlView.swift in Sources */,
 				8446F9A6262575FF0098635A /* TruyenTranh24hApp.swift in Sources */,
 				84D38450262EB37300102BF3 /* RemoteImage.swift in Sources */,
 				8446F9E3262580FC0098635A /* Color+Extension.swift in Sources */,
 				84D3844F262EB37300102BF3 /* ImageModel.swift in Sources */,
 				84A1693F2628310F001831AD /* TestView.swift in Sources */,
-				84A1693B262825D8001831AD /* CarouselView.swift in Sources */,
 				8446F9EE26258DBF0098635A /* Story.swift in Sources */,
 				84D38451262EB37300102BF3 /* ImageCache.swift in Sources */,
 				841997F626269C98009BDD4B /* Chapter.swift in Sources */,
@@ -629,7 +613,23 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		842E33AF2636AA5100A9D7A2 /* XCRemoteSwiftPackageReference "RemoteImageView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/phuhuynh2411/RemoteImageView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		842E33B02636AA5100A9D7A2 /* RemoteImageView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 842E33AF2636AA5100A9D7A2 /* XCRemoteSwiftPackageReference "RemoteImageView" */;
+			productName = RemoteImageView;
+		};
 		8441BB052632A53800F08AD9 /* RefreshableScrollView */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RefreshableScrollView;
