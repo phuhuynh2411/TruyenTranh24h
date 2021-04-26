@@ -7,6 +7,7 @@
 
 import SwiftUI
 import RefreshableScrollView
+import CarouselView
 
 struct HomeView: View {
     @State var refresh: Bool = false
@@ -24,8 +25,6 @@ struct HomeView: View {
             }
      
         }
-        
-       // CarouselView(items: SampleData.carousels().compactMap { Carousel(id: $0.id, stringURL: "\(URLSetting.baseURL)\($0.stringURL)")})
     }
 }
 
