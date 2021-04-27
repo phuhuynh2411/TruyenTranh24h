@@ -20,7 +20,12 @@ struct HomeView: View {
                 self.refresh = false
             }
         }) {
-            CarouselView(items: SampleData.carousels())
+            VStack {
+                CarouselView(items: SampleData.carousels())
+                
+                TopCommicView(stories: SampleData.stories())
+            }
+           
         }
     }
 }
