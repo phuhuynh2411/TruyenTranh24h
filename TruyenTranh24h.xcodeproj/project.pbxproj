@@ -97,10 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				84251113263280AB008FD335 /* HomeView.swift */,
-				8446F9A7262575FF0098635A /* ContentView.swift */,
 				8446F9D9262578FF0098635A /* StoryThumbnailView.swift */,
 				8446F9E72625865A0098635A /* TopCommicView.swift */,
-				84A1693E2628310F001831AD /* TestView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -138,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				8446F9A5262575FF0098635A /* TruyenTranh24hApp.swift */,
+				8446F9A7262575FF0098635A /* ContentView.swift */,
 				84120C8826314EFD00FECA00 /* URLSetting.swift */,
 				8446F9E1262580E50098635A /* Extension */,
 				841997F226269A81009BDD4B /* View */,
@@ -209,6 +208,7 @@
 		84880ED42637C2A500214F3C /* Test View */ = {
 			isa = PBXGroup;
 			children = (
+				84A1693E2628310F001831AD /* TestView.swift */,
 				84880ED52637C2C000214F3C /* TestCarouselView.swift */,
 			);
 			path = "Test View";
