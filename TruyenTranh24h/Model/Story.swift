@@ -15,10 +15,11 @@ struct Story: Codable, Identifiable {
     let isHot: Bool
     let isFeature: Bool
     let isAdult: Bool
-    let featureImage: String
+    var featureImage: String
     
     // Chapter
     let lastChapter: Chapter
+    let description: String
 }
 
 /*
