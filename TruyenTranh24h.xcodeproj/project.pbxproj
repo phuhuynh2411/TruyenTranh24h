@@ -22,10 +22,11 @@
 		8446F9AD262576020098635A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8446F9AC262576020098635A /* Preview Assets.xcassets */; };
 		8446F9DA262578FF0098635A /* StoryThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446F9D9262578FF0098635A /* StoryThumbnailView.swift */; };
 		8446F9E3262580FC0098635A /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446F9E2262580FC0098635A /* Color+Extension.swift */; };
-		8446F9E82625865A0098635A /* TopCommicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446F9E72625865A0098635A /* TopCommicView.swift */; };
+		8446F9E82625865A0098635A /* CommicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446F9E72625865A0098635A /* CommicView.swift */; };
 		8446F9EE26258DBF0098635A /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446F9ED26258DBF0098635A /* Story.swift */; };
 		8446FA02262592110098635A /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446FA01262592110098635A /* SampleData.swift */; };
 		8480FBEF2637F3430063976C /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8480FBEE2637F3430063976C /* StoryView.swift */; };
+		8480FBF52637F7B80063976C /* TopCommicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8480FBF42637F7B80063976C /* TopCommicView.swift */; };
 		84880ED62637C2C000214F3C /* TestCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84880ED52637C2C000214F3C /* TestCarouselView.swift */; };
 		849EF3E32626A7A300EB6429 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 849EF3E52626A7A300EB6429 /* Localizable.strings */; };
 		84A1693F2628310F001831AD /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A1693E2628310F001831AD /* TestView.swift */; };
@@ -60,11 +61,12 @@
 		8446F9C4262576020098635A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8446F9D9262578FF0098635A /* StoryThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryThumbnailView.swift; sourceTree = "<group>"; };
 		8446F9E2262580FC0098635A /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
-		8446F9E72625865A0098635A /* TopCommicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCommicView.swift; sourceTree = "<group>"; };
+		8446F9E72625865A0098635A /* CommicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommicView.swift; sourceTree = "<group>"; };
 		8446F9ED26258DBF0098635A /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		8446F9FC26258EBA0098635A /* stories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = stories.json; sourceTree = "<group>"; };
 		8446FA01262592110098635A /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		8480FBEE2637F3430063976C /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
+		8480FBF42637F7B80063976C /* TopCommicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCommicView.swift; sourceTree = "<group>"; };
 		84880ED52637C2C000214F3C /* TestCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCarouselView.swift; sourceTree = "<group>"; };
 		849EF3E42626A7A300EB6429 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		849EF3E62626A7A800EB6429 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -100,8 +102,9 @@
 			children = (
 				84251113263280AB008FD335 /* HomeView.swift */,
 				8446F9D9262578FF0098635A /* StoryThumbnailView.swift */,
-				8446F9E72625865A0098635A /* TopCommicView.swift */,
+				8446F9E72625865A0098635A /* CommicView.swift */,
 				8480FBEE2637F3430063976C /* StoryView.swift */,
+				8480FBF42637F7B80063976C /* TopCommicView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -331,9 +334,10 @@
 			files = (
 				84120C8926314EFD00FECA00 /* URLSetting.swift in Sources */,
 				8446FA02262592110098635A /* SampleData.swift in Sources */,
+				8480FBF52637F7B80063976C /* TopCommicView.swift in Sources */,
 				8446F9DA262578FF0098635A /* StoryThumbnailView.swift in Sources */,
 				8446F9A8262575FF0098635A /* ContentView.swift in Sources */,
-				8446F9E82625865A0098635A /* TopCommicView.swift in Sources */,
+				8446F9E82625865A0098635A /* CommicView.swift in Sources */,
 				84251114263280AB008FD335 /* HomeView.swift in Sources */,
 				84880ED62637C2C000214F3C /* TestCarouselView.swift in Sources */,
 				8446F9A6262575FF0098635A /* TruyenTranh24hApp.swift in Sources */,

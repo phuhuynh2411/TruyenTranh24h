@@ -13,19 +13,24 @@ struct HomeView: View {
     @State var refresh: Bool = false
     
     var body: some View {
-        RefreshableScrollView(refreshing: $refresh, action: {
-            // add your code here
-            // remmber to set the refresh to false
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.refresh = false
-            }
-        }) {
-            VStack {
-                CarouselView(items: SampleData.carousels())
+        NavigationView {
+            RefreshableScrollView(refreshing: $refresh, action: {
+                // add your code here
+                // remmber to set the refresh to false
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.refresh = false
+                }
+            }) {
+                VStack {
+                    CarouselView(items: SampleData.carousels())
+                    
+                    CommicView(stories: SampleData.stories())
+                }
                 
-                TopCommicView(stories: SampleData.stories())
             }
-           
+            
+            // hide the navigation in home view
+            .navigationBarHidden(true)
         }
     }
 }
