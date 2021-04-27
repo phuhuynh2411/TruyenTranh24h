@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import CarouselView
+
 
 struct TestCarouselView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        CarouselView(items: SampleData.carousels())
     }
 }
 

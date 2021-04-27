@@ -20,10 +20,7 @@ struct HomeView: View {
                 self.refresh = false
             }
         }) {
-            Group {
-                CarouselView(items: SampleData.carousels().compactMap { Carousel(id: $0.id, stringURL: "\(URLSetting.baseURL)\($0.stringURL)")})
-            }
-     
+            CarouselView(items: SampleData.carousels())
         }
     }
 }
