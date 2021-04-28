@@ -6,13 +6,26 @@
 //
 
 import SwiftUI
+import RefreshableScrollView
 
 struct TopCommicView: View {
+    @State var refresh: Bool = false
+    
+    var refreshAction:  Void {
+        // add your code here
+        // remmber to set the refresh to false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.refresh = false
+        }
+    }
+    
     var body: some View {
         NavigationView {
-            CommicView(stories: SampleData.stories())
-                .navigationTitle("Top Commic")
-                .navigationBarTitleDisplayMode(.inline)
+            RefreshableScrollView(refreshing: $refresh, action: { refreshAction }) {
+                CommicView(stories: SampleData.stories())
+            }
+            .navigationTitle("Top Commic")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

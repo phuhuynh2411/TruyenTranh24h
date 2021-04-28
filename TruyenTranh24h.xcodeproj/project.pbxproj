@@ -10,6 +10,13 @@
 		84120C8926314EFD00FECA00 /* URLSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84120C8826314EFD00FECA00 /* URLSetting.swift */; };
 		841997F626269C98009BDD4B /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841997F526269C98009BDD4B /* Chapter.swift */; };
 		84251114263280AB008FD335 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84251113263280AB008FD335 /* HomeView.swift */; };
+		842A24C7263935A90092A45A /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A24C6263935A90092A45A /* NetworkModel.swift */; };
+		842A24CC2639369D0092A45A /* MetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A24CA2639369D0092A45A /* MetaData.swift */; };
+		842A24CD2639369D0092A45A /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A24CB2639369D0092A45A /* Entry.swift */; };
+		842A24CF2639371B0092A45A /* APISessionDataPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A24CE2639371B0092A45A /* APISessionDataPublisher.swift */; };
+		842A24D12639373F0092A45A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A24D02639373F0092A45A /* APIError.swift */; };
+		842A24D32639376A0092A45A /* APIDataTaskPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A24D22639376A0092A45A /* APIDataTaskPublisher.swift */; };
+		842A24D5263937A10092A45A /* NotificationCenter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A24D4263937A10092A45A /* NotificationCenter+Extension.swift */; };
 		842E33B12636AA5100A9D7A2 /* RemoteImageView in Frameworks */ = {isa = PBXBuildFile; productRef = 842E33B02636AA5100A9D7A2 /* RemoteImageView */; };
 		842E33D42636B0FE00A9D7A2 /* CarouselView in Frameworks */ = {isa = PBXBuildFile; productRef = 842E33D32636B0FE00A9D7A2 /* CarouselView */; };
 		8441BB062632A53800F08AD9 /* RefreshableScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 8441BB052632A53800F08AD9 /* RefreshableScrollView */; };
@@ -47,6 +54,13 @@
 		84120C8826314EFD00FECA00 /* URLSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSetting.swift; sourceTree = "<group>"; };
 		841997F526269C98009BDD4B /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
 		84251113263280AB008FD335 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		842A24C6263935A90092A45A /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
+		842A24CA2639369D0092A45A /* MetaData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaData.swift; sourceTree = "<group>"; };
+		842A24CB2639369D0092A45A /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		842A24CE2639371B0092A45A /* APISessionDataPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APISessionDataPublisher.swift; sourceTree = "<group>"; };
+		842A24D02639373F0092A45A /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		842A24D22639376A0092A45A /* APIDataTaskPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIDataTaskPublisher.swift; sourceTree = "<group>"; };
+		842A24D4263937A10092A45A /* NotificationCenter+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Extension.swift"; sourceTree = "<group>"; };
 		842E33B62636B0AC00A9D7A2 /* CarouselView */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CarouselView; path = "../../../Dropbox/2. Work/Projects/iOS/Projects/CarouselView"; sourceTree = "<group>"; };
 		8441BB012632A52600F08AD9 /* RefreshableScrollView */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RefreshableScrollView; path = "../../../Dropbox/2. Work/Projects/iOS/Projects/RefreshableScrollView"; sourceTree = "<group>"; };
 		8446F9A2262575FF0098635A /* TruyenTranh24h.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TruyenTranh24h.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +123,20 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		842A24C52639190B0092A45A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				842A24C6263935A90092A45A /* NetworkModel.swift */,
+				842A24CB2639369D0092A45A /* Entry.swift */,
+				842A24CE2639371B0092A45A /* APISessionDataPublisher.swift */,
+				842A24CA2639369D0092A45A /* MetaData.swift */,
+				842A24D02639373F0092A45A /* APIError.swift */,
+				842A24D22639376A0092A45A /* APIDataTaskPublisher.swift */,
+				842A24D4263937A10092A45A /* NotificationCenter+Extension.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		8441BB042632A53800F08AD9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +172,7 @@
 				8446F9A5262575FF0098635A /* TruyenTranh24hApp.swift */,
 				8446F9A7262575FF0098635A /* ContentView.swift */,
 				84120C8826314EFD00FECA00 /* URLSetting.swift */,
+				842A24C52639190B0092A45A /* Network */,
 				8446F9E1262580E50098635A /* Extension */,
 				841997F226269A81009BDD4B /* View */,
 				8446F9EC26258D810098635A /* Model */,
@@ -333,16 +362,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				84120C8926314EFD00FECA00 /* URLSetting.swift in Sources */,
+				842A24CF2639371B0092A45A /* APISessionDataPublisher.swift in Sources */,
+				842A24D32639376A0092A45A /* APIDataTaskPublisher.swift in Sources */,
 				8446FA02262592110098635A /* SampleData.swift in Sources */,
 				8480FBF52637F7B80063976C /* TopCommicView.swift in Sources */,
+				842A24C7263935A90092A45A /* NetworkModel.swift in Sources */,
 				8446F9DA262578FF0098635A /* StoryThumbnailView.swift in Sources */,
+				842A24CD2639369D0092A45A /* Entry.swift in Sources */,
 				8446F9A8262575FF0098635A /* ContentView.swift in Sources */,
 				8446F9E82625865A0098635A /* CommicView.swift in Sources */,
 				84251114263280AB008FD335 /* HomeView.swift in Sources */,
 				84880ED62637C2C000214F3C /* TestCarouselView.swift in Sources */,
+				842A24D5263937A10092A45A /* NotificationCenter+Extension.swift in Sources */,
 				8446F9A6262575FF0098635A /* TruyenTranh24hApp.swift in Sources */,
+				842A24D12639373F0092A45A /* APIError.swift in Sources */,
 				8446F9E3262580FC0098635A /* Color+Extension.swift in Sources */,
 				8480FBEF2637F3430063976C /* StoryView.swift in Sources */,
+				842A24CC2639369D0092A45A /* MetaData.swift in Sources */,
 				84A1693F2628310F001831AD /* TestView.swift in Sources */,
 				8446F9EE26258DBF0098635A /* Story.swift in Sources */,
 				841997F626269C98009BDD4B /* Chapter.swift in Sources */,
