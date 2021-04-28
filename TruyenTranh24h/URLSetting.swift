@@ -7,6 +7,7 @@
 
 import Foundation
 
-class URLSetting {
-    static let baseURL = "https://truyentranh24h.net/storage/"
+class URLSetting {    
+    static var baseURL: URL { URL(string: "https://truyentranh24h.net/storage/")! }
+    static var loginURL: URL { baseURL.appendingPathComponent("api/v1/login") }
 }

@@ -17,6 +17,10 @@
 		842A24D12639373F0092A45A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A24D02639373F0092A45A /* APIError.swift */; };
 		842A24D32639376A0092A45A /* APIDataTaskPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A24D22639376A0092A45A /* APIDataTaskPublisher.swift */; };
 		842A24D5263937A10092A45A /* NotificationCenter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A24D4263937A10092A45A /* NotificationCenter+Extension.swift */; };
+		842A24D826393D950092A45A /* UserDefaultKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A24D626393D950092A45A /* UserDefaultKey.swift */; };
+		842A24D926393D950092A45A /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A24D726393D950092A45A /* TokenManager.swift */; };
+		842A24DB26393E360092A45A /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A24DA26393E360092A45A /* Authentication.swift */; };
+		842A24DD26393EF60092A45A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A24DC26393EF60092A45A /* User.swift */; };
 		842E33B12636AA5100A9D7A2 /* RemoteImageView in Frameworks */ = {isa = PBXBuildFile; productRef = 842E33B02636AA5100A9D7A2 /* RemoteImageView */; };
 		842E33D42636B0FE00A9D7A2 /* CarouselView in Frameworks */ = {isa = PBXBuildFile; productRef = 842E33D32636B0FE00A9D7A2 /* CarouselView */; };
 		8441BB062632A53800F08AD9 /* RefreshableScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 8441BB052632A53800F08AD9 /* RefreshableScrollView */; };
@@ -61,6 +65,10 @@
 		842A24D02639373F0092A45A /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		842A24D22639376A0092A45A /* APIDataTaskPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIDataTaskPublisher.swift; sourceTree = "<group>"; };
 		842A24D4263937A10092A45A /* NotificationCenter+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Extension.swift"; sourceTree = "<group>"; };
+		842A24D626393D950092A45A /* UserDefaultKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultKey.swift; sourceTree = "<group>"; };
+		842A24D726393D950092A45A /* TokenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		842A24DA26393E360092A45A /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
+		842A24DC26393EF60092A45A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		842E33B62636B0AC00A9D7A2 /* CarouselView */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CarouselView; path = "../../../Dropbox/2. Work/Projects/iOS/Projects/CarouselView"; sourceTree = "<group>"; };
 		8441BB012632A52600F08AD9 /* RefreshableScrollView */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RefreshableScrollView; path = "../../../Dropbox/2. Work/Projects/iOS/Projects/RefreshableScrollView"; sourceTree = "<group>"; };
 		8446F9A2262575FF0098635A /* TruyenTranh24h.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TruyenTranh24h.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +141,10 @@
 				842A24D02639373F0092A45A /* APIError.swift */,
 				842A24D22639376A0092A45A /* APIDataTaskPublisher.swift */,
 				842A24D4263937A10092A45A /* NotificationCenter+Extension.swift */,
+				842A24D726393D950092A45A /* TokenManager.swift */,
+				842A24D626393D950092A45A /* UserDefaultKey.swift */,
+				842A24DA26393E360092A45A /* Authentication.swift */,
+				842A24DC26393EF60092A45A /* User.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -364,6 +376,7 @@
 				84120C8926314EFD00FECA00 /* URLSetting.swift in Sources */,
 				842A24CF2639371B0092A45A /* APISessionDataPublisher.swift in Sources */,
 				842A24D32639376A0092A45A /* APIDataTaskPublisher.swift in Sources */,
+				842A24DD26393EF60092A45A /* User.swift in Sources */,
 				8446FA02262592110098635A /* SampleData.swift in Sources */,
 				8480FBF52637F7B80063976C /* TopCommicView.swift in Sources */,
 				842A24C7263935A90092A45A /* NetworkModel.swift in Sources */,
@@ -381,7 +394,10 @@
 				842A24CC2639369D0092A45A /* MetaData.swift in Sources */,
 				84A1693F2628310F001831AD /* TestView.swift in Sources */,
 				8446F9EE26258DBF0098635A /* Story.swift in Sources */,
+				842A24D826393D950092A45A /* UserDefaultKey.swift in Sources */,
+				842A24D926393D950092A45A /* TokenManager.swift in Sources */,
 				841997F626269C98009BDD4B /* Chapter.swift in Sources */,
+				842A24DB26393E360092A45A /* Authentication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
