@@ -21,11 +21,13 @@ struct HomeView: View {
                     self.refresh = false
                 }
             }) {
-                VStack {
+                VStack(spacing: 10) {
                     CarouselView(items: SampleData.carousels(),
                                  slideIndicator: false,
                                  height: 130,
                                  isFullWidth: false)
+                    
+                    HorizontalCategoryView(categories: SampleData.categories())
                     
                     CommicView(stories: SampleData.stories())
                         .padding(16)

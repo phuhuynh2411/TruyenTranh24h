@@ -19,6 +19,7 @@ struct HorizontalCategoryView: View {
                     CategoryItemView(category: category)
                 }
             }
+            .frame(height: 90)
         }
     }
 }
