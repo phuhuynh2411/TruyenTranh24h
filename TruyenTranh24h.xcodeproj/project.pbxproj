@@ -21,6 +21,12 @@
 		842A24D926393D950092A45A /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A24D726393D950092A45A /* TokenManager.swift */; };
 		842A24DB26393E360092A45A /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A24DA26393E360092A45A /* Authentication.swift */; };
 		842A24DD26393EF60092A45A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A24DC26393EF60092A45A /* User.swift */; };
+		842A24DF263940450092A45A /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A24DE263940450092A45A /* LoginModel.swift */; };
+		842A24E12639404C0092A45A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A24E02639404C0092A45A /* LoginView.swift */; };
+		842A24E4263946F70092A45A /* InfiniteProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A24E3263946F70092A45A /* InfiniteProgressView.swift */; };
+		842A24E6263947F70092A45A /* RefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A24E5263947F70092A45A /* RefreshView.swift */; };
+		842A24E8263948140092A45A /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A24E7263948140092A45A /* ErrorView.swift */; };
+		842A24EA263948460092A45A /* KeyboardAwareModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A24E9263948450092A45A /* KeyboardAwareModifier.swift */; };
 		842E33B12636AA5100A9D7A2 /* RemoteImageView in Frameworks */ = {isa = PBXBuildFile; productRef = 842E33B02636AA5100A9D7A2 /* RemoteImageView */; };
 		842E33D42636B0FE00A9D7A2 /* CarouselView in Frameworks */ = {isa = PBXBuildFile; productRef = 842E33D32636B0FE00A9D7A2 /* CarouselView */; };
 		8441BB062632A53800F08AD9 /* RefreshableScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 8441BB052632A53800F08AD9 /* RefreshableScrollView */; };
@@ -69,6 +75,12 @@
 		842A24D726393D950092A45A /* TokenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		842A24DA26393E360092A45A /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		842A24DC26393EF60092A45A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		842A24DE263940450092A45A /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		842A24E02639404C0092A45A /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		842A24E3263946F70092A45A /* InfiniteProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteProgressView.swift; sourceTree = "<group>"; };
+		842A24E5263947F70092A45A /* RefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshView.swift; sourceTree = "<group>"; };
+		842A24E7263948140092A45A /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		842A24E9263948450092A45A /* KeyboardAwareModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAwareModifier.swift; sourceTree = "<group>"; };
 		842E33B62636B0AC00A9D7A2 /* CarouselView */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CarouselView; path = "../../../Dropbox/2. Work/Projects/iOS/Projects/CarouselView"; sourceTree = "<group>"; };
 		8441BB012632A52600F08AD9 /* RefreshableScrollView */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RefreshableScrollView; path = "../../../Dropbox/2. Work/Projects/iOS/Projects/RefreshableScrollView"; sourceTree = "<group>"; };
 		8446F9A2262575FF0098635A /* TruyenTranh24h.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TruyenTranh24h.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +134,9 @@
 		841997F226269A81009BDD4B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				842A24E7263948140092A45A /* ErrorView.swift */,
+				842A24E5263947F70092A45A /* RefreshView.swift */,
+				842A24E3263946F70092A45A /* InfiniteProgressView.swift */,
 				84251113263280AB008FD335 /* HomeView.swift */,
 				8446F9D9262578FF0098635A /* StoryThumbnailView.swift */,
 				8446F9E72625865A0098635A /* CommicView.swift */,
@@ -134,6 +149,7 @@
 		842A24C52639190B0092A45A /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				84120C8826314EFD00FECA00 /* URLSetting.swift */,
 				842A24C6263935A90092A45A /* NetworkModel.swift */,
 				842A24CB2639369D0092A45A /* Entry.swift */,
 				842A24CE2639371B0092A45A /* APISessionDataPublisher.swift */,
@@ -147,6 +163,23 @@
 				842A24DC26393EF60092A45A /* User.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		842A24E22639405C0092A45A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				842A24E02639404C0092A45A /* LoginView.swift */,
+				842A24DE263940450092A45A /* LoginModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		842A24EB263948500092A45A /* View Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				842A24E9263948450092A45A /* KeyboardAwareModifier.swift */,
+			);
+			path = "View Modifier";
 			sourceTree = "<group>";
 		};
 		8441BB042632A53800F08AD9 /* Frameworks */ = {
@@ -183,9 +216,10 @@
 			children = (
 				8446F9A5262575FF0098635A /* TruyenTranh24hApp.swift */,
 				8446F9A7262575FF0098635A /* ContentView.swift */,
-				84120C8826314EFD00FECA00 /* URLSetting.swift */,
+				842A24EB263948500092A45A /* View Modifier */,
 				842A24C52639190B0092A45A /* Network */,
 				8446F9E1262580E50098635A /* Extension */,
+				842A24E22639405C0092A45A /* Login */,
 				841997F226269A81009BDD4B /* View */,
 				8446F9EC26258D810098635A /* Model */,
 				8446F9FB26258E3D0098635A /* Resource */,
@@ -384,6 +418,7 @@
 				842A24CD2639369D0092A45A /* Entry.swift in Sources */,
 				8446F9A8262575FF0098635A /* ContentView.swift in Sources */,
 				8446F9E82625865A0098635A /* CommicView.swift in Sources */,
+				842A24EA263948460092A45A /* KeyboardAwareModifier.swift in Sources */,
 				84251114263280AB008FD335 /* HomeView.swift in Sources */,
 				84880ED62637C2C000214F3C /* TestCarouselView.swift in Sources */,
 				842A24D5263937A10092A45A /* NotificationCenter+Extension.swift in Sources */,
@@ -394,6 +429,11 @@
 				842A24CC2639369D0092A45A /* MetaData.swift in Sources */,
 				84A1693F2628310F001831AD /* TestView.swift in Sources */,
 				8446F9EE26258DBF0098635A /* Story.swift in Sources */,
+				842A24E12639404C0092A45A /* LoginView.swift in Sources */,
+				842A24DF263940450092A45A /* LoginModel.swift in Sources */,
+				842A24E4263946F70092A45A /* InfiniteProgressView.swift in Sources */,
+				842A24E6263947F70092A45A /* RefreshView.swift in Sources */,
+				842A24E8263948140092A45A /* ErrorView.swift in Sources */,
 				842A24D826393D950092A45A /* UserDefaultKey.swift in Sources */,
 				842A24D926393D950092A45A /* TokenManager.swift in Sources */,
 				841997F626269C98009BDD4B /* Chapter.swift in Sources */,
