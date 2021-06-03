@@ -1,0 +1,12 @@
+{
+  "data" : [
+    {
+      "filename" : "local_stories.json",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

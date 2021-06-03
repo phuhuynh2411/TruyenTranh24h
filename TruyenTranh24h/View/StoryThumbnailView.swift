@@ -33,29 +33,6 @@ struct StoryThumbnailView: View {
                     
                     // Add space
                     Spacer()
-                    
-                    // Hot button
-                    // Only Hot button when the story is hot
-                    if story.isHot {
-                        Text("hot-title")
-                            .padding(2)
-                            .foregroundColor(Color("hotButtonFg"))
-                            .background(Color("hotButtonBg"))
-                            .cornerRadius(3.0)
-                            .padding(5)
-                            .font(.system(size: 12))
-                            .opacity(aniHot ? 0 : 1)
-                            // add blink effect to the hot button
-                            .animation(Animation.easeInOut.repeatForever(autoreverses: true))
-                            .onAppear {
-                                aniHot = true
-                            }
-                            // when adding the thumbnail to the gid, we will need to reset the aniHot to false
-                            // otherwise, the animation will be stopped.
-                            .onDisappear {
-                                aniHot = false
-                            }
-                    }
                 }
             }
             

@@ -30,9 +30,6 @@
 		842E33B12636AA5100A9D7A2 /* RemoteImageView in Frameworks */ = {isa = PBXBuildFile; productRef = 842E33B02636AA5100A9D7A2 /* RemoteImageView */; };
 		842E33D42636B0FE00A9D7A2 /* CarouselView in Frameworks */ = {isa = PBXBuildFile; productRef = 842E33D32636B0FE00A9D7A2 /* CarouselView */; };
 		8441BB062632A53800F08AD9 /* RefreshableScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 8441BB052632A53800F08AD9 /* RefreshableScrollView */; };
-		8441BB092632A56A00F08AD9 /* stories.json in Resources */ = {isa = PBXBuildFile; fileRef = 8446F9FC26258EBA0098635A /* stories.json */; };
-		8441BB0A2632A56A00F08AD9 /* local_stories.json in Resources */ = {isa = PBXBuildFile; fileRef = 84CCFC6C262A890E006943C6 /* local_stories.json */; };
-		8441BB0B2632A56A00F08AD9 /* carousel.json in Resources */ = {isa = PBXBuildFile; fileRef = 84D38458262EB4F400102BF3 /* carousel.json */; };
 		8446F9A6262575FF0098635A /* TruyenTranh24hApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446F9A5262575FF0098635A /* TruyenTranh24hApp.swift */; };
 		8446F9A8262575FF0098635A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446F9A7262575FF0098635A /* ContentView.swift */; };
 		8446F9AA262576020098635A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8446F9A9262576020098635A /* Assets.xcassets */; };
@@ -384,9 +381,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8441BB092632A56A00F08AD9 /* stories.json in Resources */,
-				8441BB0A2632A56A00F08AD9 /* local_stories.json in Resources */,
-				8441BB0B2632A56A00F08AD9 /* carousel.json in Resources */,
 				849EF3E32626A7A300EB6429 /* Localizable.strings in Resources */,
 				8446F9AD262576020098635A /* Preview Assets.xcassets in Resources */,
 				8446F9AA262576020098635A /* Assets.xcassets in Resources */,

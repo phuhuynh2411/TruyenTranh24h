@@ -1,0 +1,19 @@
+
+[
+    {
+        "id":1,
+        "stringURL":"https://raw.githubusercontent.com/phuhuynh2411/CarouselView/be9fad4af1c1776d815e633195fcd19e9894287e/bong_toi.jpg",
+    },
+    {
+        "id":2,
+        "stringURL":"https://raw.githubusercontent.com/phuhuynh2411/CarouselView/main/fairytail.jpg",
+    },
+    {
+        "id":3,
+        "stringURL":"https://github.com/phuhuynh2411/CarouselView/blob/main/one_piece.jpg?raw=true",
+    },
+    {
+        "id":4,
+        "stringURL":"https://github.com/phuhuynh2411/CarouselView/blob/main/one_punch_man.jpg?raw=true",
+    }
+]
