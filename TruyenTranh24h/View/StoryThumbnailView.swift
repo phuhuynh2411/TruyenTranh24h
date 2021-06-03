@@ -6,43 +6,23 @@
 //
 
 import SwiftUI
+import RemoteImageView
 
 struct StoryThumbnailView: View {
     @State var story: Story
-    @State var aniHot = false
     
     var body: some View {
-        VStack {
-            ZStack(alignment: .topLeading) {
-                Image("trongsinh_thumbnail")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .cornerRadius(7.0)
-                
-                
-                // Top buttoms
-                HStack() {
-                    // Chapter
-                    Text(story.lastChapter.title)
-                        .padding(2)
-                        .foregroundColor(Color("chapterButtonFg"))
-                        .background(Color("chapterButtonBg"))
-                        .cornerRadius(3.0)
-                        .padding(5)
-                        .font(.system(size: 12))
-                    
-                    // Add space
-                    Spacer()
-                }
-            }
+        VStack(alignment: .center, spacing: 10) {
+            RemoteImageView(stringURL: story.featureImage)
+                //.resizable()
+                .aspectRatio(contentMode: .fill)
+                .cornerRadius(7.0)
             
             // Story name
-            Text("Trọng sinh ta sau tám vạn năm")
-                .multilineTextAlignment(.center)
-                .font(.system(size: 12))
-            
+            Text(story.title)
+                .multilineTextAlignment(.leading)
+                .font(.system(size: 11, weight: .medium))
         }
-        
         
     }
 }
@@ -50,12 +30,24 @@ struct StoryThumbnailView: View {
 struct StoryThumbnail_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-//            StoryThumbnailView(story: SampleData.stories()[0])
-//                .environment(\.locale, .init(identifier: "us"))
+            HStack {
+                StoryThumbnailView(story: SampleData.stories()[0])
+                    .environment(\.locale, .init(identifier: "us"))
+                    .frame(width: 109, height: 168)
+                
+                StoryThumbnailView(story: SampleData.stories()[0])
+                    .environment(\.locale, .init(identifier: "us"))
+                    .frame(width: 109, height: 168)
+                
+                StoryThumbnailView(story: SampleData.stories()[0])
+                    .environment(\.locale, .init(identifier: "us"))
+                    .frame(width: 109, height: 168)
+            }
             
             // hot story
             StoryThumbnailView(story: SampleData.stories()[1])
                 .environment(\.locale, .init(identifier: "vi"))
+                .frame(width: 109, height: 168)
         }
     }
 }

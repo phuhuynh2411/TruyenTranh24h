@@ -8,7 +8,7 @@
 import SwiftUI
 import RefreshableScrollView
 
-struct TopCommicView: View {
+struct SuggestedCommicView: View {
     @State var refresh: Bool = false
     
     var refreshAction:  Void {
@@ -32,6 +32,6 @@ struct TopCommicView: View {
 
 struct TopCommicView_Previews: PreviewProvider {
     static var previews: some View {
-        TopCommicView()
+        SuggestedCommicView()
     }
 }

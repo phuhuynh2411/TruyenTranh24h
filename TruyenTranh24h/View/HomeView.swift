@@ -22,9 +22,13 @@ struct HomeView: View {
                 }
             }) {
                 VStack {
-                    CarouselView(items: SampleData.carousels())
+                    CarouselView(items: SampleData.carousels(),
+                                 slideIndicator: false,
+                                 height: 130,
+                                 isFullWidth: false)
                     
                     CommicView(stories: SampleData.stories())
+                        .padding(16)
                 }
                 
             }

@@ -16,7 +16,7 @@ struct ContentView: View {
                     Text("Home")
                 }
             
-            TopCommicView()
+            SuggestedCommicView()
                 .tabItem {
                     Image(systemName: "2.square.fill")
                     Text("Top Commics")

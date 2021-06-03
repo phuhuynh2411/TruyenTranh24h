@@ -21,9 +21,10 @@ struct CommicView: View {
                         NavigationLink(destination: StoryView(story: story)) {
                             StoryThumbnailView(story: story)
                         }
+                        .buttonStyle(PlainButtonStyle())
+
                     }
                  }
-                 .padding(5)
              }
         }
     }
