@@ -11,6 +11,8 @@ import CarouselView
 
 struct HomeView: View {
     @State var refresh: Bool = false
+    @State var searchValue: String = ""
+    private let padding:CGFloat = 16.0
     
     var body: some View {
         NavigationView {
@@ -22,6 +24,20 @@ struct HomeView: View {
                 }
             }) {
                 VStack(spacing: 10) {
+                    // Search box
+                    HStack {
+                        // left button
+                        Button(action: {}){
+                            Image("rank")
+                                .resizable()
+                                .frame(width: 13, height: 13)
+                        }
+                        
+                        SearchFieldView(textValue: $searchValue)
+                    }
+                    .padding(self.padding)
+                    
+                    // Carousel view
                     CarouselView(items: SampleData.carousels(),
                                  slideIndicator: false,
                                  height: 130,
@@ -30,7 +46,7 @@ struct HomeView: View {
                     HorizontalCategoryView(categories: SampleData.categories())
                     
                     CommicView(stories: SampleData.stories(), numberOfColumns: 2, title: "suggested-story", thumbnailHeight: 132.0)
-                        .padding(16)
+                        .padding(self.padding)
                 
                 }
                 
