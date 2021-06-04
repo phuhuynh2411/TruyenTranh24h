@@ -13,7 +13,7 @@ struct HorizontalCategoryView: View {
     @State var categories: [Category]
     
     var body: some View {
-        ScrollView(.horizontal) {
+        ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: rows) {
                 ForEach(categories){ category in
                     CategoryItemView(category: category)

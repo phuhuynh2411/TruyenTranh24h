@@ -29,7 +29,7 @@ struct HomeView: View {
                     
                     HorizontalCategoryView(categories: SampleData.categories())
                     
-                    CommicView(stories: SampleData.stories())
+                    CommicView(stories: SampleData.stories(), numberOfColumns: 2, title: "suggested-story", thumbnailHeight: 132.0)
                         .padding(16)
                 }
                 
