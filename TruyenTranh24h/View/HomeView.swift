@@ -31,6 +31,7 @@ struct HomeView: View {
                     
                     CommicView(stories: SampleData.stories(), numberOfColumns: 2, title: "suggested-story", thumbnailHeight: 132.0)
                         .padding(16)
+                
                 }
                 
             }

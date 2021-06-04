@@ -10,3 +10,5 @@ top-commic-title = "Truyện xem nhiều";
 Pull-down-to-refresh = "Kéo xuống để tải lại";
 session-time-out = "Thời gian duy trì đăng nhập đã hết hạn.";
 suggested-story = "Đề xuất";
+see-more = "Xem thêm";
+search-box-placeholder = "Nhập tên truyện cần tìm";

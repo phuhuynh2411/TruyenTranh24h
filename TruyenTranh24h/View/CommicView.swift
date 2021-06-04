@@ -12,6 +12,7 @@ struct CommicView: View {
     @State var numberOfColumns = 2
     @State var title: String? = nil
     @State var thumbnailHeight: CGFloat? = nil
+    @State var moreButton: Bool = true
     
     var body: some View {
         VStack{
@@ -40,6 +41,18 @@ struct CommicView: View {
                             }
                             .buttonStyle(PlainButtonStyle())
                             
+                        }
+                    }
+                    
+                    // See more button
+                    if moreButton {
+                        Button(action: {}) {
+                            Text("see-more")
+                                .frame(width: 85, height: 26)
+                                .font(.system(size: 10, weight: .light))
+                                .background(Color("seeMoreButtonBg"))
+                                .foregroundColor(Color("seeMoreButtonFg"))
+                                .cornerRadius(13.0)
                         }
                     }
                 }
