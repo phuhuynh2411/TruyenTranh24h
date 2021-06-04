@@ -13,3 +13,5 @@ session-time-out = "Session timeout. Need to re-login";
 suggested-story = "Suggested stories";
 see-more = "See more";
 search-box-placeholder = "Enter story name.";
+you-might-like = "You might like";
+very-hot = "Very hot";

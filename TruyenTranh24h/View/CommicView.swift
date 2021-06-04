@@ -19,7 +19,7 @@ struct CommicView: View {
             // Story thumbnails
             let columns: [GridItem] =
                 Array(repeating: .init(.flexible()), count: numberOfColumns)
-            ScrollView {
+            //ScrollView {
                 VStack {
                     // Title
                     if let t = title {
@@ -56,7 +56,7 @@ struct CommicView: View {
                         }
                     }
                 }
-            }
+            //}
         }
     }
 }

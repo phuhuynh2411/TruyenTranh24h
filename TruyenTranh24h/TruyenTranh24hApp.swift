@@ -11,9 +11,9 @@ import SwiftUI
 struct TruyenTranh24hApp: App {
     var body: some Scene {
         WindowGroup {
-            //ContentView()
+            ContentView()
             //CategoryItemView(category: SampleData.categories()[0])
-            CommicView(stories: SampleData.stories(), title: "Top commic")
+            //CommicView(stories: SampleData.stories(), title: "Top commic")
         }
     }
 }
