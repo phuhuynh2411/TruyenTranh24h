@@ -14,4 +14,5 @@ see-more = "Xem thêm";
 search-box-placeholder = "Nhập tên truyện cần tìm";
 you-might-like = "Có thể bạn sẽ thích";
 very-hot = "Truyện hot nhất";
-comming-soon = "Thời gian lên sóng";
+"comming-soon %@" = "Thời gian lên sóng %@";
+daily-update = "Cập nhật hàng ngày";

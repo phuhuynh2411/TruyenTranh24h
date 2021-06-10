@@ -22,7 +22,8 @@
         "updated_at":"2021-01-18T08:37:16.000000Z",
         "deleted_at":null,
         
-        "lastChapter":{"id":1, "title": "Chapter 1"}
+        "lastChapter":{"id":1, "title": "Chapter 1"},
+        "trailer_image": "https://raw.githubusercontent.com/phuhuynh2411/CarouselView/be9fad4af1c1776d815e633195fcd19e9894287e/bong_toi.jpg"
     },
     {
         "id":2,
@@ -47,7 +48,8 @@
         "updated_at":"2021-01-18T08:12:22.000000Z",
         "deleted_at":null,
         
-        "lastChapter":{"id":1, "title": "Chapter 1"}
+        "lastChapter":{"id":1, "title": "Chapter 1"},
+        "trailer_image": "https://raw.githubusercontent.com/phuhuynh2411/CarouselView/be9fad4af1c1776d815e633195fcd19e9894287e/bong_toi.jpg"
     },
     {
         "id":3,
@@ -72,7 +74,8 @@
         "updated_at":"2021-01-18T08:13:51.000000Z",
         "deleted_at":null,
         
-        "lastChapter":{"id":1, "title": "Chapter 1"}
+        "lastChapter":{"id":1, "title": "Chapter 1"},
+        "trailer_image": "https://raw.githubusercontent.com/phuhuynh2411/CarouselView/be9fad4af1c1776d815e633195fcd19e9894287e/bong_toi.jpg"
     },
     {
         "id":4,
@@ -97,7 +100,8 @@
         "updated_at":"2021-04-04T02:39:27.000000Z",
         "deleted_at":null,
         
-        "lastChapter":{"id":1, "title": "Chapter 1"}
+        "lastChapter":{"id":1, "title": "Chapter 1"},
+        "trailer_image": "https://raw.githubusercontent.com/phuhuynh2411/CarouselView/be9fad4af1c1776d815e633195fcd19e9894287e/bong_toi.jpg"
     },
     {
         "id":5,
@@ -122,7 +126,8 @@
         "updated_at":"2021-01-18T08:16:30.000000Z",
         "deleted_at":null,
         
-        "lastChapter":{"id":1, "title": "Chapter 1"}
+        "lastChapter":{"id":1, "title": "Chapter 1"},
+        "trailer_image": "https://raw.githubusercontent.com/phuhuynh2411/CarouselView/be9fad4af1c1776d815e633195fcd19e9894287e/bong_toi.jpg"
     },
     {
         "id":6,
@@ -147,7 +152,8 @@
         "updated_at":"2021-03-22T01:40:26.000000Z",
         "deleted_at":null,
         
-        "lastChapter":{"id":1, "title": "Chapter 1"}
+        "lastChapter":{"id":1, "title": "Chapter 1"},
+        "trailer_image": "https://raw.githubusercontent.com/phuhuynh2411/CarouselView/be9fad4af1c1776d815e633195fcd19e9894287e/bong_toi.jpg"
     },
     {
         "id":7,
@@ -172,7 +178,8 @@
         "updated_at":"2021-04-03T01:49:29.000000Z",
         "deleted_at":null,
         
-        "lastChapter":{"id":1, "title": "Chapter 1"}
+        "lastChapter":{"id":1, "title": "Chapter 1"},
+        "trailer_image": "https://raw.githubusercontent.com/phuhuynh2411/CarouselView/be9fad4af1c1776d815e633195fcd19e9894287e/bong_toi.jpg"
     },
     {
         "id":8,
@@ -197,7 +204,8 @@
         "updated_at":"2021-03-21T09:15:29.000000Z",
         "deleted_at":null,
         
-        "lastChapter":{"id":1, "title": "Chapter 1"}
+        "lastChapter":{"id":1, "title": "Chapter 1"},
+        "trailer_image": "https://raw.githubusercontent.com/phuhuynh2411/CarouselView/be9fad4af1c1776d815e633195fcd19e9894287e/bong_toi.jpg"
     },
     {
         "id":9,
@@ -222,7 +230,8 @@
         "updated_at":"2021-03-29T11:42:20.000000Z",
         "deleted_at":null,
         
-        "lastChapter":{"id":1, "title": "Chapter 1"}
+        "lastChapter":{"id":1, "title": "Chapter 1"},
+        "trailer_image": "https://raw.githubusercontent.com/phuhuynh2411/CarouselView/be9fad4af1c1776d815e633195fcd19e9894287e/bong_toi.jpg"
     },
     {
         "id":10,
@@ -247,6 +256,7 @@
         "updated_at":"2021-01-20T06:51:21.000000Z",
         "deleted_at":null,
         
-        "lastChapter":{"id":1, "title": "Chapter 1"}
+        "lastChapter":{"id":1, "title": "Chapter 1"},
+        "trailer_image": "https://raw.githubusercontent.com/phuhuynh2411/CarouselView/be9fad4af1c1776d815e633195fcd19e9894287e/bong_toi.jpg"
     }
 ]

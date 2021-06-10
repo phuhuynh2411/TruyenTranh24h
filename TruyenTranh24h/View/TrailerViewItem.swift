@@ -13,7 +13,7 @@ struct TrailerViewItem: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
-            RemoteImageView(stringURL: story.featureImage)
+            RemoteImageView(stringURL: story.trailerImage ?? "")
                 .frame(height: 136)
                 .aspectRatio(contentMode: .fill)
                 .cornerRadius(7.0)

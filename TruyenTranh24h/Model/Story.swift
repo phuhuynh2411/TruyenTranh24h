@@ -21,6 +21,7 @@ struct Story: Codable, Identifiable {
     let lastChapter: Chapter
     let description: String
     let createdAt: Date
+    let trailerImage: String?
 }
 
 /*

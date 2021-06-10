@@ -15,4 +15,5 @@ see-more = "See more";
 search-box-placeholder = "Enter story name.";
 you-might-like = "You might like";
 very-hot = "Very hot";
-comming-soon = "Comming soon at";
+"comming-soon %@"= "Comming soon at %@";
+daily-update = "Daily updates";

@@ -62,13 +62,22 @@ struct HomeView: View {
                     // Category view
                     HorizontalCategoryView(categories: SampleData.categories())
                     
-                    // Bottom views
+                    // Suggested and Might like views
                     suggestedMightLikeViews()
                     
                     // Hot view
                     HotView(stories: SampleData.stories(), title: "very-hot")
                         .offset(x: self.padding)
+                    
+                    // Trailer stories
+                    TrailerView(stories: SampleData.stories(), title: "comming-soon")
+                        .offset(x: self.padding)
+                    
+                    // Daily update
+                    CommicView(stories: SampleData.stories(), numberOfColumns: 2, title: "daily-update", thumbnailHeight: 132.0)
+                        .padding(EdgeInsets(top: 0, leading: self.padding, bottom: 0, trailing: self.padding))
                 }
+                .padding(.bottom, 16)
                 
             }
             
