@@ -13,24 +13,23 @@ struct HotView: View {
     @State var title: String? = nil
     
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            VStack {
-                // Title
-                if let t = title {
-                    HStack {
-                        Text(LocalizedStringKey(t))
-                            .multilineTextAlignment(.leading)
-                            .foregroundColor(Color("mainTitleText"))
-                            .font(.system(size: 14, weight: .medium))
-                        
-                        Spacer()
-                    }
+        VStack {
+            // Title
+            if let t = title {
+                HStack {
+                    Text(LocalizedStringKey(t))
+                        .multilineTextAlignment(.leading)
+                        .foregroundColor(Color("mainTitleText"))
+                        .font(.system(size: 14, weight: .medium))
+                    
+                    Spacer()
                 }
-                
+            }
+            ScrollView(.horizontal, showsIndicators: false) {
                 // list of horizontal images
                 LazyHStack(){
                     ForEach(stories) { story in
-                        StoryThumbnailView(story: story, thumbnailHeight: 150)
+                        StoryThumbnailView(story: story, thumbnailHeight: 135)
                             .frame(width: hotViewSize.width, height: hotViewSize.height)
                     }
                 }

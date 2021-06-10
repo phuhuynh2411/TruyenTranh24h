@@ -15,10 +15,10 @@ struct CommicView: View {
     @State var moreButton: Bool = true
     
     var body: some View {
+        let column1Stories = stories.prefix(stories.count/2)
+        let column2Stories = stories.suffix(from: stories.count/2)
+        
         VStack{
-            // Story thumbnails
-            let columns: [GridItem] =
-                Array(repeating: .init(.flexible()), count: numberOfColumns)
             //ScrollView {
                 VStack {
                     // Title
@@ -34,13 +34,22 @@ struct CommicView: View {
                     }
                     
                     // grid of image
-                    LazyVGrid(columns: columns) {
-                        ForEach(stories) { story in
-                            NavigationLink(destination: StoryView(story: story)) {
-                                StoryThumbnailView(story: story, thumbnailHeight: self.thumbnailHeight)
+                    HStack {
+                        VStack {
+                            ForEach(column1Stories) { story in
+                                NavigationLink(destination: StoryView(story: story)) {
+                                    StoryThumbnailView(story: story, thumbnailHeight: self.thumbnailHeight)
+                                }
+                                .buttonStyle(PlainButtonStyle())
                             }
-                            .buttonStyle(PlainButtonStyle())
-                            
+                        }
+                        VStack {
+                            ForEach(column2Stories) { story in
+                                NavigationLink(destination: StoryView(story: story)) {
+                                    StoryThumbnailView(story: story, thumbnailHeight: self.thumbnailHeight)
+                                }
+                                .buttonStyle(PlainButtonStyle())
+                            }
                         }
                     }
                     
@@ -59,6 +68,7 @@ struct CommicView: View {
             //}
         }
     }
+    
 }
 
 struct TopCommic_Previews: PreviewProvider {
