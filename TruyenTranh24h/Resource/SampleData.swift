@@ -22,6 +22,7 @@ struct SampleData {
             // load stories json file
             let jsonDecoder = JSONDecoder()
             jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+            jsonDecoder.dateDecodingStrategy = .iso8601
             
             do{
                 try stories = jsonDecoder.decode([Story].self, from: asset.data)

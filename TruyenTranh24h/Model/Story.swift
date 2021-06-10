@@ -20,6 +20,7 @@ struct Story: Codable, Identifiable {
     // Chapter
     let lastChapter: Chapter
     let description: String
+    let createdAt: Date
 }
 
 /*
