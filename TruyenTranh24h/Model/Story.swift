@@ -22,6 +22,14 @@ struct Story: Codable, Identifiable {
     let description: String
     let createdAt: Date
     let trailerImage: String?
+    
+    var formattedDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        
+        return dateFormatter.string(from: createdAt)
+    }
 }
 
 /*

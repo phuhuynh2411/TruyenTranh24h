@@ -30,7 +30,7 @@ struct TrailerViewItem: View {
             
             HStack {
                 // last update
-                Text("comming-soon \(story.createdAt)")
+                Text("comming-soon \(story.formattedDate)")
                     .foregroundColor(Color("trailerDescriptionTextFg"))
                     .multilineTextAlignment(.leading)
                     .font(.system(size: 8, weight: .light))

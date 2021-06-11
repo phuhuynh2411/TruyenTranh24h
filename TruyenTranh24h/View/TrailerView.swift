@@ -25,6 +25,7 @@ struct TrailerView: View {
                     
                     Spacer()
                 }
+                .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
             }
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 10) {
@@ -33,6 +34,7 @@ struct TrailerView: View {
                             .frame(width: itemWidth)
                     }
                 }
+                .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                 
             }
         }

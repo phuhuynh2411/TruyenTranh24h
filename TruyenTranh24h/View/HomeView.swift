@@ -70,8 +70,7 @@ struct HomeView: View {
                         .offset(x: self.padding)
                     
                     // Trailer stories
-                    TrailerView(stories: SampleData.stories(), title: "comming-soon")
-                        .offset(x: self.padding)
+                    TrailerView(stories: SampleData.stories(), title: "comming-soon-title")
                     
                     // Daily update
                     CommicView(stories: SampleData.stories(), numberOfColumns: 2, title: "daily-update", thumbnailHeight: 132.0)
