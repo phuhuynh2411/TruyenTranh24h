@@ -18,6 +18,7 @@ struct SearchCategoryView: View {
                     SearchCategoryItemView(searchCategory: category, isSelected: isSelected(category))
                 }
             }
+            .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
         }
     }
     

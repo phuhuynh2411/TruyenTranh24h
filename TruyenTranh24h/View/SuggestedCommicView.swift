@@ -22,7 +22,7 @@ struct SuggestedCommicView: View {
     var body: some View {
         NavigationView {
             RefreshableScrollView(refreshing: $refresh, action: { refreshAction }) {
-                CommicView(stories: SampleData.stories(), numberOfColumns: 2)
+                Commic2ColumnView(stories: SampleData.stories())
             }
             .navigationTitle("Top Commic")
             .navigationBarTitleDisplayMode(.inline)

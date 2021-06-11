@@ -16,7 +16,7 @@ struct StoryThumbnailView: View {
         VStack(alignment: .center, spacing: 10) {
             RemoteImageView(stringURL: story.featureImage)
                 .frame(height: thumbnailHeight)
-                .aspectRatio(contentMode: .fill)
+                //.aspectRatio(contentMode: .fill)
                 .cornerRadius(7.0)
             
             // Story name

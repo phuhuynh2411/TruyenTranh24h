@@ -32,10 +32,10 @@ struct HomeView: View {
     fileprivate func suggestedMightLikeViews() -> some View {
         return Group {
             // Suggested stories
-            CommicView(stories: SampleData.stories(), numberOfColumns: 2, title: "suggested-story", thumbnailHeight: 132.0)
+            Commic2ColumnView(stories: SampleData.stories(), title: "suggested-story", thumbnailHeight: 132.0)
             
             // You might like story section
-            CommicView(stories: SampleData.stories(), numberOfColumns: 2, title: "you-might-like", thumbnailHeight: 132.0)
+            Commic2ColumnView(stories: SampleData.stories(), title: "you-might-like", thumbnailHeight: 132.0)
         }
         .padding(EdgeInsets(top: 0, leading: self.padding, bottom: 0, trailing: self.padding))
     }
@@ -49,7 +49,7 @@ struct HomeView: View {
                     self.refresh = false
                 }
             }) {
-                VStack(spacing: 10) {
+                VStack(spacing: 20) {
                     // Top views
                     topViews()
                     
@@ -73,7 +73,7 @@ struct HomeView: View {
                     TrailerView(stories: SampleData.stories(), title: "comming-soon-title")
                     
                     // Daily update
-                    CommicView(stories: SampleData.stories(), numberOfColumns: 2, title: "daily-update", thumbnailHeight: 132.0)
+                    Commic2ColumnView(stories: SampleData.stories(), title: "daily-update", thumbnailHeight: 132.0)
                         .padding(EdgeInsets(top: 0, leading: self.padding, bottom: 0, trailing: self.padding))
                 }
                 .padding(.bottom, 16)

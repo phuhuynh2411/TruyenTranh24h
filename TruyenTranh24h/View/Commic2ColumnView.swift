@@ -7,18 +7,20 @@
 
 import SwiftUI
 
-struct CommicView: View {
+struct Commic2ColumnView: View {
     @State var stories: [Story]
-    @State var numberOfColumns = 2
     @State var title: String? = nil
     @State var thumbnailHeight: CGFloat? = nil
-    @State var moreButton: Bool = true
+    @State var moreButton = true
+    
+    @State var pressOnMoreButton = false
+    private let thumbnailWidth: CGFloat = UIScreen.main.bounds.width/2 - 16
     
     var body: some View {
         let column1Stories = stories.prefix(stories.count/2)
         let column2Stories = stories.suffix(from: stories.count/2)
         
-        VStack{
+        VStack {
             //ScrollView {
                 VStack {
                     // Title
@@ -43,6 +45,9 @@ struct CommicView: View {
                                 .buttonStyle(PlainButtonStyle())
                             }
                         }
+                        .frame(width: thumbnailWidth)
+                        //.background(Color.red)
+                        
                         VStack {
                             ForEach(column2Stories) { story in
                                 NavigationLink(destination: StoryView(story: story)) {
@@ -51,28 +56,36 @@ struct CommicView: View {
                                 .buttonStyle(PlainButtonStyle())
                             }
                         }
+                        .frame(width: thumbnailWidth)
+                        //.background(Color.blue)
+                        
                     }
                     
                     // See more button
                     if moreButton {
-                        Button(action: {}) {
-                            Text("see-more")
-                                .frame(width: 85, height: 26)
-                                .font(.system(size: 10, weight: .light))
-                                .background(Color("seeMoreButtonBg"))
-                                .foregroundColor(Color("seeMoreButtonFg"))
-                                .cornerRadius(13.0)
+                        Button(action: {
+                            self.pressOnMoreButton = true
+                        }) {
+                            NavigationLink(destination: ViewMoreView(), isActive: $pressOnMoreButton) {
+                                Text("see-more")
+                                    .frame(width: 85, height: 26)
+                                    .font(.system(size: 10, weight: .light))
+                                    .background(Color("seeMoreButtonBg"))
+                                    .foregroundColor(Color("seeMoreButtonFg"))
+                                    .cornerRadius(13.0)
+                            }
+                            .navigationBarTitleDisplayMode(.inline)
+                            
                         }
                     }
                 }
             //}
         }
     }
-    
 }
 
 struct TopCommic_Previews: PreviewProvider {
     static var previews: some View {
-        CommicView(stories: SampleData.stories(), title: "Top commic")
+        Commic2ColumnView(stories: SampleData.stories(), title: "Top commic")
     }
 }
