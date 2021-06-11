@@ -10,10 +10,11 @@ import CarouselView
 
 struct SampleData {
     
-    static var storyFilename = "stories"
-    static var localStoryFilename = "local_stories"
-    static var carouselFileName = "carousel"
-    static var categoryFileName = "category"
+    static private var storyFilename = "stories"
+    static private var localStoryFilename = "local_stories"
+    static private var carouselFileName = "carousel"
+    static private var categoryFileName = "category"
+    static private var searchCategoryFileName = "search_category"
     
     static func stories() -> [Story] {
         var stories = [Story]()
@@ -91,6 +92,26 @@ struct SampleData {
             }
         } else {
             print("Could not find the resource file.\(categoryFileName)")
+        }
+       
+        return categories
+    }
+    
+    static func searchCategories() -> [SearchCategory] {
+        var categories = [SearchCategory]()
+
+        if let asset = NSDataAsset(name: searchCategoryFileName) {
+            // load stories json file
+            let jsonDecoder = JSONDecoder()
+            jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            do{
+                try categories = jsonDecoder.decode([SearchCategory].self, from: asset.data)
+            } catch {
+                print("Decode error: " + error.localizedDescription)
+            }
+        } else {
+            print("Could not find the resource file.\(searchCategoryFileName)")
         }
        
         return categories
