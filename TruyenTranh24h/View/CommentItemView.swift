@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CommentItemView: View {
+    @State var comment: Comment
+    
     var body: some View {
         HStack(spacing: 16) {
             // avatar
@@ -17,24 +19,24 @@ struct CommentItemView: View {
             
             VStack(alignment: .leading, spacing: 10) {
                 // title
-                Text("Cras Etiam Adipiscing Purus")
+                Text(comment.userName)
                     .font(.system(size: 12, weight: .medium))
                     .foregroundColor(.black)
                 
                 // description
-                Text("Donec sed odio dui. Donec id elit non mi porta gravida at eget metus.")
+                Text(comment.comment)
                     .font(.system(size: 12, weight: .regular))
                     .foregroundColor(Color("commentDescriptionTextFg"))
                 
                 HStack (spacing: 30) {
                     // date and time
-                    Text("25/11/2021 10:30")
+                    Text(comment.formattedDate)
                         .font(.system(size: 9, weight: .light))
                         .foregroundColor(Color("commentDateFg"))
                     
                     // answer button
                     Button(action: {}, label: {
-                        Text("Answer")
+                        Text("answer")
                             .font(.system(size: 9, weight: .regular))
                             .foregroundColor(Color("answerButtonFg"))
                     })
@@ -47,6 +49,6 @@ struct CommentItemView: View {
 
 struct CommentItemView_Previews: PreviewProvider {
     static var previews: some View {
-        CommentItemView()
+        CommentItemView(comment: SampleData.comments()[0])
     }
 }

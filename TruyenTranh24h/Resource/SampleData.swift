@@ -16,6 +16,7 @@ struct SampleData {
     static private var carouselFileName = "carousel"
     static private var categoryFileName = "category"
     static private var searchCategoryFileName = "search_category"
+    static private var commentFileName = "comments"
     
     static func stories() -> [Story] {
         var stories = [Story]()
@@ -137,5 +138,26 @@ struct SampleData {
         }
        
         return categories
+    }
+    
+    static func comments() -> [Comment] {
+        var comments = [Comment]()
+
+        if let asset = NSDataAsset(name: commentFileName) {
+            // load stories json file
+            let jsonDecoder = JSONDecoder()
+            jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+            jsonDecoder.dateDecodingStrategy = .iso8601
+            
+            do{
+                try comments = jsonDecoder.decode([Comment].self, from: asset.data)
+            } catch {
+                print("Decode error: " + error.localizedDescription)
+            }
+        } else {
+            print("Could not find the resource file.\(commentFileName)")
+        }
+       
+        return comments
     }
 }

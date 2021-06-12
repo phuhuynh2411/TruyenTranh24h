@@ -30,6 +30,7 @@
 		842E33B12636AA5100A9D7A2 /* RemoteImageView in Frameworks */ = {isa = PBXBuildFile; productRef = 842E33B02636AA5100A9D7A2 /* RemoteImageView */; };
 		842E33D42636B0FE00A9D7A2 /* CarouselView in Frameworks */ = {isa = PBXBuildFile; productRef = 842E33D32636B0FE00A9D7A2 /* CarouselView */; };
 		842EE06D267464B9007B1358 /* CommentItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842EE06C267464B9007B1358 /* CommentItemView.swift */; };
+		842EE06F26746B16007B1358 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842EE06E26746B16007B1358 /* Comment.swift */; };
 		8441BB062632A53800F08AD9 /* RefreshableScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 8441BB052632A53800F08AD9 /* RefreshableScrollView */; };
 		8446F9A6262575FF0098635A /* TruyenTranh24hApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446F9A5262575FF0098635A /* TruyenTranh24hApp.swift */; };
 		8446F9A8262575FF0098635A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446F9A7262575FF0098635A /* ContentView.swift */; };
@@ -93,6 +94,7 @@
 		842A24E9263948450092A45A /* KeyboardAwareModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAwareModifier.swift; sourceTree = "<group>"; };
 		842E33B62636B0AC00A9D7A2 /* CarouselView */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CarouselView; path = "../../../Dropbox/2. Work/Projects/iOS/Projects/CarouselView"; sourceTree = "<group>"; };
 		842EE06C267464B9007B1358 /* CommentItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentItemView.swift; sourceTree = "<group>"; };
+		842EE06E26746B16007B1358 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		8441BB012632A52600F08AD9 /* RefreshableScrollView */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RefreshableScrollView; path = "../../../Dropbox/2. Work/Projects/iOS/Projects/RefreshableScrollView"; sourceTree = "<group>"; };
 		8446F9A2262575FF0098635A /* TruyenTranh24h.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TruyenTranh24h.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8446F9A5262575FF0098635A /* TruyenTranh24hApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruyenTranh24hApp.swift; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 				841997F526269C98009BDD4B /* Chapter.swift */,
 				84534D152668CD3B00376726 /* Category.swift */,
 				8479C3B92673196C00CCBDB0 /* SearchCategory.swift */,
+				842EE06E26746B16007B1358 /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				8479C3BE26733A0600CCBDB0 /* ViewMoreView.swift in Sources */,
 				8446F9A6262575FF0098635A /* TruyenTranh24hApp.swift in Sources */,
 				842A24D12639373F0092A45A /* APIError.swift in Sources */,
+				842EE06F26746B16007B1358 /* Comment.swift in Sources */,
 				8446F9E3262580FC0098635A /* Color+Extension.swift in Sources */,
 				84D6A2A6266A03FC0029B8D1 /* SearchFieldView.swift in Sources */,
 				84A454DA267208FB002499B2 /* TrailerViewItem.swift in Sources */,
