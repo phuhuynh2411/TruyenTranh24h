@@ -29,6 +29,7 @@
 		842A24EA263948460092A45A /* KeyboardAwareModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A24E9263948450092A45A /* KeyboardAwareModifier.swift */; };
 		842E33B12636AA5100A9D7A2 /* RemoteImageView in Frameworks */ = {isa = PBXBuildFile; productRef = 842E33B02636AA5100A9D7A2 /* RemoteImageView */; };
 		842E33D42636B0FE00A9D7A2 /* CarouselView in Frameworks */ = {isa = PBXBuildFile; productRef = 842E33D32636B0FE00A9D7A2 /* CarouselView */; };
+		842EE06D267464B9007B1358 /* CommentItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842EE06C267464B9007B1358 /* CommentItemView.swift */; };
 		8441BB062632A53800F08AD9 /* RefreshableScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 8441BB052632A53800F08AD9 /* RefreshableScrollView */; };
 		8446F9A6262575FF0098635A /* TruyenTranh24hApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446F9A5262575FF0098635A /* TruyenTranh24hApp.swift */; };
 		8446F9A8262575FF0098635A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446F9A7262575FF0098635A /* ContentView.swift */; };
@@ -91,6 +92,7 @@
 		842A24E7263948140092A45A /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		842A24E9263948450092A45A /* KeyboardAwareModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAwareModifier.swift; sourceTree = "<group>"; };
 		842E33B62636B0AC00A9D7A2 /* CarouselView */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CarouselView; path = "../../../Dropbox/2. Work/Projects/iOS/Projects/CarouselView"; sourceTree = "<group>"; };
+		842EE06C267464B9007B1358 /* CommentItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentItemView.swift; sourceTree = "<group>"; };
 		8441BB012632A52600F08AD9 /* RefreshableScrollView */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RefreshableScrollView; path = "../../../Dropbox/2. Work/Projects/iOS/Projects/RefreshableScrollView"; sourceTree = "<group>"; };
 		8446F9A2262575FF0098635A /* TruyenTranh24h.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TruyenTranh24h.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8446F9A5262575FF0098635A /* TruyenTranh24hApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruyenTranh24hApp.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				8479C3B52673184100CCBDB0 /* SearchCategoryItemView.swift */,
 				8479C3B72673184B00CCBDB0 /* SearchCategoryView.swift */,
 				8479C3BD26733A0600CCBDB0 /* ViewMoreView.swift */,
+				842EE06C267464B9007B1358 /* CommentItemView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				842A24C7263935A90092A45A /* NetworkModel.swift in Sources */,
 				8446F9DA262578FF0098635A /* StoryThumbnailView.swift in Sources */,
 				842A24CD2639369D0092A45A /* Entry.swift in Sources */,
+				842EE06D267464B9007B1358 /* CommentItemView.swift in Sources */,
 				8446F9A8262575FF0098635A /* ContentView.swift in Sources */,
 				8446F9E82625865A0098635A /* Commic2ColumnView.swift in Sources */,
 				842A24EA263948460092A45A /* KeyboardAwareModifier.swift in Sources */,
