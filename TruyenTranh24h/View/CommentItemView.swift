@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RemoteImageView
 
 struct CommentItemView: View {
     @State var comment: Comment
@@ -13,7 +14,7 @@ struct CommentItemView: View {
     var body: some View {
         HStack(spacing: 16) {
             // avatar
-            Image("avatar")
+            RemoteImageView(stringURL: comment.avatar ?? "")
                 .frame(width: 32, height: 32)
                 .clipShape(Circle())
             

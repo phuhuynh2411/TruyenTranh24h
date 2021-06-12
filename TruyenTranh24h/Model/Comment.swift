@@ -12,6 +12,7 @@ struct Comment: Codable, Identifiable {
     let userName: String
     let comment: String
     let createdAt: Date
+    let avatar: String?
     
     var formattedDate: String {
         let dateFormatter = DateFormatter()

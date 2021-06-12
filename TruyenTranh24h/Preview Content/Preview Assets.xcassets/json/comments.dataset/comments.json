@@ -2,59 +2,69 @@
         "id": 1,
         "user_name": "Tieu long nu",
         "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus.",
-        "created_at":"1994-11-05T13:15:30Z"
+        "created_at":"1994-11-05T13:15:30Z",
+        "avatar": "https://github.com/phuhuynh2411/testImage/blob/main/avatar.jpg?raw=true"
     },
     {
         "id": 2,
         "user_name": "Justo Ullamcorper",
         "comment": "Donec id elit non mi porta gravida at eget metus.",
-        "created_at":"1994-11-05T13:15:30Z"
+        "created_at":"1994-11-05T13:15:30Z",
+        "avatar": "https://github.com/phuhuynh2411/testImage/blob/main/avatar.jpg?raw=true"
     },
     {
         "id": 3,
         "user_name": "Sollicitudin Sit Fermentum",
         "comment": "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Etiam porta sem malesuada magna mollis euismod.",
-        "created_at":"1994-11-05T13:15:30Z"
+        "created_at":"1994-11-05T13:15:30Z",
+        "avatar": "https://github.com/phuhuynh2411/testImage/blob/main/avatar.jpg?raw=true"
     },
     {
         "id": 4,
         "user_name": "Pellentesque",
         "comment": "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Etiam porta sem malesuada magna mollis euismod.",
-        "created_at":"1994-11-05T13:15:30Z"
+        "created_at":"1994-11-05T13:15:30Z",
+        "avatar": "https://github.com/phuhuynh2411/testImage/blob/main/avatar.jpg?raw=true"
     },
     {
         "id": 5,
         "user_name": "Vulputate Purus",
         "comment": "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Etiam porta sem malesuada magna mollis euismod.",
-        "created_at":"1994-11-05T13:15:30Z"
+        "created_at":"1994-11-05T13:15:30Z",
+        "avatar": "https://github.com/phuhuynh2411/testImage/blob/main/avatar.jpg?raw=true"
     },
     {
         "id": 6,
         "user_name": "Condimentum Malesuada",
         "comment": "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Etiam porta sem malesuada magna mollis euismod.",
-        "created_at":"1994-11-05T13:15:30Z"
+        "created_at":"1994-11-05T13:15:30Z",
+        "avatar": "https://github.com/phuhuynh2411/testImage/blob/main/avatar.jpg?raw=true"
     },
     {
         "id": 7,
         "user_name": "Bibendum Tortor",
         "comment": "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Etiam porta sem malesuada magna mollis euismod.",
-        "created_at":"1994-11-05T13:15:30Z"
+        "created_at":"1994-11-05T13:15:30Z",
+        "avatar": "https://github.com/phuhuynh2411/testImage/blob/main/avatar.jpg?raw=true"
     },
     {
         "id": 8,
         "user_name": "Vulputate",
         "comment": "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Etiam porta sem malesuada magna mollis euismod.",
-        "created_at":"1994-11-05T13:15:30Z"
+        "created_at":"1994-11-05T13:15:30Z",
+        "avatar": "https://github.com/phuhuynh2411/testImage/blob/main/avatar.jpg?raw=true"
     }, {
         "id": 9,
         "user_name": "Fringilla Sem",
         "comment": "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Etiam porta sem malesuada magna mollis euismod.",
-        "created_at":"1994-11-05T13:15:30Z"
+        "created_at":"1994-11-05T13:15:30Z",
+        "avatar": "https://github.com/phuhuynh2411/testImage/blob/main/avatar.jpg?raw=true"
     },
     {
         "id": 10,
         "user_name": "Vulputate Purus",
         "comment": "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Etiam porta sem malesuada magna mollis euismod.",
-        "created_at":"1994-11-05T13:15:30Z"
+        "created_at":"1994-11-05T13:15:30Z",
+        "avatar": "https://github.com/phuhuynh2411/testImage/blob/main/avatar.jpg?raw=true"
     }
 ]
