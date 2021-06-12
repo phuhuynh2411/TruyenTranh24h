@@ -20,7 +20,6 @@ struct StoryThumbnailView: View {
                 .clipped()
                 .cornerRadius(7.0)
                 
-            
             // Story name
             Text(story.title)
                 .multilineTextAlignment(.leading)
