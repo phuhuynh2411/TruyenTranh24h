@@ -15,9 +15,11 @@ struct StoryThumbnailView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
             RemoteImageView(stringURL: story.featureImage)
+                .scaledToFill()
                 .frame(height: thumbnailHeight)
-                //.aspectRatio(contentMode: .fill)
+                .clipped()
                 .cornerRadius(7.0)
+                
             
             // Story name
             Text(story.title)
@@ -25,6 +27,7 @@ struct StoryThumbnailView: View {
                 .font(.system(size: 11, weight: .medium))
                 .frame(height: 30, alignment: .top)
         }
+        
         
     }
 }
@@ -47,9 +50,18 @@ struct StoryThumbnail_Previews: PreviewProvider {
             }
             
             // hot story
-            StoryThumbnailView(story: SampleData.stories()[1])
-                .environment(\.locale, .init(identifier: "vi"))
-                .frame(width: 109, height: 168)
+            HStack {
+                StoryThumbnailView(story: SampleData.stories()[1])
+                    .environment(\.locale, .init(identifier: "vi"))
+                    .frame(width: 250, height: 100)
+                    .background(Color.green)
+                
+                StoryThumbnailView(story: SampleData.stories()[1])
+                    .environment(\.locale, .init(identifier: "vi"))
+                    .frame(width: 250, height: 100)
+                    .background(Color.green)
+            }
+            
         }
     }
 }
