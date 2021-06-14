@@ -12,7 +12,7 @@ struct StoryHeaderView: View {
     @State var story: Story
     
     var body: some View {
-        HStack {
+        HStack (alignment: .top) {
             // thumbnail
             RemoteImageView(stringURL: story.featureImage)
                 .scaledToFit()
@@ -20,13 +20,55 @@ struct StoryHeaderView: View {
                 .clipped()
                 .cornerRadius(7.0)
             
-            VStack (alignment: .leading){
+            VStack (alignment: .leading, spacing: 13){
                 Text(story.title)
                     .font(.system(size: 16, weight: .medium))
                     .foregroundColor(.white)
+                
+                // star view
+                StarView(point: 4.5)
+                    .frame(width: 110, height: 12)
+                
+                HStack (spacing: 20){
+                    // view
+                    HStack {
+                        Image("view")
+                            .resizable()
+                            .frame(width: 16, height: 9)
+                        
+                        Text("1.560")
+                            .font(.system(size: 9, weight: .regular))
+                            .foregroundColor(.white)
+                    }
+                    
+                    HStack {
+                        Image("like")
+                            .resizable()
+                            .frame(width: 12, height: 10)
+                        
+                        Text("150")
+                            .font(.system(size: 9, weight: .regular))
+                            .foregroundColor(.white)
+                    }
+                   
+                    HStack {
+                        Image("love")
+                            .resizable()
+                            .frame(width: 11, height: 10)
+                        
+                        Text("950")
+                            .font(.system(size: 9, weight: .regular))
+                            .foregroundColor(.white)
+                    }
+                }
+                .padding(.top, 7)
             }
+            
+            Spacer()
         }
         .background(self.background)
+        .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+        
     }
     
     var background: some View {
@@ -35,7 +77,7 @@ struct StoryHeaderView: View {
             .frame(width: UIScreen.main.bounds.width, height: 200)
             .clipped()
             .background(Color.black)
-            .blur(radius: 20.0, opaque: true)
+            .blur(radius: 3, opaque: true)
         
     }
 }

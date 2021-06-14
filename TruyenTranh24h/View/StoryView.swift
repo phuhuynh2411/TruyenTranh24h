@@ -10,35 +10,59 @@ import RemoteImageView
 
 struct StoryView: View {
     @State var story: Story
+    @State private var offset = CGFloat.zero
+    @State private var showBackButton = false
+    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
-        ScrollView {
-            VStack {
-                // Title
-                Text(story.title)
-                
-                // Thumbnail
-                RemoteImageView(stringURL: story.featureImage)
-                
-                // Description
-                Text(story.description)
-                
-                // Comments
-                CommentView(comments: SampleData.comments())
+        ZStack(alignment: .top) {
+            
+            ScrollView {
+                VStack {
+                    // Title
+                    StoryHeaderView(story: story)
+                        .frame(height: 230)
+                    //.offset(y: -60 )
+                    
+                    // Description
+                    //Text(story.description)
+                    
+                    // Comments
+                    CommentView(comments: SampleData.comments())
+                }
+                .background(GeometryReader {
+                    Color.clear.preference(key: ViewOffsetKey.self,
+                                           value: -$0.frame(in: .named("scroll")).origin.y)
+                })
+                .onPreferenceChange(ViewOffsetKey.self) { self.updateOffset($0) }
             }
+            .coordinateSpace(name: "scroll")
+            
+            //.navigationBarHidden(true)
+            .navigationBarColor(backgroundColor: showBackButton ? .white : .none , titleColor: .blue)
+        }
+    }
+    
+    private func updateOffset(_ offset: CGFloat) {
+        print("offset >> \(self.offset)")
+        self.offset = offset
+        withAnimation {
+            showBackButton = offset > 0 ? true : false
         }
     }
 }
 
-struct StoryView_Previews: PreviewProvider {
-    static var story: Story {
-        var temp: Story = SampleData.stories()[0]
-        temp.featureImage = "\(URLSetting.baseURL)\(temp.featureImage)"
-        
-        return temp
+struct ViewOffsetKey: PreferenceKey {
+    typealias Value = CGFloat
+    static var defaultValue = CGFloat.zero
+    static func reduce(value: inout Value, nextValue: () -> Value) {
+        value += nextValue()
     }
-    
+}
+
+struct StoryView_Previews: PreviewProvider {
     static var previews: some View {
-        StoryView(story: story)
+        StoryView(story: SampleData.stories()[1])
     }
 }

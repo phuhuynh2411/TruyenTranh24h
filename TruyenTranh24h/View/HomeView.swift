@@ -8,6 +8,7 @@
 import SwiftUI
 import RefreshableScrollView
 import CarouselView
+import UIKit
 
 struct HomeView: View {
     @State var refresh: Bool = false
@@ -52,35 +53,33 @@ struct HomeView: View {
                 VStack(spacing: 20) {
                     // Top views
                     topViews()
-                    
+
                     // Carousel view
                     CarouselView(items: SampleData.carousels(),
                                  slideIndicator: false,
                                  height: 130,
                                  isFullWidth: false)
-                    
+
                     // Category view
                     HorizontalCategoryView(categories: SampleData.categories())
-                    
+
                     // Suggested and Might like views
                     suggestedMightLikeViews()
-                    
+
                     // Hot view
                     HotView(stories: SampleData.stories(), title: "very-hot")
                         .offset(x: self.padding)
-                    
+
                     // Trailer stories
                     TrailerView(stories: SampleData.stories(), title: "comming-soon-title")
-                    
+
                     // Daily update
                     Commic2ColumnView(stories: SampleData.stories(), title: "daily-update", thumbnailHeight: 132.0)
                         .padding(EdgeInsets(top: 0, leading: self.padding, bottom: 0, trailing: self.padding))
                 }
                 .padding(.bottom, 16)
-                
             }
-            
-            // hide the navigation in home view
+           
             .navigationBarHidden(true)
         }
     }
@@ -90,4 +89,18 @@ struct Home_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
     }
+}
+
+struct NavigationConfigurator: UIViewControllerRepresentable {
+    var configure: (UINavigationController) -> Void = { _ in }
+
+    func makeUIViewController(context: UIViewControllerRepresentableContext<NavigationConfigurator>) -> UIViewController {
+        UIViewController()
+    }
+    func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<NavigationConfigurator>) {
+        if let nc = uiViewController.navigationController {
+            self.configure(nc)
+        }
+    }
+
 }
