@@ -11,7 +11,7 @@ struct CommentView: View {
     @State var comments: [Comment]
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 16) {
             // title
             Text("comment-title")
                 .font(.system(size: 13, weight: .bold))

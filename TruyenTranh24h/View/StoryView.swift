@@ -12,15 +12,20 @@ struct StoryView: View {
     @State var story: Story
     
     var body: some View {
-        VStack {
-            // Title
-            Text(story.title)
-            
-            // Thumbnail
-            RemoteImageView(stringURL: story.featureImage)
-            
-            // Description
-            Text(story.description)
+        ScrollView {
+            VStack {
+                // Title
+                Text(story.title)
+                
+                // Thumbnail
+                RemoteImageView(stringURL: story.featureImage)
+                
+                // Description
+                Text(story.description)
+                
+                // Comments
+                CommentView(comments: SampleData.comments())
+            }
         }
     }
 }
