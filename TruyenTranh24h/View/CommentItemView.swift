@@ -10,6 +10,7 @@ import RemoteImageView
 
 struct CommentItemView: View {
     @State var comment: Comment
+    let indent: CGFloat = 48
     
     var body: some View {
         HStack(spacing: 16) {
@@ -45,11 +46,16 @@ struct CommentItemView: View {
                 }
             }
         }
+        .padding(.leading, comment.parentId != nil ? indent : 0 )
     }
 }
 
 struct CommentItemView_Previews: PreviewProvider {
     static var previews: some View {
-        CommentItemView(comment: SampleData.comments()[0])
+        VStack(alignment: .leading) {
+            CommentItemView(comment: SampleData.comments()[0])
+            CommentItemView(comment: SampleData.comments()[1])
+            CommentItemView(comment: SampleData.comments()[2])
+        }
     }
 }

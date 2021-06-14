@@ -13,6 +13,7 @@ struct Comment: Codable, Identifiable {
     let comment: String
     let createdAt: Date
     let avatar: String?
+    let parentId: Int?
     
     var formattedDate: String {
         let dateFormatter = DateFormatter()

@@ -10,14 +10,16 @@
         "user_name": "Justo Ullamcorper",
         "comment": "Donec id elit non mi porta gravida at eget metus.",
         "created_at":"1994-11-05T13:15:30Z",
-        "avatar": "https://github.com/phuhuynh2411/testImage/blob/main/avatar.jpg?raw=true"
+        "avatar": "https://github.com/phuhuynh2411/testImage/blob/main/avatar.jpg?raw=true",
+        "parentId": 1
     },
     {
         "id": 3,
         "user_name": "Sollicitudin Sit Fermentum",
         "comment": "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Etiam porta sem malesuada magna mollis euismod.",
         "created_at":"1994-11-05T13:15:30Z",
-        "avatar": "https://github.com/phuhuynh2411/testImage/blob/main/avatar.jpg?raw=true"
+        "avatar": "https://github.com/phuhuynh2411/testImage/blob/main/avatar.jpg?raw=true",
+        "parentId": 1
     },
     {
         "id": 4,
@@ -52,7 +54,8 @@
         "user_name": "Vulputate",
         "comment": "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Etiam porta sem malesuada magna mollis euismod.",
         "created_at":"1994-11-05T13:15:30Z",
-        "avatar": "https://github.com/phuhuynh2411/testImage/blob/main/avatar.jpg?raw=true"
+        "avatar": "https://github.com/phuhuynh2411/testImage/blob/main/avatar.jpg?raw=true",
+        "parentId": 7
     }, {
         "id": 9,
         "user_name": "Fringilla Sem",
