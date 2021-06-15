@@ -57,6 +57,7 @@
 		8480FBF52637F7B80063976C /* SuggestedCommicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8480FBF42637F7B80063976C /* SuggestedCommicView.swift */; };
 		84880ED62637C2C000214F3C /* TestCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84880ED52637C2C000214F3C /* TestCarouselView.swift */; };
 		849B5BBD26788917009ECDD7 /* NavBarAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B5BBC26788917009ECDD7 /* NavBarAccessor.swift */; };
+		849B5BBF2678A2BB009ECDD7 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B5BBE2678A2BB009ECDD7 /* LineView.swift */; };
 		849EF3E32626A7A300EB6429 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 849EF3E52626A7A300EB6429 /* Localizable.strings */; };
 		84A1693F2628310F001831AD /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A1693E2628310F001831AD /* TestView.swift */; };
 		84A454DA267208FB002499B2 /* TrailerViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A454D9267208FB002499B2 /* TrailerViewItem.swift */; };
@@ -132,6 +133,7 @@
 		8480FBF42637F7B80063976C /* SuggestedCommicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedCommicView.swift; sourceTree = "<group>"; };
 		84880ED52637C2C000214F3C /* TestCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCarouselView.swift; sourceTree = "<group>"; };
 		849B5BBC26788917009ECDD7 /* NavBarAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarAccessor.swift; sourceTree = "<group>"; };
+		849B5BBE2678A2BB009ECDD7 /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		849EF3E42626A7A300EB6429 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		849EF3E62626A7A800EB6429 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84A1693E2628310F001831AD /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				844698BA267732790081E6BA /* StarView.swift */,
 				844698BC267754B30081E6BA /* NavigationBarModifier.swift */,
 				849B5BBC26788917009ECDD7 /* NavBarAccessor.swift */,
+				849B5BBE2678A2BB009ECDD7 /* LineView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 				84D6A2A6266A03FC0029B8D1 /* SearchFieldView.swift in Sources */,
 				84A454DA267208FB002499B2 /* TrailerViewItem.swift in Sources */,
 				844698BB267732790081E6BA /* StarView.swift in Sources */,
+				849B5BBF2678A2BB009ECDD7 /* LineView.swift in Sources */,
 				8479C3B62673184100CCBDB0 /* SearchCategoryItemView.swift in Sources */,
 				8480FBEF2637F3430063976C /* StoryView.swift in Sources */,
 				842A24CC2639369D0092A45A /* MetaData.swift in Sources */,

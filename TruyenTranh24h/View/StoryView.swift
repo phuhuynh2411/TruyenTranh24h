@@ -81,7 +81,7 @@ struct StoryView: View {
         @Binding var selectedTab: StoryTab
         
         var body: some View {
-            HStack(alignment: .center) {
+            HStack(alignment: .center, spacing: 0) {
                 // content
                 Button(action: {
                     withAnimation {
@@ -90,13 +90,13 @@ struct StoryView: View {
                 }, label: {
                     VStack {
                         Spacer()
-                        Text("Content")
+                        Text("content")
                             .font(.system(size: 13, weight: .regular))
                             .foregroundColor(Color("mainTitleText"))
                         Spacer()
                         Rectangle()
                             .frame(height: 1)
-                            .foregroundColor(selectedTab == .content ? Color("borderFg") : .white)
+                            .foregroundColor(selectedTab == .content ? Color("borderFg") : Color("lineFg"))
                     }
                 })
                 
@@ -109,14 +109,14 @@ struct StoryView: View {
                 }, label: {
                     VStack {
                         Spacer()
-                        Text("Chapter")
+                        Text("chapter")
                             .font(.system(size: 13, weight: .regular))
                             .foregroundColor(Color("mainTitleText"))
                         
                         Spacer()
                         Rectangle()
                             .frame(height: 1)
-                            .foregroundColor(selectedTab == .chapter ? Color("borderFg") : .white)
+                            .foregroundColor(selectedTab == .chapter ? Color("borderFg") : Color("lineFg"))
                     }
                 })
                 
@@ -127,14 +127,82 @@ struct StoryView: View {
     
     struct StoryContentView: View {
         var body: some View {
-            // Comments
-            CommentView(comments: SampleData.comments())
+            VStack (spacing: 20){
+                // Story summary
+                StorySummary()
+                    .padding()
+                
+                LineView()
+                // Comments
+                CommentView(comments: SampleData.comments())
+                    .padding()
+                
+                LineView()
+                VStack (alignment: .leading){
+                    Text("related-stories")
+                        .font(.system(size: 13, weight: .bold))
+                        .foregroundColor(.black)
+                    
+                    Commic3ColumnView(stories: SampleData.stories()
+                                      , thumbnailHeight: 130
+                                      , moreButton: false)
+                }
+            }
+            
         }
     }
     
     struct StoryChapterView: View {
         var body: some View {
             Text("Chapter view")
+        }
+    }
+    
+    struct StorySummary: View {
+        var body: some View {
+            VStack(alignment: .leading, spacing: 26) {
+                // Update on text
+                Text("Maecenas sed diam eget risus varius blandit sit amet non magna.")
+                    .font(.system(size: 12, weight: .bold))
+                    .foregroundColor(Color("mainTitleText"))
+                
+                // Author
+                HStack {
+                    Text("author")
+                        .font(.system(size: 12, weight: .regular))
+                        .foregroundColor(Color("summaryTextFg"))
+                    
+                    Text("Mollis Dolor")
+                        .font(.system(size: 12, weight: .light))
+                        .italic()
+                        .foregroundColor(Color("summaryTextFg"))
+                }
+                
+                // Category
+                HStack {
+                    Text("category")
+                        .font(.system(size: 12, weight: .regular))
+                        .foregroundColor(Color("summaryTextFg"))
+                    
+                    Text("Mollis Dolor")
+                        .font(.system(size: 12, weight: .light))
+                        .italic()
+                        .foregroundColor(Color("summaryTextFg"))
+                }
+                
+                VStack(alignment: .leading, spacing: 18) {
+                    Text("short-summary")
+                        .font(.system(size: 13, weight: .bold))
+                        .foregroundColor(.black)
+                    
+                    // Description
+                    Text("Donec sed odio dui. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis interdum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam.")
+                        .font(.system(size: 12, weight: .light))
+                        .foregroundColor(Color("descriptionFg"))
+                        .lineSpacing(8)
+                }
+               
+            }
         }
     }
 }
