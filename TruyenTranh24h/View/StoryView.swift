@@ -12,24 +12,27 @@ struct StoryView: View {
     @State var story: Story
     @State private var offset = CGFloat.zero
     @State private var showBackButton = false
+    @State private var selectedTab: StoryTab = .content
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         ZStack(alignment: .top) {
-            
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack {
                     // Title
-                    StoryHeaderView(story: story)
-                        .frame(height: 230)
-                    //.offset(y: -60 )
+                    StoryHeaderView(story: story, height: 300)
+                        .offset(y: -64 )
+                        .frame(height: 175)
                     
-                    // Description
-                    //Text(story.description)
+                    // Tab view
+                    TabView(selectedTab: $selectedTab)
+                    if selectedTab == .content {
+                        StoryContentView()
+                    } else {
+                        StoryChapterView()
+                    }
                     
-                    // Comments
-                    CommentView(comments: SampleData.comments())
                 }
                 .background(GeometryReader {
                     Color.clear.preference(key: ViewOffsetKey.self,
@@ -38,9 +41,10 @@ struct StoryView: View {
                 .onPreferenceChange(ViewOffsetKey.self) { self.updateOffset($0) }
             }
             .coordinateSpace(name: "scroll")
-            
-            //.navigationBarHidden(true)
             .navigationBarColor(backgroundColor: showBackButton ? .white : .none , titleColor: .blue)
+            // adjust back button
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: self.backButtonView())
         }
     }
     
@@ -49,6 +53,88 @@ struct StoryView: View {
         self.offset = offset
         withAnimation {
             showBackButton = offset > 0 ? true : false
+        }
+    }
+    
+    private func backButtonView() -> some View {
+        Button(action: {
+            presentationMode.wrappedValue.dismiss()
+        }, label: {
+            HStack {
+                Image(systemName: "chevron.backward")
+                    .resizable()
+                    .frame(width: 10, height: 19)
+                    .foregroundColor(.white)
+                
+                Spacer()
+            }
+            .frame(width: 70, height: 30)
+        })
+    }
+    
+    enum StoryTab {
+        case content
+        case chapter
+    }
+    
+    struct TabView: View {
+        @Binding var selectedTab: StoryTab
+        
+        var body: some View {
+            HStack(alignment: .center) {
+                // content
+                Button(action: {
+                    withAnimation {
+                        selectedTab = .content
+                    }
+                }, label: {
+                    VStack {
+                        Spacer()
+                        Text("Content")
+                            .font(.system(size: 13, weight: .regular))
+                            .foregroundColor(Color("mainTitleText"))
+                        Spacer()
+                        Rectangle()
+                            .frame(height: 1)
+                            .foregroundColor(selectedTab == .content ? Color("borderFg") : .white)
+                    }
+                })
+                
+                
+                // chapter
+                Button(action: {
+                    withAnimation {
+                        selectedTab = .chapter
+                    }
+                }, label: {
+                    VStack {
+                        Spacer()
+                        Text("Chapter")
+                            .font(.system(size: 13, weight: .regular))
+                            .foregroundColor(Color("mainTitleText"))
+                        
+                        Spacer()
+                        Rectangle()
+                            .frame(height: 1)
+                            .foregroundColor(selectedTab == .chapter ? Color("borderFg") : .white)
+                    }
+                })
+                
+            }
+            .frame(height: 40)
+        }
+    }
+    
+    struct StoryContentView: View {
+        var body: some View {
+            // Comments
+            CommentView(comments: SampleData.comments())
+        }
+    }
+    
+    struct StoryChapterView: View {
+        var body: some View {
+            Text("Chapter view")
         }
     }
 }
