@@ -14,8 +14,8 @@ struct StoryHeaderView: View {
     
     var body: some View {
         VStack(alignment: .center) {
-            Color.clear.frame(height: 100)
-            Spacer()
+            //Color.clear.frame(height: 100)
+           // Spacer()
             HStack (alignment: .center) {
                 // thumbnail
                 RemoteImageView(stringURL: story.featureImage)
@@ -70,7 +70,7 @@ struct StoryHeaderView: View {
                 
                 Spacer()
             }
-            Spacer()
+            //Spacer()
             
         }
         //.background(self.background)

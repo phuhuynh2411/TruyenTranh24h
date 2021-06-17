@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8405F223267B343E004B1CC0 /* HeaderBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405F222267B343E004B1CC0 /* HeaderBackgroundView.swift */; };
+		8405F225267B423F004B1CC0 /* ScrollOffSetViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405F224267B423F004B1CC0 /* ScrollOffSetViewModifier.swift */; };
+		8405F227267B43D0004B1CC0 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405F226267B43D0004B1CC0 /* ViewExtension.swift */; };
+		8405F229267B4703004B1CC0 /* BindingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405F228267B4703004B1CC0 /* BindingExtension.swift */; };
 		84120C8926314EFD00FECA00 /* URLSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84120C8826314EFD00FECA00 /* URLSetting.swift */; };
 		841997F626269C98009BDD4B /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841997F526269C98009BDD4B /* Chapter.swift */; };
 		84251114263280AB008FD335 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84251113263280AB008FD335 /* HomeView.swift */; };
@@ -82,6 +85,9 @@
 
 /* Begin PBXFileReference section */
 		8405F222267B343E004B1CC0 /* HeaderBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderBackgroundView.swift; sourceTree = "<group>"; };
+		8405F224267B423F004B1CC0 /* ScrollOffSetViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollOffSetViewModifier.swift; sourceTree = "<group>"; };
+		8405F226267B43D0004B1CC0 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		8405F228267B4703004B1CC0 /* BindingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingExtension.swift; sourceTree = "<group>"; };
 		84120C8826314EFD00FECA00 /* URLSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSetting.swift; sourceTree = "<group>"; };
 		841997F526269C98009BDD4B /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
 		84251113263280AB008FD335 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -175,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				842A24E7263948140092A45A /* ErrorView.swift */,
+				8405F228267B4703004B1CC0 /* BindingExtension.swift */,
 				842A24E5263947F70092A45A /* RefreshView.swift */,
 				842A24E3263946F70092A45A /* InfiniteProgressView.swift */,
 				84251113263280AB008FD335 /* HomeView.swift */,
@@ -182,6 +189,7 @@
 				8446F9E72625865A0098635A /* Commic2ColumnView.swift */,
 				8479C3BF26733D2A00CCBDB0 /* Commic3ColumnView.swift */,
 				8480FBEE2637F3430063976C /* StoryView.swift */,
+				8405F224267B423F004B1CC0 /* ScrollOffSetViewModifier.swift */,
 				8405F222267B343E004B1CC0 /* HeaderBackgroundView.swift */,
 				8480FBF42637F7B80063976C /* SuggestedCommicView.swift */,
 				84534D132668CCE400376726 /* CategoryItemView.swift */,
@@ -200,6 +208,7 @@
 				844698BC267754B30081E6BA /* NavigationBarModifier.swift */,
 				849B5BBC26788917009ECDD7 /* NavBarAccessor.swift */,
 				849B5BBE2678A2BB009ECDD7 /* LineView.swift */,
+				8405F226267B43D0004B1CC0 /* ViewExtension.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -490,6 +499,7 @@
 				8479C3BA2673196C00CCBDB0 /* SearchCategory.swift in Sources */,
 				842A24D5263937A10092A45A /* NotificationCenter+Extension.swift in Sources */,
 				8479C3BE26733A0600CCBDB0 /* ViewMoreView.swift in Sources */,
+				8405F229267B4703004B1CC0 /* BindingExtension.swift in Sources */,
 				8446F9A6262575FF0098635A /* TruyenTranh24hApp.swift in Sources */,
 				842A24D12639373F0092A45A /* APIError.swift in Sources */,
 				842EE06F26746B16007B1358 /* Comment.swift in Sources */,
@@ -501,7 +511,9 @@
 				8405F223267B343E004B1CC0 /* HeaderBackgroundView.swift in Sources */,
 				8479C3B62673184100CCBDB0 /* SearchCategoryItemView.swift in Sources */,
 				8480FBEF2637F3430063976C /* StoryView.swift in Sources */,
+				8405F227267B43D0004B1CC0 /* ViewExtension.swift in Sources */,
 				842A24CC2639369D0092A45A /* MetaData.swift in Sources */,
+				8405F225267B423F004B1CC0 /* ScrollOffSetViewModifier.swift in Sources */,
 				84A1693F2628310F001831AD /* TestView.swift in Sources */,
 				8446F9EE26258DBF0098635A /* Story.swift in Sources */,
 				842A24E12639404C0092A45A /* LoginView.swift in Sources */,

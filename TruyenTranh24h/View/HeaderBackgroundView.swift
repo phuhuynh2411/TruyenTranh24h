@@ -19,10 +19,11 @@ struct HeaderBackgroundView: View {
                 .resizable()
                 .renderingMode(.original)
                 .scaledToFill()
-                //.aspectRatio(contentMode: .fit)
                 .frame(width: UIScreen.main.bounds.width, height: height)
                 .clipped()
-                
+                .overlay(Color.blue.opacity(0.3))
+                //.blur(radius: 2.0)
+            
         } else {
             URLImage(URL(string: stringURL)!) { image in
                 image
@@ -34,13 +35,16 @@ struct HeaderBackgroundView: View {
                     .onAppear {
                         self.image = image
                     }
+                    .overlay(Color.blue.opacity(0.3))
+                   // .blur(radius: 2.0)
             }
         }
+        
     }
 }
 
 struct HeaderBackgroundView_Previews: PreviewProvider {
-    @State static var height: CGFloat = 200
+    @State static var height: CGFloat = 250
     
     static var previews: some View {
         HeaderBackgroundView(height: $height, stringURL: "https://github.com/phuhuynh2411/testImage/blob/main/quy-tu-dao_1528892875.jpg?raw=true")

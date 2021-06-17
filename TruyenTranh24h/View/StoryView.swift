@@ -8,10 +8,15 @@
 import SwiftUI
 import URLImage
 import RemoteImageView
+import Combine
 
 struct StoryView: View {
     @State var story: Story
-    @State private var offset = CGFloat.zero
+    @State private var offset = CGFloat.zero {
+        didSet {
+            print("did set \(offset)")
+        }
+    }
     @State private var showBackButton = false
     @State private var selectedTab: StoryTab = .content
     @State private var imageBackgroundHeight: CGFloat = 250
@@ -26,7 +31,7 @@ struct StoryView: View {
                 VStack {
                     // Title
                     StoryHeaderView(story: story)
-                        .frame(height: 250)
+                        .frame(height: 160)
                     
                     // Tab view
                     TabView(selectedTab: $selectedTab)
@@ -37,17 +42,13 @@ struct StoryView: View {
                     }
                     
                 }
-                .background(GeometryReader {
-                    Color.clear.preference(key: ViewOffsetKey.self,
-                                           value: -$0.frame(in: .named("scroll")).origin.y)
-                })
-                .onPreferenceChange(ViewOffsetKey.self) { self.updateOffset($0) }
+                .scrollOffSet(offset: $offset.onChange { changeScrollOffset($0) })
             }
             .coordinateSpace(name: "scroll")
             
             
         }.background(headerBackgroundView)
-        .offset(y: -64 )
+        
         // Navigation settings
         .navigationBarColor(backgroundColor: showBackButton ? .white : .none , titleColor: .blue)
         // adjust back button
@@ -58,20 +59,16 @@ struct StoryView: View {
     var headerBackgroundView: some View {
         VStack {
             HeaderBackgroundView(height: $imageBackgroundHeight, stringURL: story.featureImage)
+                .offset(y: -100 )
             Spacer()
         }
     }
     
-    private func updateOffset(_ offset: CGFloat) {
-        print("offset >> \(self.offset)")
-        self.offset = offset
+    private func changeScrollOffset(_ offset: CGFloat) {
         withAnimation {
             showBackButton = offset > 0 ? true : false
-            
         }
-        imageBackgroundHeight = 250 - offset
-        
-        //withAnimation(.)
+        imageBackgroundHeight = 260 - offset
     }
     
     private func backButtonView() -> some View {
@@ -225,13 +222,7 @@ struct StoryView: View {
     }
 }
 
-struct ViewOffsetKey: PreferenceKey {
-    typealias Value = CGFloat
-    static var defaultValue = CGFloat.zero
-    static func reduce(value: inout Value, nextValue: () -> Value) {
-        value += nextValue()
-    }
-}
+
 
 struct StoryView_Previews: PreviewProvider {
     static var previews: some View {
