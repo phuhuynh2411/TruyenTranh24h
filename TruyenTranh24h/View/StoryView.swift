@@ -53,7 +53,7 @@ struct StoryView: View {
         .navigationBarColor(backgroundColor: showBackButton ? .white : .none , titleColor: .blue)
         // adjust back button
         .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: self.backButtonView())
+        .navigationBarItems(leading: backButtonView)
     }
     
     var headerBackgroundView: some View {
@@ -64,28 +64,48 @@ struct StoryView: View {
         }
     }
     
+    var backButtonView: some View {
+        HStack {
+            Button(action: {
+                presentationMode.wrappedValue.dismiss()
+            }, label: {
+                HStack {
+                    Image(systemName: "chevron.backward")
+                        .resizable()
+                        .frame(width: 10, height: 19)
+                        .foregroundColor(offset > 1 ? .gray : .white)
+                    
+                    Spacer()
+                }
+                .frame(width: 40, height: 30)
+            })
+            .padding(.leading, 16)
+            
+            if offset > 0 {
+                HStack {
+                    CacheImageView(stringURL: story.featureImage)
+                        .frame(width: 30, height: 30)
+                        .clipShape(Circle())
+                    
+                    Text(story.title)
+                        .font(.system(size: 13, weight: .bold))
+                        .foregroundColor(.black)
+                }
+            }
+            
+            Spacer()
+        }
+        .frame(width: UIScreen.main.bounds.width)
+       
+    }
+    
     private func changeScrollOffset(_ offset: CGFloat) {
         withAnimation {
             showBackButton = offset > 0 ? true : false
         }
         imageBackgroundHeight = 260 - offset
     }
-    
-    private func backButtonView() -> some View {
-        Button(action: {
-            presentationMode.wrappedValue.dismiss()
-        }, label: {
-            HStack {
-                Image(systemName: "chevron.backward")
-                    .resizable()
-                    .frame(width: 10, height: 19)
-                    .foregroundColor(.white)
-                
-                Spacer()
-            }
-            .frame(width: 70, height: 30)
-        })
-    }
+
     
     enum StoryTab {
         case content
@@ -226,6 +246,8 @@ struct StoryView: View {
 
 struct StoryView_Previews: PreviewProvider {
     static var previews: some View {
-        StoryView(story: SampleData.stories()[1])
+        NavigationView {
+            StoryView(story: SampleData.stories()[1])
+        }
     }
 }

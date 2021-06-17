@@ -22,7 +22,6 @@ struct HeaderBackgroundView: View {
                 .frame(width: UIScreen.main.bounds.width, height: height)
                 .clipped()
                 .overlay(Color.blue.opacity(0.3))
-                //.blur(radius: 2.0)
             
         } else {
             URLImage(URL(string: stringURL)!) { image in
@@ -36,7 +35,6 @@ struct HeaderBackgroundView: View {
                         self.image = image
                     }
                     .overlay(Color.blue.opacity(0.3))
-                   // .blur(radius: 2.0)
             }
         }
         
