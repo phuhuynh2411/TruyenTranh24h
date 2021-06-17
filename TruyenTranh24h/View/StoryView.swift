@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import URLImage
 import RemoteImageView
 
 struct StoryView: View {
@@ -13,17 +14,19 @@ struct StoryView: View {
     @State private var offset = CGFloat.zero
     @State private var showBackButton = false
     @State private var selectedTab: StoryTab = .content
+    @State private var imageBackgroundHeight: CGFloat = 250
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @State private var image: Image?
     
     var body: some View {
         ZStack(alignment: .top) {
+           // Color.blue.frame(height: 200)
             ScrollView(showsIndicators: false) {
                 VStack {
                     // Title
-                    StoryHeaderView(story: story, height: 300)
-                        .offset(y: -64 )
-                        .frame(height: 175)
+                    StoryHeaderView(story: story)
+                        .frame(height: 250)
                     
                     // Tab view
                     TabView(selectedTab: $selectedTab)
@@ -41,10 +44,21 @@ struct StoryView: View {
                 .onPreferenceChange(ViewOffsetKey.self) { self.updateOffset($0) }
             }
             .coordinateSpace(name: "scroll")
-            .navigationBarColor(backgroundColor: showBackButton ? .white : .none , titleColor: .blue)
-            // adjust back button
-            .navigationBarBackButtonHidden(true)
-            .navigationBarItems(leading: self.backButtonView())
+            
+            
+        }.background(headerBackgroundView)
+        .offset(y: -64 )
+        // Navigation settings
+        .navigationBarColor(backgroundColor: showBackButton ? .white : .none , titleColor: .blue)
+        // adjust back button
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: self.backButtonView())
+    }
+    
+    var headerBackgroundView: some View {
+        VStack {
+            HeaderBackgroundView(height: $imageBackgroundHeight, stringURL: story.featureImage)
+            Spacer()
         }
     }
     
@@ -53,7 +67,11 @@ struct StoryView: View {
         self.offset = offset
         withAnimation {
             showBackButton = offset > 0 ? true : false
+            
         }
+        imageBackgroundHeight = 250 - offset
+        
+        //withAnimation(.)
     }
     
     private func backButtonView() -> some View {

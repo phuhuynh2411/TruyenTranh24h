@@ -73,7 +73,7 @@ struct StoryHeaderView: View {
             Spacer()
             
         }
-        .background(self.background)
+        //.background(self.background)
         .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))        
     }
     
