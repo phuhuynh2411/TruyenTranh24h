@@ -30,3 +30,6 @@ share = "Share";
 like = "Like";
 follow = "Follow";
 read-now = "Read now";
+home = "Home";
+history = "History";
+me = "Me";

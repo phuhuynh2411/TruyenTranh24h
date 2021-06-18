@@ -27,7 +27,7 @@ struct StoryView: View {
     var body: some View {
         ZStack(alignment: .top) {
             // Color.blue.frame(height: 200)
-            VStack {
+            VStack(spacing: 0) {
                 ScrollView(showsIndicators: false) {
                     VStack {
                         // Title

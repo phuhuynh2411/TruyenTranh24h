@@ -13,35 +13,53 @@ struct ContentView: View {
         TabView {
             HomeView()
                 .tabItem {
-                    Image(systemName: "1.square.fill")
-                    Text("Home")
+                    Image("home")
+                        .renderingMode(.template)
+                    
+                    Text("home")
                 }
             
             SuggestedCommicView()
                 .tabItem {
-                    Image(systemName: "2.square.fill")
-                    Text("Top Commics")
+                    Image("category-1")
+                        .renderingMode(.template)
+                    Text("category")
                 }
             
             Text("History")
                 .tabItem {
-                    Image(systemName: "3.square.fill")
-                    Text("History")
+                    Image("history")
+                        .renderingMode(.template)
+                    
+                    Text("history")
+                }
+            
+            Text("Follow")
+                .tabItem {
+                    Image("star-1")
+                        .renderingMode(.template)
+                    
+                    Text("follow")
                 }
             
             Text("Profile")
                 .tabItem {
-                    Image(systemName: "3.square.fill")
-                    Text("Profile")
+                    Image("me")
+                        .renderingMode(.template)
+                    
+                    Text("me")
                 }
         }
-        //.font(.headline)
-        //.hidden()
+        .accentColor(Color("iconSelectedFg"))
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environment(\.locale, .init(identifier: "us"))
+        
+        ContentView()
+            .environment(\.locale, .init(identifier: "vi"))
     }
 }

@@ -84,8 +84,8 @@ struct Commic2ColumnView: View {
                 showStoryDetail.toggle()
             }, label: {
                 StoryThumbnailView(story: story, thumbnailHeight: height)
-                    .buttonStyle(PlainButtonStyle())
             })
+            .buttonStyle(PlainButtonStyle())
             
             .fullScreenCover(isPresented: $showStoryDetail, content: {
                 NavigationView {
