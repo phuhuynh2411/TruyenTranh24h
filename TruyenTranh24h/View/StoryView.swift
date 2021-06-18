@@ -212,7 +212,9 @@ struct StoryView: View {
     
     struct StoryChapterView: View {
         var body: some View {
-            Text("Chapter view")
+            ChapterListView(chapters: SampleData.chapters())
+                .padding(.leading, 16)
+                .padding(.trailing, 16)
         }
     }
     
