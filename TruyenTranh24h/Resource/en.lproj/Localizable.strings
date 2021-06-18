@@ -33,3 +33,5 @@ read-now = "Read now";
 home = "Home";
 history = "History";
 me = "Me";
+read-more = "Read more";
+less = "Less";

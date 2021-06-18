@@ -37,6 +37,7 @@
 		842EE06D267464B9007B1358 /* CommentItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842EE06C267464B9007B1358 /* CommentItemView.swift */; };
 		842EE06F26746B16007B1358 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842EE06E26746B16007B1358 /* Comment.swift */; };
 		8430B9FE267728790028DE29 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8430B9FD267728790028DE29 /* CommentView.swift */; };
+		84393AFB267C832C005101FD /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84393AFA267C832C005101FD /* StringExtension.swift */; };
 		8441BB062632A53800F08AD9 /* RefreshableScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 8441BB052632A53800F08AD9 /* RefreshableScrollView */; };
 		844698B926772EEF0081E6BA /* StoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844698B826772EEF0081E6BA /* StoryHeaderView.swift */; };
 		844698BB267732790081E6BA /* StarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844698BA267732790081E6BA /* StarView.swift */; };
@@ -115,6 +116,7 @@
 		842EE06C267464B9007B1358 /* CommentItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentItemView.swift; sourceTree = "<group>"; };
 		842EE06E26746B16007B1358 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		8430B9FD267728790028DE29 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
+		84393AFA267C832C005101FD /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		8441BB012632A52600F08AD9 /* RefreshableScrollView */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RefreshableScrollView; path = "../../../Dropbox/2. Work/Projects/iOS/Projects/RefreshableScrollView"; sourceTree = "<group>"; };
 		844698B826772EEF0081E6BA /* StoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryHeaderView.swift; sourceTree = "<group>"; };
 		844698BA267732790081E6BA /* StarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarView.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 			children = (
 				8446F9E2262580FC0098635A /* Color+Extension.swift */,
 				8405F228267B4703004B1CC0 /* BindingExtension.swift */,
+				84393AFA267C832C005101FD /* StringExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				842A24DD26393EF60092A45A /* User.swift in Sources */,
 				8446FA02262592110098635A /* SampleData.swift in Sources */,
 				8480FBF52637F7B80063976C /* SuggestedCommicView.swift in Sources */,
+				84393AFB267C832C005101FD /* StringExtension.swift in Sources */,
 				842A24C7263935A90092A45A /* NetworkModel.swift in Sources */,
 				8446F9DA262578FF0098635A /* StoryThumbnailView.swift in Sources */,
 				842A24CD2639369D0092A45A /* Entry.swift in Sources */,

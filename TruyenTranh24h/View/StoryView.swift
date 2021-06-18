@@ -37,7 +37,7 @@ struct StoryView: View {
                         // Tab view
                         TabView(selectedTab: $selectedTab)
                         if selectedTab == .content {
-                            StoryContentView()
+                            StoryContentView(story: $story)
                         } else {
                             StoryChapterView()
                         }
@@ -169,10 +169,12 @@ struct StoryView: View {
     }
     
     struct StoryContentView: View {
+        @Binding var story: Story
+        
         var body: some View {
             VStack (spacing: 20){
                 // Story summary
-                StorySummary()
+                StorySummary(story: $story)
                     .padding()
                 
                 LineView()
@@ -202,6 +204,11 @@ struct StoryView: View {
     }
     
     struct StorySummary: View {
+        @Binding var story: Story
+        @State var readMore = false
+        
+        private let numberOfWords = 50
+        
         var body: some View {
             VStack(alignment: .leading, spacing: 26) {
                 // Update on text
@@ -215,7 +222,7 @@ struct StoryView: View {
                         .font(.system(size: 12, weight: .regular))
                         .foregroundColor(Color("summaryTextFg"))
                     
-                    Text("Mollis Dolor")
+                    Text(story.title)
                         .font(.system(size: 12, weight: .light))
                         .italic()
                         .foregroundColor(Color("summaryTextFg"))
@@ -227,7 +234,7 @@ struct StoryView: View {
                         .font(.system(size: 12, weight: .regular))
                         .foregroundColor(Color("summaryTextFg"))
                     
-                    Text("Mollis Dolor")
+                    Text(story.title)
                         .font(.system(size: 12, weight: .light))
                         .italic()
                         .foregroundColor(Color("summaryTextFg"))
@@ -239,10 +246,25 @@ struct StoryView: View {
                         .foregroundColor(.black)
                     
                     // Description
-                    Text("Donec sed odio dui. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis interdum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam.")
-                        .font(.system(size: 12, weight: .light))
-                        .foregroundColor(Color("descriptionFg"))
-                        .lineSpacing(8)
+                    VStack (alignment: .leading, spacing: 10) {
+                        Text(readMore == true ? story.description : story.description.words(numberOfWords) + "...")
+                            .foregroundColor(Color("descriptionFg"))
+                            .font(.system(size: 12, weight: .light))
+                            .lineSpacing(8)
+                            .multilineTextAlignment(.leading)
+                            //.frame(height: (readMore == true ? 200 : 100))
+                            
+                        // Show read more button only if the number of words is more than 50
+                        if story.description.wordCounts > numberOfWords {
+                            Button(action: {
+                                readMore.toggle()
+                            }, label: {
+                                Text( readMore ? "less" : "read-more")
+                                .font(.system(size: 12, weight: .regular))
+                                .foregroundColor(Color("mainTitleText"))
+                            })
+                        }
+                    }
                 }
                
             }
@@ -257,5 +279,10 @@ struct StoryView_Previews: PreviewProvider {
         NavigationView {
             StoryView(story: SampleData.stories()[1])
         }
+//
+//        NavigationView {
+//            StoryView(story: SampleData.stories()[1])
+//                .environment(\.locale, .init(identifier: "vi"))
+//        }
     }
 }

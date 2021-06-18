@@ -32,3 +32,5 @@ read-now = "Đọc ngay";
 home = "Trang chủ";
 history = "Lịch sử";
 me = "Tôi";
+read-more = "Đọc thêm";
+less = "Thu nhỏ";
