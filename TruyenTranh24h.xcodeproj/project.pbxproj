@@ -185,7 +185,6 @@
 			isa = PBXGroup;
 			children = (
 				842A24E7263948140092A45A /* ErrorView.swift */,
-				8405F228267B4703004B1CC0 /* BindingExtension.swift */,
 				842A24E5263947F70092A45A /* RefreshView.swift */,
 				842A24E3263946F70092A45A /* InfiniteProgressView.swift */,
 				84251113263280AB008FD335 /* HomeView.swift */,
@@ -193,7 +192,6 @@
 				8446F9E72625865A0098635A /* Commic2ColumnView.swift */,
 				8479C3BF26733D2A00CCBDB0 /* Commic3ColumnView.swift */,
 				8480FBEE2637F3430063976C /* StoryView.swift */,
-				8405F224267B423F004B1CC0 /* ScrollOffSetViewModifier.swift */,
 				8405F222267B343E004B1CC0 /* HeaderBackgroundView.swift */,
 				848782B6267C397A002AF315 /* StoryToolbarView.swift */,
 				8405F22A267B514F004B1CC0 /* CacheImageView.swift */,
@@ -211,7 +209,6 @@
 				8430B9FD267728790028DE29 /* CommentView.swift */,
 				844698B826772EEF0081E6BA /* StoryHeaderView.swift */,
 				844698BA267732790081E6BA /* StarView.swift */,
-				844698BC267754B30081E6BA /* NavigationBarModifier.swift */,
 				849B5BBC26788917009ECDD7 /* NavBarAccessor.swift */,
 				849B5BBE2678A2BB009ECDD7 /* LineView.swift */,
 				8405F226267B43D0004B1CC0 /* ViewExtension.swift */,
@@ -251,6 +248,8 @@
 			isa = PBXGroup;
 			children = (
 				842A24E9263948450092A45A /* KeyboardAwareModifier.swift */,
+				844698BC267754B30081E6BA /* NavigationBarModifier.swift */,
+				8405F224267B423F004B1CC0 /* ScrollOffSetViewModifier.swift */,
 			);
 			path = "View Modifier";
 			sourceTree = "<group>";
@@ -334,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				8446F9E2262580FC0098635A /* Color+Extension.swift */,
+				8405F228267B4703004B1CC0 /* BindingExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";

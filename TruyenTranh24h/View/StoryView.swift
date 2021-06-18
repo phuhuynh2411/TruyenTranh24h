@@ -26,39 +26,43 @@ struct StoryView: View {
     
     var body: some View {
         ZStack(alignment: .top) {
-           // Color.blue.frame(height: 200)
-            ScrollView(showsIndicators: false) {
-                VStack {
-                    // Title
-                    StoryHeaderView(story: story)
-                        .frame(height: 160)
-                    
-                    // Tab view
-                    TabView(selectedTab: $selectedTab)
-                    if selectedTab == .content {
-                        StoryContentView()
-                    } else {
-                        StoryChapterView()
+            // Color.blue.frame(height: 200)
+            VStack {
+                ScrollView(showsIndicators: false) {
+                    VStack {
+                        // Title
+                        StoryHeaderView(story: story)
+                            .frame(height: 160)
+                        
+                        // Tab view
+                        TabView(selectedTab: $selectedTab)
+                        if selectedTab == .content {
+                            StoryContentView()
+                        } else {
+                            StoryChapterView()
+                        }
+                        
+                        
                     }
-                    
-                    // toolbar
-                    StoryToolbarView()
-                        .frame(height: 34)
-                        .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+                    .scrollOffSet(offset: $offset.onChange { changeScrollOffset($0) })
                 }
-                .scrollOffSet(offset: $offset.onChange { changeScrollOffset($0) })
+                .coordinateSpace(name: "scroll")
+                
+                // toolbar
+                LineView()
+                StoryToolbarView()
+                    .frame(height: 34)
+                    .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
             }
-            .coordinateSpace(name: "scroll")
-            
             
         }.background(headerBackgroundView)
         
         // Navigation settings
         .navigationBarColor(backgroundColor: showBackButton ? .white : .none , titleColor: .blue)
         // adjust back button
+        .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: navBarItems)
-        //.navigationBarItems(trailing: navTrailingView)
     }
     
     var headerBackgroundView: some View {
