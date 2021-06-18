@@ -25,3 +25,7 @@ related-stories = "Truyện liên quan";
 author = "Tác giả";
 category = "Thể loại";
 short-summary = "Tóm tắt nội dung";
+share = "Chia sẽ";
+like = "Thích";
+follow = "Theo dõi";
+read-now = "Đọc ngay";

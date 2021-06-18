@@ -16,7 +16,7 @@ struct ScrollOffSetViewModifier: ViewModifier {
                 Color.clear.preference(key: ViewOffsetKey.self,
                                        value: -$0.frame(in: .named("scroll")).origin.y)
             })
-            .onPreferenceChange(ViewOffsetKey.self) { print($0) ; self.offset = $0 }
+            .onPreferenceChange(ViewOffsetKey.self) { self.offset = $0 }
     }
     
     struct ViewOffsetKey: PreferenceKey {

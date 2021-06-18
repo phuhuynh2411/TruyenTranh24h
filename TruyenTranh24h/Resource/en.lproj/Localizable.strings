@@ -26,3 +26,7 @@ related-stories = "Related stories";
 author = "Author";
 category = "Category";
 short-summary = "Summary";
+share = "Share";
+like = "Like";
+follow = "Follow";
+read-now = "Read now";

@@ -41,6 +41,10 @@ struct StoryView: View {
                         StoryChapterView()
                     }
                     
+                    // toolbar
+                    StoryToolbarView()
+                        .frame(height: 34)
+                        .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                 }
                 .scrollOffSet(offset: $offset.onChange { changeScrollOffset($0) })
             }
@@ -86,19 +90,16 @@ struct StoryView: View {
         }
         .frame(width: UIScreen.main.bounds.width)
         .background(
-            Group {
-                if offset > 0 {
-                    HStack {
-                        CacheImageView(stringURL: story.featureImage)
-                            .frame(width: 30, height: 30)
-                            .clipShape(Circle())
-                        
-                        Text(story.title)
-                            .font(.system(size: 13, weight: .bold))
-                            .foregroundColor(.black)
-                    }
-                }
+            HStack {
+                CacheImageView(stringURL: story.featureImage)
+                    .frame(width: 30, height: 30)
+                    .clipShape(Circle())
+                
+                Text(story.title)
+                    .font(.system(size: 13, weight: .bold))
+                    .foregroundColor(.black)
             }
+            .opacity(offset > 0 ? 1 : 0)
         )
     }
     

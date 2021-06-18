@@ -19,7 +19,7 @@ struct HeaderBackgroundView: View {
                 .resizable()
                 .renderingMode(.original)
                 .scaledToFill()
-                .frame(width: UIScreen.main.bounds.width, height: height)
+                .frame(width: UIScreen.main.bounds.width, height: height > 0 ? height: 0)
                 .clipped()
                 .overlay(Color.blue.opacity(0.3))
             
