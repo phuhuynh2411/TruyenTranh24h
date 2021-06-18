@@ -53,7 +53,8 @@ struct StoryView: View {
         .navigationBarColor(backgroundColor: showBackButton ? .white : .none , titleColor: .blue)
         // adjust back button
         .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: backButtonView)
+        .navigationBarItems(leading: navBarItems)
+        //.navigationBarItems(trailing: navTrailingView)
     }
     
     var headerBackgroundView: some View {
@@ -64,7 +65,7 @@ struct StoryView: View {
         }
     }
     
-    var backButtonView: some View {
+    var navBarItems: some View {
         HStack {
             Button(action: {
                 presentationMode.wrappedValue.dismiss()
@@ -81,22 +82,24 @@ struct StoryView: View {
             })
             .padding(.leading, 16)
             
-            if offset > 0 {
-                HStack {
-                    CacheImageView(stringURL: story.featureImage)
-                        .frame(width: 30, height: 30)
-                        .clipShape(Circle())
-                    
-                    Text(story.title)
-                        .font(.system(size: 13, weight: .bold))
-                        .foregroundColor(.black)
-                }
-            }
-            
             Spacer()
         }
         .frame(width: UIScreen.main.bounds.width)
-       
+        .background(
+            Group {
+                if offset > 0 {
+                    HStack {
+                        CacheImageView(stringURL: story.featureImage)
+                            .frame(width: 30, height: 30)
+                            .clipShape(Circle())
+                        
+                        Text(story.title)
+                            .font(.system(size: 13, weight: .bold))
+                            .foregroundColor(.black)
+                    }
+                }
+            }
+        )
     }
     
     private func changeScrollOffset(_ offset: CGFloat) {
