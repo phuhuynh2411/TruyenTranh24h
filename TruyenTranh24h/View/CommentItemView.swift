@@ -44,7 +44,11 @@ struct CommentItemView: View {
                     })
                     
                 }
+                // line view
+                LineView()
             }
+            
+           
         }
         .padding(.leading, comment.parentId != nil ? indent : 0 )
     }

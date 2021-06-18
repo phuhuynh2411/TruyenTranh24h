@@ -170,17 +170,25 @@ struct StoryView: View {
     
     struct StoryContentView: View {
         @Binding var story: Story
+        @State var comments = SampleData.comments().prefix(5)
         
         var body: some View {
             VStack (spacing: 20){
                 // Story summary
                 StorySummary(story: $story)
-                    .padding()
+                    .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                 
                 LineView()
                 // Comments
-                CommentView(comments: SampleData.comments())
-                    .padding()
+                CommentView(comments: Array(comments))
+                    .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+                
+                // All comments section
+                Button(action: {}, label: {
+                    Text("all-comments (\(comments.count.description))")
+                        .font(.system(size: 12, weight: .light))
+                        .foregroundColor(Color("mainTitleText"))
+                })
                 
                 LineView()
                 VStack (alignment: .leading){

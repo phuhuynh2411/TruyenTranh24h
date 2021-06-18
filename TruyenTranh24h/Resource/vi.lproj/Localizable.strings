@@ -34,3 +34,4 @@ history = "Lịch sử";
 me = "Tôi";
 read-more = "Đọc thêm";
 less = "Thu nhỏ";
+"all-comments (%@)" = "Tất cả bình luận (%@)";

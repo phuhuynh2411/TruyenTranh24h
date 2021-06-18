@@ -35,3 +35,4 @@ history = "History";
 me = "Me";
 read-more = "Read more";
 less = "Less";
+"all-comments (%@)" = "All comments (%@)";
