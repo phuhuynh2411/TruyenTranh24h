@@ -171,6 +171,7 @@ struct StoryView: View {
     struct StoryContentView: View {
         @Binding var story: Story
         @State var comments = SampleData.comments().prefix(5)
+        @State var commentValue: String = ""
         
         var body: some View {
             VStack (spacing: 20){
@@ -189,6 +190,10 @@ struct StoryView: View {
                         .font(.system(size: 12, weight: .light))
                         .foregroundColor(Color("mainTitleText"))
                 })
+                
+                // Comment input view
+                CommentInputView(textValue: $commentValue)
+                    .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                 
                 LineView()
                 VStack (alignment: .leading){

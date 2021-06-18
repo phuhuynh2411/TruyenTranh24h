@@ -36,3 +36,4 @@ me = "Me";
 read-more = "Read more";
 less = "Less";
 "all-comments (%@)" = "All comments (%@)";
+enter-comment = "Enter your comment";

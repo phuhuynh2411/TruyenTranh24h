@@ -21,15 +21,17 @@ struct CommentInputView: View {
             ZStack {
                 HStack {
                     Spacer()
-                    Image("smile")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 14, height: 14)
-                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 16))
-                        .foregroundColor(.red)
+                    Button(action: {}, label: {
+                        Image("smile")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 14, height: 14)
+                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 16))
+                            .foregroundColor(.red)
+                    })
                 }
                 
-                TextField("search-box-placeholder", text: textValue)
+                TextField("enter-comment", text: textValue)
                     .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 32))
                     .font(.system(size: 10, weight: .light))
                     .frame(height: 32)
@@ -39,10 +41,12 @@ struct CommentInputView: View {
             .cornerRadius(16.0)
             
             // Send button
-            Image("send")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 16, height: 16)
+            Button(action: {}, label: {
+                Image("send")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 16, height: 16)
+            })
         }
     }
 }

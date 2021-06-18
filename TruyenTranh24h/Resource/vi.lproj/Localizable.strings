@@ -35,3 +35,4 @@ me = "Tôi";
 read-more = "Đọc thêm";
 less = "Thu nhỏ";
 "all-comments (%@)" = "Tất cả bình luận (%@)";
+enter-comment = "Nhập nôi dung bình luận";
