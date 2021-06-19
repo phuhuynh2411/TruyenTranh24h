@@ -38,6 +38,7 @@ struct StoryView: View {
                         TabView(selectedTab: $selectedTab)
                         if selectedTab == .content {
                             StoryContentView(story: $story)
+                                .padding(.top, 16)
                         } else {
                             StoryChapterView()
                         }
@@ -54,13 +55,15 @@ struct StoryView: View {
                     .frame(height: 34)
                     .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
             }
-            
-        }.background(headerBackgroundView)
+                        
+        }
+        .background(headerBackgroundView)
         
         // Navigation settings
-        .navigationBarColor(backgroundColor: showBackButton ? .white : .none , titleColor: .blue)
+        .navigationBarColor(backgroundColor: showBackButton ? .white : .none , titleColor: .black)
         // adjust back button
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarTitle("none")  // need this one to have a full-width navigation bar
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: navBarItems)
     }
@@ -75,36 +78,29 @@ struct StoryView: View {
     
     var navBarItems: some View {
         HStack {
-            Button(action: {
-                presentationMode.wrappedValue.dismiss()
-            }, label: {
-                HStack {
-                    Image(systemName: "chevron.backward")
-                        .resizable()
-                        .frame(width: 10, height: 19)
-                        .foregroundColor(offset > 1 ? .gray : .white)
-                    
-                    Spacer()
+            BackButtonView()
+                .foregroundColor(offset > 1 ? .gray : .white)
+                .onTapGesture {
+                    presentationMode.wrappedValue.dismiss()
                 }
-                .frame(width: 40, height: 30)
-            })
-            .padding(.leading, 16)
-            
+                .padding(.leading, 16)
+
+
             Spacer()
         }
-        .frame(width: UIScreen.main.bounds.width)
         .background(
             HStack {
                 CacheImageView(stringURL: story.featureImage)
                     .frame(width: 30, height: 30)
                     .clipShape(Circle())
-                
+
                 Text(story.title)
                     .font(.system(size: 13, weight: .bold))
                     .foregroundColor(.black)
             }
             .opacity(offset > 0 ? 1 : 0)
         )
+        .frame(width: UIScreen.main.bounds.width)
     }
     
     private func changeScrollOffset(_ offset: CGFloat) {
@@ -185,11 +181,20 @@ struct StoryView: View {
                     .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                 
                 // All comments section
-                Button(action: {}, label: {
+//                Button(action: {
+//
+//                }, label: {
+//                    Text("all-comments (\(comments.count.description))")
+//                        .font(.system(size: 12, weight: .light))
+//                        .foregroundColor(Color("mainTitleText"))
+//                })
+                NavigationLink (
+                    destination: AllCommentsView(comments: SampleData.comments())){
+                    
                     Text("all-comments (\(comments.count.description))")
                         .font(.system(size: 12, weight: .light))
                         .foregroundColor(Color("mainTitleText"))
-                })
+                }
                 
                 // Comment input view
                 CommentInputView(textValue: $commentValue)
@@ -213,8 +218,6 @@ struct StoryView: View {
     struct StoryChapterView: View {
         var body: some View {
             ChapterListView(chapters: SampleData.chapters())
-                .padding(.leading, 16)
-                .padding(.trailing, 16)
         }
     }
     

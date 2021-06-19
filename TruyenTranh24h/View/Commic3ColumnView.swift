@@ -16,6 +16,8 @@ struct Commic3ColumnView: View {
     private let screenWidth = UIScreen.main.bounds.width
     private let thumbnailWidth: CGFloat = UIScreen.main.bounds.width/3 - (52/3)
     
+    @State private var showStoryDetail = false
+    
     var body: some View {
         let n = stories.count
         let c3 = n / 3
@@ -43,42 +45,24 @@ struct Commic3ColumnView: View {
             HStack(alignment: .top, spacing: 10) {
                 VStack {
                     ForEach(column1Stories) { story in
-                        NavigationLink(destination: StoryView(story: story)) {
-                            StoryThumbnailView(story: story, thumbnailHeight: self.thumbnailHeight)
-                                //.frame(width: thumbnailWidth, height: 168)
-                        }
-                        .buttonStyle(PlainButtonStyle())
+                        StoryCellView(story: story, height: thumbnailHeight)
                     }
                 }
                 .frame(width: thumbnailWidth)
-                
-                //.background(Color.red)
-                
                 
                 VStack {
                     ForEach(column2Stories) { story in
-                        NavigationLink(destination: StoryView(story: story)) {
-                            StoryThumbnailView(story: story, thumbnailHeight: self.thumbnailHeight)
-                                //.frame(width: thumbnailWidth, height: 168)
-                        }
-                        .buttonStyle(PlainButtonStyle())
+                        StoryCellView(story: story, height: thumbnailHeight)
                     }
                 }
                 .frame(width: thumbnailWidth)
-                //.background(Color.blue)
-                
                 
                 VStack {
                     ForEach(column3Stories) { story in
-                        NavigationLink(destination: StoryView(story: story)) {
-                            StoryThumbnailView(story: story, thumbnailHeight: self.thumbnailHeight)
-                                //.frame(width: thumbnailWidth, height: 168)
-                        }
-                        .buttonStyle(PlainButtonStyle())
+                        StoryCellView(story: story, height: thumbnailHeight)
                     }
                 }
                 .frame(width: thumbnailWidth)
-                //.background(Color.green)
             }
             
             // See more button
@@ -92,6 +76,27 @@ struct Commic3ColumnView: View {
                         .cornerRadius(13.0)
                 }
             }
+        }
+    }
+    
+    struct StoryCellView: View {
+        @State private var showStoryDetail = false
+        @State var story: Story
+        @State var height: CGFloat?
+        
+        var body: some View {
+            Button(action: {
+                showStoryDetail.toggle()
+            }, label: {
+                StoryThumbnailView(story: story, thumbnailHeight: height)
+            })
+            .buttonStyle(PlainButtonStyle())
+            
+            .fullScreenCover(isPresented: $showStoryDetail, content: {
+                NavigationView {
+                    StoryView(story: story)
+                }
+            })
         }
     }
 }

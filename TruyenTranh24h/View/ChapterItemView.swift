@@ -27,7 +27,7 @@ struct ChapterItemView: View {
             }
             Spacer()
             
-            LineView()
+            //LineView()
         }
         
     }

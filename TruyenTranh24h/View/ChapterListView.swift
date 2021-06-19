@@ -38,12 +38,15 @@ struct ChapterListView: View {
                     })
                 }
             }
-            .padding(.bottom, 25)
-            .padding(.top, 25)
+            .padding(EdgeInsets(top: 25, leading: 16, bottom: 25, trailing: 16))
             
             ForEach(chapters){ chapter in
                 ChapterItemView(chapter: chapter)
-                    .frame(height: 40)
+                    .frame(height: 50)
+                    .padding(.leading, 16)
+                    .padding(.trailing, 16)
+                
+                LineView()
             }
         }
     }

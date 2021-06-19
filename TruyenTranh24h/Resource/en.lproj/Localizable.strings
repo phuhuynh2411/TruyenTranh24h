@@ -39,3 +39,4 @@ less = "Less";
 enter-comment = "Enter your comment";
 newest = "Newest";
 oldest = "Oldest";
+all-comments = "All comments";
