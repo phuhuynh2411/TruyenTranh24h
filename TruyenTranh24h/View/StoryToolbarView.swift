@@ -55,19 +55,23 @@ struct StoryToolbarView: View {
             })
             .frame(maxWidth: .infinity)
             
-            Button(action: {}, label: {
-                VStack {
-                    Spacer()
-                    
-                    Text("read-now")
-                        .font(.system(size: 13, weight: .medium))
-                        .foregroundColor(.white)
-            
-                    Spacer()
+            Button(action: {
+                
+            }, label: {
+                NavigationLink( destination: ReadStoryView(stories: SampleData.stories())){
+                    VStack {
+                        Spacer()
+                        
+                        Text("read-now")
+                            .font(.system(size: 13, weight: .medium))
+                            .foregroundColor(.white)
+                        
+                        Spacer()
+                    }
+                    .frame(width: 150)
+                    .background(Color("readNowBg"))
+                    .cornerRadius(17)
                 }
-                .frame(width: 150)
-                .background(Color("readNowBg"))
-                .cornerRadius(17)
             })
             
         }

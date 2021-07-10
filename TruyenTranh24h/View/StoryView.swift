@@ -169,6 +169,13 @@ struct StoryView: View {
         @State var comments = SampleData.comments().prefix(5)
         @State var commentValue: String = ""
         
+        private var leftImage: AnyView {
+            let image = RemoteImageView(stringURL: "")
+                .frame(width: 32, height: 32)
+                .clipShape(Circle())
+            return AnyView(image)
+        }
+        
         var body: some View {
             VStack (spacing: 20){
                 // Story summary
@@ -197,7 +204,7 @@ struct StoryView: View {
                 }
                 
                 // Comment input view
-                CommentInputView(textValue: $commentValue)
+                CommentInputView(textValue: $commentValue, leftImage: leftImage)
                     .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                 
                 LineView()

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 13">
+  <g id="bulleted-list" transform="translate(0 -19.242)">
+    <g id="Group_1546" data-name="Group 1546" transform="translate(0 19.242)">
+      <g id="Group_1545" data-name="Group 1545" transform="translate(0 0)">
+        <path id="Path_233" data-name="Path 233" d="M1.69,22.351H12.31a1.56,1.56,0,1,0,0-3.109H1.69a1.56,1.56,0,1,0,0,3.109Zm0-2.35a.8.8,0,1,1,0,1.592A.8.8,0,1,1,1.69,20Z" transform="translate(0 -19.242)" fill="#f6f6f6"/>
+        <path id="Path_234" data-name="Path 234" d="M12.31,211.643H1.69a1.56,1.56,0,1,0,0,3.109H12.31a1.56,1.56,0,1,0,0-3.109ZM1.69,213.993a.8.8,0,1,1,0-1.592.8.8,0,1,1,0,1.592Z" transform="translate(0 -206.697)" fill="#f6f6f6"/>
+        <path id="Path_235" data-name="Path 235" d="M12.31,404.045H1.69a1.56,1.56,0,1,0,0,3.109H12.31a1.56,1.56,0,1,0,0-3.109ZM1.69,406.4a.8.8,0,1,1,0-1.592.8.8,0,1,1,0,1.592Z" transform="translate(0 -394.154)" fill="#f6f6f6"/>
+      </g>
+    </g>
+  </g>
+</svg>

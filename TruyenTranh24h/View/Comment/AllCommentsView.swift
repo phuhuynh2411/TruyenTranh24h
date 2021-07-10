@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RemoteImageView
 
 struct AllCommentsView: View {
     @State private var selectedFilter: CommentFilter = .newest
@@ -13,6 +14,13 @@ struct AllCommentsView: View {
     @State var inputText: String = ""
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    private var leftImage: AnyView {
+        let image = RemoteImageView(stringURL: "")
+            .frame(width: 32, height: 32)
+            .clipShape(Circle())
+        return AnyView(image)
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -43,7 +51,7 @@ struct AllCommentsView: View {
             .padding(.top, 16)
             
             // Comment input view
-            CommentInputView(textValue: $inputText)
+            CommentInputView(textValue: $inputText, leftImage: leftImage)
         }
         .padding(EdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 16))
         // navigation setting

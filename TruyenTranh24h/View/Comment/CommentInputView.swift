@@ -10,13 +10,13 @@ import RemoteImageView
 
 struct CommentInputView: View {
     var textValue: Binding<String>
+    var badgeText: String?
+    @State var leftImage: AnyView
     
     var body: some View {
         HStack(spacing: 13) {
             // user avatar
-            RemoteImageView(stringURL: "")
-                .frame(width: 32, height: 32)
-                .clipShape(Circle())
+            leftImage
             
             ZStack {
                 HStack {
@@ -53,8 +53,16 @@ struct CommentInputView: View {
 
 struct CommentInputView_Previews: PreviewProvider {
     @State static var text: String = ""
+    static var leftImage: AnyView {
+        let image = RemoteImageView(stringURL: "")
+            .frame(width: 32, height: 32)
+            .clipShape(Circle())
+        return AnyView(image)
+    }
+    
+    
     static var previews: some View {
-        CommentInputView(textValue: $text)
+        CommentInputView(textValue: $text, leftImage: leftImage)
            
     }
 }
