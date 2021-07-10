@@ -71,6 +71,8 @@ struct StoryToolbarView: View {
                     .frame(width: 150)
                     .background(Color("readNowBg"))
                     .cornerRadius(17)
+                    .navigationBarHidden(true)
+
                 }
             })
             

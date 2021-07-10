@@ -25,55 +25,64 @@ struct StoryView: View {
     @State private var image: Image?
     
     var body: some View {
-        ZStack(alignment: .top) {
-            // Color.blue.frame(height: 200)
-            VStack(spacing: 0) {
-                ScrollView(showsIndicators: false) {
-                    VStack {
-                        // Title
-                        StoryHeaderView(story: story)
-                            .frame(height: 160)
-                        
-                        // Tab view
-                        TabView(selectedTab: $selectedTab)
-                        if selectedTab == .content {
-                            StoryContentView(story: $story)
-                                .padding(.top, 16)
-                        } else {
-                            StoryChapterView()
+        VStack {
+            navBarItems
+                .frame(height: 50)
+                .background(barBackgroundView)
+            
+            ZStack(alignment: .top) {
+                // Color.blue.frame(height: 200)
+                VStack(spacing: 0) {
+                    ScrollView(showsIndicators: false) {
+                        VStack {
+                            // Title
+                            StoryHeaderView(story: story)
+                                .frame(height: 140)
+                            
+                            // Tab view
+                            TabView(selectedTab: $selectedTab)
+                            if selectedTab == .content {
+                                StoryContentView(story: $story)
+                                    .padding(.top, 16)
+                            } else {
+                                StoryChapterView()
+                            }
+                            
+                            
                         }
-                        
-                        
+                        .scrollOffSet(offset: $offset.onChange { changeScrollOffset($0) })
                     }
-                    .scrollOffSet(offset: $offset.onChange { changeScrollOffset($0) })
+                    .coordinateSpace(name: "scroll")
+                    
+                    // toolbar
+                    LineView()
+                    StoryToolbarView()
+                        .frame(height: 34)
+                        .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
                 }
-                .coordinateSpace(name: "scroll")
                 
-                // toolbar
-                LineView()
-                StoryToolbarView()
-                    .frame(height: 34)
-                    .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
             }
-                        
+            .navigationBarHidden(true)
+            
         }
         .background(headerBackgroundView)
-        
-        // Navigation settings
-        .navigationBarColor(backgroundColor: showBackButton ? .white : .none , titleColor: .black)
-        // adjust back button
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarTitle("none")  // need this one to have a full-width navigation bar
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: navBarItems)
     }
     
     var headerBackgroundView: some View {
         VStack {
             HeaderBackgroundView(height: $imageBackgroundHeight, stringURL: story.featureImage)
-                .offset(y: -100 )
+                .offset(y: -60 )
             Spacer()
         }
+    }
+    
+    var barBackgroundView: some View {
+        EmptyView()
+            //.white
+            .frame(height: 130)
+            .background(showBackButton ? Color.white : Color.clear)
+            .offset(y: -30)
+
     }
     
     var navBarItems: some View {
@@ -84,7 +93,6 @@ struct StoryView: View {
                     presentationMode.wrappedValue.dismiss()
                 }
                 .padding(.leading, 16)
-
 
             Spacer()
         }
@@ -100,7 +108,6 @@ struct StoryView: View {
             }
             .opacity(offset > 0 ? 1 : 0)
         )
-        .frame(width: UIScreen.main.bounds.width)
     }
     
     private func changeScrollOffset(_ offset: CGFloat) {

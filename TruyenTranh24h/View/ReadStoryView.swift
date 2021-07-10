@@ -80,9 +80,9 @@ struct ReadStoryView: View {
                 )
                
             }
-            
+            .navigationBarHidden(true)
+
         }
-        .navigationBarHidden(true)
     }
     
     private var commentIcon: AnyView {
