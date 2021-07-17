@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct Story: Codable, Identifiable {
+struct Story: Codable, Identifiable, Equatable {
+    static func == (lhs: Story, rhs: Story) -> Bool {
+        lhs.id == rhs.id
+    }
+    
     let id: Int
     let userId: Int
     let title: String

@@ -10,11 +10,54 @@ import RemoteImageView
 
 struct ReadStoryView: View {
     @State var stories: [Story]
-    @State var inputText: String = ""
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @State var showComment = false
     
     var body: some View {
         ZStack {
+            EquatableView(content: ListImageView(stories: $stories))
+            
+            // Comment input view
+            if showComment {
+                CommentView()
+            }
+        }
+        .navigationBarHidden(true)
+        .onTapGesture {
+            withAnimation {
+                showComment.toggle()
+            }
+        }
+    }
+    
+    var navBarItems: some View {
+        HStack {
+            BackButtonView()
+                .foregroundColor(.white)
+                .onTapGesture {
+                    presentationMode.wrappedValue.dismiss()
+                }
+                .padding(.leading, 16)
+            
+            Spacer()
+        }
+        .background(
+            Color.black
+                .opacity(0.7)
+                .brightness(-39)
+        )
+        .frame(width: UIScreen.main.bounds.width)
+    }
+    
+    struct ListImageView: View, Equatable {
+        
+        static func == (lhs: ReadStoryView.ListImageView, rhs: ReadStoryView.ListImageView) -> Bool {
+            lhs.stories == rhs.stories
+        }
+        
+        @Binding var stories: [Story]
+        
+        var body: some View {
             ScrollView {
                 LazyVStack {
                     ForEach(stories){ story in
@@ -22,7 +65,14 @@ struct ReadStoryView: View {
                     }
                 }
             }
-            
+        }
+    }
+    
+    struct CommentView: View {
+        @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+        @State var inputText: String = ""
+
+        var body: some View {
             // Comment input view
             VStack {
                 HStack {
@@ -44,8 +94,7 @@ struct ReadStoryView: View {
                     .background(
                         Color.black
                             .frame(height: 180)
-                            .opacity(0.7)
-                            .brightness(-39)
+                            .opacity(0.5)
                             .offset(y: -70)
                     )
                 }
@@ -74,39 +123,17 @@ struct ReadStoryView: View {
                 .background(
                     Color.black
                     .frame(height: 200)
-                    .opacity(0.7)
-                    .brightness(-39)
+                    .opacity(0.5)
                     .offset(y: 50)
                 )
                
             }
-            .navigationBarHidden(true)
-
         }
-    }
-    
-    private var commentIcon: AnyView {
-        let image = Image("comment")
-        return AnyView(image)
-    }
-    
-    var navBarItems: some View {
-        HStack {
-            BackButtonView()
-                .foregroundColor(.white)
-                .onTapGesture {
-                    presentationMode.wrappedValue.dismiss()
-                }
-                .padding(.leading, 16)
-            
-            Spacer()
+        
+        private var commentIcon: AnyView {
+            let image = Image("comment")
+            return AnyView(image)
         }
-        .background(
-            Color.black
-                .opacity(0.7)
-                .brightness(-39)
-        )
-        .frame(width: UIScreen.main.bounds.width)
     }
     
 }
