@@ -97,7 +97,7 @@ private struct FoundStoryView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("recent-search")
+                Text("found-story")
                     .font(.system(size: 14, weight: .bold, design: .default))
                 Spacer()
             }

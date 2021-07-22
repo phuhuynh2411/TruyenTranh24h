@@ -9,10 +9,12 @@ import SwiftUI
 
 struct ViewMoreView: View {
     @State var searchValue: String = ""
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         ScrollView(showsIndicators: false) {
+            TopView()
+                .padding()
+            
             VStack(alignment: .leading) {
                 VStack(spacing: 20) {
                     //search field
@@ -24,28 +26,24 @@ struct ViewMoreView: View {
                 .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
             }
         }
-        .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
-        
         // navigation settings
-        .navigationBarItems(leading: navItemsView)
-        .navigationBarBackButtonHidden(true)
-        
-        //Commic3ColumnView(stories: SampleData.stories(), thumbnailHeight: 130, moreButton: false)
-    }
+        .navigationBarHidden(true)
     
-    var navItemsView: some View {
+    }
+}
+
+private struct TopView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    var body: some View {
         HStack {
             BackButtonView()
                 .foregroundColor(Color("backButtonFg"))
                 .onTapGesture {
                     presentationMode.wrappedValue.dismiss()
                 }
-            //search category
-            
             SearchCategoryView(categories: SampleData.searchCategories(), selectedCategory: SampleData.searchCategories()[0])
         }
-        .frame(width: UIScreen.main.bounds.width)
-        //.background(Color.blue)
     }
 }
 
