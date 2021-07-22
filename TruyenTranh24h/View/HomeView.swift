@@ -25,7 +25,13 @@ struct HomeView: View {
                         .frame(width: 13, height: 13)
                 }
                 
-                SearchFieldView(textValue: $searchValue)
+                Button(action: {}, label: {
+                    NavigationLink(
+                        destination: SearchStoryView()) {
+                        SearchFieldView(textValue: $searchValue, disable: true)
+                    }
+                })
+
             }
             .padding(EdgeInsets(top: 0, leading: self.padding, bottom: 0, trailing: self.padding))
     }
@@ -53,6 +59,7 @@ struct HomeView: View {
                 VStack(spacing: 20) {
                     // Top views
                     topViews()
+                        .padding(.top)
 
                     // Carousel view
                     CarouselView(items: SampleData.carousels(),
@@ -90,18 +97,4 @@ struct Home_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
     }
-}
-
-struct NavigationConfigurator: UIViewControllerRepresentable {
-    var configure: (UINavigationController) -> Void = { _ in }
-
-    func makeUIViewController(context: UIViewControllerRepresentableContext<NavigationConfigurator>) -> UIViewController {
-        UIViewController()
-    }
-    func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<NavigationConfigurator>) {
-        if let nc = uiViewController.navigationController {
-            self.configure(nc)
-        }
-    }
-
 }

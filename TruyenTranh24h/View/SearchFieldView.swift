@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SearchFieldView: View {
     var textValue: Binding<String>
+    var disable: Bool = false
     
     var body: some View {
         ZStack(alignment: .topTrailing) {
@@ -21,6 +22,7 @@ struct SearchFieldView: View {
             TextField("search-box-placeholder", text: textValue)
                 .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 32))
                 .font(.system(size: 10, weight: .light))
+                .disabled(disable)
             
         }
         .frame(height: 30)

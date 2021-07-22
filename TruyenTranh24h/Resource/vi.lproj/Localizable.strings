@@ -39,3 +39,6 @@ enter-comment = "Nhập nôi dung bình luận";
 newest = "Mới nhất";
 oldest = "Cũ nhât";
 all-comments = "Tất cả bình luận";
+popular-search = "Tìm kiếm nổi bật";
+clear-all = "Xoá tất cả";
+recent-search = "Tìm kiếm gần đây";

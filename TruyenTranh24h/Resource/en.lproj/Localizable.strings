@@ -40,3 +40,6 @@ enter-comment = "Enter your comment";
 newest = "Newest";
 oldest = "Oldest";
 all-comments = "All comments";
+popular-search = "Popular search";
+clear-all = "Clear all";
+recent-search = "Recent search";
