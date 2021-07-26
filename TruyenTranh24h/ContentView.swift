@@ -19,14 +19,14 @@ struct ContentView: View {
                     Text("home")
                 }
             
-            SuggestedCommicView()
+            CategoryView()
                 .tabItem {
                     Image("category-1")
                         .renderingMode(.template)
                     Text("category")
                 }
             
-            Text("History")
+            HistoryView(stories: SampleData.stories())
                 .tabItem {
                     Image("history")
                         .renderingMode(.template)
@@ -34,7 +34,7 @@ struct ContentView: View {
                     Text("history")
                 }
             
-            Text("Follow")
+            FollowView(stories: SampleData.stories())
                 .tabItem {
                     Image("star-1")
                         .renderingMode(.template)
