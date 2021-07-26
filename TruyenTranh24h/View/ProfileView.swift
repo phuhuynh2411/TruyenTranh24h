@@ -9,11 +9,13 @@ import SwiftUI
 
 struct ProfileView: View {
     var body: some View {
-        VStack {
-            TopView()
-                .frame(height: 50)
-            
-            NotLogginView()
+        NavigationView {
+            VStack {
+                TopView()
+                    .frame(height: 50)
+                
+                NotLogginView()
+            }
         }
     }
 }
@@ -25,7 +27,13 @@ private struct NotLogginView: View {
             Image("avatar_placeholder")
             Text("press-here-to-login")
                 .font(.system(size: 14, weight: .medium))
-            OrrangeButtonView(text: "register")
+            
+            Button(action: {}, label: {
+                NavigationLink(destination: RegisterLoginView()) {
+                    OrrangeButtonView(text: "register")
+                }
+            })
+            .buttonStyle(PlainButtonStyle())
             
             Spacer()
         }
@@ -47,5 +55,6 @@ private struct TopView: View {
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView()
+            .navigationBarHidden(true)
     }
 }

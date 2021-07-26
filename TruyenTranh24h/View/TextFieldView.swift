@@ -22,15 +22,16 @@ struct TextFieldView: View {
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 16))
                 .foregroundColor(Color("iconGray"))
             
-            TextField(placeholderText, text: textValue)
+            TextField(LocalizedStringKey(placeholderText), text: textValue)
                 .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 32))
-                .font(.system(size: 10, weight: .light))
+                .font(.system(size: 13, weight: .light))
                 .disabled(disable)
             
         }
-        .frame(height: 30)
+        .frame(height: 40)
         .background(Color("textFieldBg"))
         .cornerRadius(16.0)
+
     }
     
 }
