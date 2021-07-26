@@ -47,3 +47,6 @@ found-story = "Found stories";
 press-here-to-login = "Press here to login";
 register = "Register";
 profile = "Profile";
+username = "Username";
+password = "Password";
+forgot-password = "Forgot password";

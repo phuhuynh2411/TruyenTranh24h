@@ -46,3 +46,6 @@ found-story = "Tìm thấy truyện";
 press-here-to-login = "Bấm vào đây để đăng nhập";
 register = "Đăng ký";
 profile = "Hồ sơ";
+username = "Tài khoản";
+password = "Mật khẩu";
+forgot-password = "Quên mật khẩu";
