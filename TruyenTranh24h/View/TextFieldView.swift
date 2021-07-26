@@ -11,7 +11,7 @@ struct TextFieldView: View {
     var textValue: Binding<String>
     var disable: Bool = false
     var placeholderText: String = "Enter value"
-    var rightIcon: Image? =  Image(systemName: "magnifyingglass")
+    var rightIcon: Image?
     
     var body: some View {
         ZStack(alignment: .topTrailing) {

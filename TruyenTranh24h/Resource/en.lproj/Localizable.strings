@@ -56,3 +56,5 @@ you-dont-have-a-account = "You don't have a account?";
 first-name = "First name";
 last-name = "Last name";
 confirm-password = "Confirm password";
+enter-email = "Enter email";
+send = "Send";

@@ -50,12 +50,14 @@ private struct SignInView: View {
                 
                 HStack {
                     Spacer()
-                    Button(action: {}, label: {
-                        Group { Text("forgot-password") + Text(" ?") }
-                            .font(.system(size: 12, weight: .regular))
-                            .foregroundColor(Color("categoryTextFg"))
-                        
-                    })
+                    Button(action: {}) {
+                        NavigationLink(
+                            destination: ForgotPasswordView() ){
+                            Group { Text("forgot-password") + Text(" ?") }
+                                .font(.system(size: 12, weight: .regular))
+                                .foregroundColor(Color("categoryTextFg"))
+                        }
+                    }
                     .buttonStyle(PlainButtonStyle())
                 }
             }

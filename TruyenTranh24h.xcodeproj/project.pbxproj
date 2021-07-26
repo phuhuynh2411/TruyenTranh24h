@@ -91,6 +91,7 @@
 		84A454DA267208FB002499B2 /* TrailerViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A454D9267208FB002499B2 /* TrailerViewItem.swift */; };
 		84A454DC26720F69002499B2 /* TrailerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A454DB26720F69002499B2 /* TrailerView.swift */; };
 		84CFF93D262598CD0034CACB /* SampleDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF93C262598CD0034CACB /* SampleDataTest.swift */; };
+		84D563A426AF060D006127DF /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D563A326AF060D006127DF /* ForgotPasswordView.swift */; };
 		84D6A2A6266A03FC0029B8D1 /* SearchFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D6A2A5266A03FC0029B8D1 /* SearchFieldView.swift */; };
 		84D6A2A8266A10100029B8D1 /* HotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D6A2A7266A10100029B8D1 /* HotView.swift */; };
 /* End PBXBuildFile section */
@@ -194,6 +195,7 @@
 		84A454D9267208FB002499B2 /* TrailerViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerViewItem.swift; sourceTree = "<group>"; };
 		84A454DB26720F69002499B2 /* TrailerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerView.swift; sourceTree = "<group>"; };
 		84CFF93C262598CD0034CACB /* SampleDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDataTest.swift; sourceTree = "<group>"; };
+		84D563A326AF060D006127DF /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		84D6A2A5266A03FC0029B8D1 /* SearchFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFieldView.swift; sourceTree = "<group>"; };
 		84D6A2A7266A10100029B8D1 /* HotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -266,6 +268,7 @@
 				845DF36126AE6B080069DE10 /* OrrangeButtonView.swift */,
 				845DF36326AE70F40069DE10 /* RegisterLoginView.swift */,
 				840A858126AE8F1E00FDEF38 /* TextFieldView.swift */,
+				84D563A326AF060D006127DF /* ForgotPasswordView.swift */,
 				84393AFE267C9516005101FD /* Comment */,
 			);
 			path = View;
@@ -582,6 +585,7 @@
 				84A454DC26720F69002499B2 /* TrailerView.swift in Sources */,
 				8479C3BA2673196C00CCBDB0 /* SearchCategory.swift in Sources */,
 				842A24D5263937A10092A45A /* NotificationCenter+Extension.swift in Sources */,
+				84D563A426AF060D006127DF /* ForgotPasswordView.swift in Sources */,
 				8479C3BE26733A0600CCBDB0 /* ViewMoreView.swift in Sources */,
 				8405F22B267B514F004B1CC0 /* CacheImageView.swift in Sources */,
 				840A858226AE8F1E00FDEF38 /* TextFieldView.swift in Sources */,
