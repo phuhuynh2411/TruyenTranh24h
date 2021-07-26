@@ -25,6 +25,5 @@ struct GrayButtonView: View {
 struct GrayButtonView_Previews: PreviewProvider {
     static var previews: some View {
         GrayButtonView()
-
     }
 }

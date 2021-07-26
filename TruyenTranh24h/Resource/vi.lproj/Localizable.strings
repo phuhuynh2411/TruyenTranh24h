@@ -43,3 +43,6 @@ popular-search = "Tìm kiếm nổi bật";
 clear-all = "Xoá tất cả";
 recent-search = "Tìm kiếm gần đây";
 found-story = "Tìm thấy truyện";
+press-here-to-login = "Bấm vào đây để đăng nhập";
+register = "Đăng ký";
+profile = "Hồ sơ";

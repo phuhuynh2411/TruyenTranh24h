@@ -42,7 +42,7 @@ struct ContentView: View {
                     Text("follow")
                 }
             
-            Text("Profile")
+            ProfileView()
                 .tabItem {
                     Image("me")
                         .renderingMode(.template)

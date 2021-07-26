@@ -44,3 +44,6 @@ popular-search = "Popular search";
 clear-all = "Clear all";
 recent-search = "Recent search";
 found-story = "Found stories";
+press-here-to-login = "Press here to login";
+register = "Register";
+profile = "Profile";
