@@ -60,3 +60,6 @@ enter-email = "Enter email";
 send = "Send";
 confirm-otp = "Confirm OTP";
 otp-email-text = "Enter the OTP code we just sent you through your email address";
+confirm = "Confirm";
+dont-receive-email = "You don't receive email?";
+re-send = "Resend";

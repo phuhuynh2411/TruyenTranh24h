@@ -42,20 +42,20 @@ private struct EntryView: View {
             }
             .padding()
             
-            OrrangeButtonView(text: "send")
-            
             HStack {
-                Text("you-dont-have-a-account")
+                Text("dont-receive-email")
                     .foregroundColor(Color("categoryTextFg"))
                     .font(.system(size: 13, weight: .regular))
                 
                 Button(action: {}, label: {
-                    Text("sign-up")
+                    Text("re-send")
                         .font(.system(size: 13, weight: .bold))
                 })
                 .buttonStyle(PlainButtonStyle())
             }
-            .padding(.top, 80)
+            .padding([.top, .bottom], 30)
+            
+            OrrangeButtonView(text: "confirm")
         }
     }
 }
