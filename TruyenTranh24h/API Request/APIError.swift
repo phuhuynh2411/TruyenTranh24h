@@ -24,7 +24,7 @@ extension APIError: LocalizedError {
         switch self {
         case .statusCode(let code):
             guard code == 401 else { return "" }
-            return NSLocalizedString("session-time-out", comment: "")
+            return NSLocalizedString("Session timeout. Need to re-login", comment: "")
         default: return ""
         }
     }

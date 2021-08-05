@@ -11,8 +11,7 @@ import CarouselView
 import UIKit
 
 struct HomeView: View {
-    @State var refresh: Bool = false
-    @State var searchValue: String = ""
+    @ObservedObject var viewModel: HomeModel
     private let padding:CGFloat = 16.0
     
     fileprivate func topViews() -> some View {
@@ -28,7 +27,7 @@ struct HomeView: View {
                 Button(action: {}, label: {
                     NavigationLink(
                         destination: SearchStoryView()) {
-                        SearchFieldView(textValue: $searchValue, disable: true)
+                        SearchFieldView(textValue: $viewModel.searchValue, disable: true)
                     }
                 })
 
@@ -49,11 +48,11 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView {
-            RefreshableScrollView(refreshing: $refresh, action: {
+            RefreshableScrollView(refreshing: $viewModel.refresh, action: {
                 // add your code here
                 // remmber to set the refresh to false
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    self.refresh = false
+                    viewModel.refresh = false
                 }
             }) {
                 VStack(spacing: 20) {
@@ -95,6 +94,6 @@ struct HomeView: View {
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(viewModel: HomeModel())
     }
 }

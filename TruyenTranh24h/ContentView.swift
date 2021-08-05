@@ -11,7 +11,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            HomeView()
+            HomeView(viewModel: HomeModel())
                 .tabItem {
                     Image("home")
                         .renderingMode(.template)
