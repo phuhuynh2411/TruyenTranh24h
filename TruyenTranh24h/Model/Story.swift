@@ -22,7 +22,6 @@ struct Story: Codable, Identifiable, Equatable {
     var featureImage: String
     
     // Chapter
-    let lastChapter: Chapter
     let description: String
     let createdAt: Date
     let trailerImage: String?
@@ -33,5 +32,9 @@ struct Story: Codable, Identifiable, Equatable {
         dateFormatter.timeStyle = .none
         
         return dateFormatter.string(from: createdAt)
+    }
+    
+    var imageURLString: String {
+        URLSetting.baseImageURL.appendingPathComponent(featureImage.toBase64()).absoluteString
     }
 }

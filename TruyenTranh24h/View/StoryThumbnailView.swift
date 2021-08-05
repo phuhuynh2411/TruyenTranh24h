@@ -14,7 +14,7 @@ struct StoryThumbnailView: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
-            RemoteImageView(stringURL: story.featureImage)
+            RemoteImageView(stringURL: story.imageURLString)
                 .scaledToFill()
                 .frame(height: thumbnailHeight)
                 .clipped()

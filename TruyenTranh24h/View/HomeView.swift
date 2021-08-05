@@ -38,10 +38,14 @@ struct HomeView: View {
     fileprivate func suggestedMightLikeViews() -> some View {
         return Group {
             // Suggested stories
-            Commic2ColumnView(stories: SampleData.stories(), title: "suggested-story", thumbnailHeight: 132.0)
+            if let recommendStories = viewModel.recommendStories {
+                Commic2ColumnView(stories: recommendStories, title: "suggested-story", thumbnailHeight: 132.0)
+            }
             
             // You might like story section
-            Commic2ColumnView(stories: SampleData.stories(), title: "you-might-like", thumbnailHeight: 132.0)
+            if let maybeYouLikeStories = viewModel.maybeYouLikeStories {
+                Commic2ColumnView(stories: maybeYouLikeStories, title: "you-might-like", thumbnailHeight: 132.0)
+            }
         }
         .padding(EdgeInsets(top: 0, leading: self.padding, bottom: 0, trailing: self.padding))
     }
@@ -61,10 +65,12 @@ struct HomeView: View {
                         .padding(.top)
 
                     // Carousel view
-                    CarouselView(items: SampleData.carousels(),
-                                 slideIndicator: false,
-                                 height: 130,
-                                 isFullWidth: false)
+                    if let carouselItems = viewModel.carouselItems {
+                        CarouselView(items: carouselItems,
+                                     slideIndicator: false,
+                                     height: 130,
+                                     isFullWidth: false)
+                    }
 
                     // Category view
                     HorizontalCategoryView(categories: SampleData.categories())
@@ -73,15 +79,21 @@ struct HomeView: View {
                     suggestedMightLikeViews()
 
                     // Hot view
-                    HotView(stories: SampleData.stories(), title: "very-hot")
-                        .offset(x: self.padding)
+                    if let hotStories = viewModel.hotStories {
+                        HotView(stories: hotStories, title: "very-hot")
+                            .offset(x: self.padding)
+                    }
 
                     // Trailer stories
-                    TrailerView(stories: SampleData.stories(), title: "comming-soon-title")
+                    if let trailerStories = viewModel.trailerStories, trailerStories.count > 0 {
+                        TrailerView(stories: trailerStories, title: "comming-soon-title")
+                    }
 
                     // Daily update
-                    Commic2ColumnView(stories: SampleData.stories(), title: "daily-update", thumbnailHeight: 132.0)
-                        .padding(EdgeInsets(top: 0, leading: self.padding, bottom: 0, trailing: self.padding))
+                    if let dailyUpdateStories = viewModel.dailyUpdateStories {
+                        Commic2ColumnView(stories: dailyUpdateStories, title: "daily-update", thumbnailHeight: 132.0)
+                            .padding(EdgeInsets(top: 0, leading: self.padding, bottom: 0, trailing: self.padding))
+                    }
                 }
                 .padding(.bottom, 16)
             }

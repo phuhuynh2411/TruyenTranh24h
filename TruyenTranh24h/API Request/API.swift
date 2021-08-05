@@ -19,7 +19,7 @@ class API {
     /// Default JSONDecoder
     var defaultJSONDecoder: JSONDecoder {
         let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .iso8601
+        decoder.dateDecodingStrategy = .formatted(Formatter.iso8601withFractionalSeconds)
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         return decoder
     }

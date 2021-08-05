@@ -10,7 +10,15 @@ import Foundation
 
 class URLSetting {
     static var baseURL: URL { URL(string: "https://truyentranh24h.net/api/v1")! }
+    static var baseImageURL: URL { URL(string: "https://truyentranh24h.net/uploads/images/feature")! }
+
+    // Story
     static var storyFeature: URL { baseURL.appendingPathComponent("stories/features") }
+    static var recommendStoryURL: URL { baseURL.appendingPathComponent("stories/recommends") }
+    static var maybeYouLikeURL: URL { baseURL.appendingPathComponent("stories/maybe-you-will-like") }
+    static var hotStoryURL: URL { baseURL.appendingPathComponent("stories/hot") }
+    static var trailerStoryURL: URL { baseURL.appendingPathComponent("stories/trailers") }
+    static var storyURL: URL { baseURL.appendingPathComponent("stories") }
+
     static var loginURL: URL { baseURL.appendingPathComponent("stories/features") }
-    
 }

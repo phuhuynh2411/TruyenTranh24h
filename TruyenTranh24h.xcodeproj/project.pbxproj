@@ -97,6 +97,7 @@
 		84EE848F26BBC8D90094DE7E /* MetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE848C26BBC8D90094DE7E /* MetaData.swift */; };
 		84EE849126BBC90C0094DE7E /* NotificationCenter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE849026BBC90C0094DE7E /* NotificationCenter+Extension.swift */; };
 		84EE849426BBCD6D0094DE7E /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE849326BBCD6D0094DE7E /* HomeModel.swift */; };
+		84EE849626BBD9810094DE7E /* Formatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE849526BBD9810094DE7E /* Formatter+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -204,6 +205,7 @@
 		84EE848C26BBC8D90094DE7E /* MetaData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaData.swift; sourceTree = "<group>"; };
 		84EE849026BBC90C0094DE7E /* NotificationCenter+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Extension.swift"; sourceTree = "<group>"; };
 		84EE849326BBCD6D0094DE7E /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		84EE849526BBD9810094DE7E /* Formatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Formatter+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -387,6 +389,7 @@
 				8405F228267B4703004B1CC0 /* BindingExtension.swift */,
 				84393AFA267C832C005101FD /* StringExtension.swift */,
 				8405F226267B43D0004B1CC0 /* ViewExtension.swift */,
+				84EE849526BBD9810094DE7E /* Formatter+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -426,16 +429,16 @@
 			children = (
 				84EE846D26BBC8170094DE7E /* APIDataTaskPublisher.swift */,
 				84EE846E26BBC8170094DE7E /* APIError.swift */,
-				84EE846F26BBC8170094DE7E /* APIAuthentication.swift */,
 				84EE847026BBC8170094DE7E /* URLSetting.swift */,
 				84EE847726BBC8170094DE7E /* API.swift */,
 				84EE847826BBC8170094DE7E /* APISessionDataPublisher.swift */,
-				84EE848426BBC83A0094DE7E /* StoryAPI.swift */,
 				84EE848626BBC8C50094DE7E /* TokenManager.swift */,
 				84EE848726BBC8C50094DE7E /* UserDefaultKey.swift */,
 				84EE848B26BBC8D90094DE7E /* Entry.swift */,
 				84EE848C26BBC8D90094DE7E /* MetaData.swift */,
 				84EE848A26BBC8D80094DE7E /* User.swift */,
+				84EE848426BBC83A0094DE7E /* StoryAPI.swift */,
+				84EE846F26BBC8170094DE7E /* APIAuthentication.swift */,
 			);
 			path = "API Request";
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				84393AFB267C832C005101FD /* StringExtension.swift in Sources */,
 				8477BA8626A2C574007A67A9 /* GrayButtonView.swift in Sources */,
 				8477BA8426A2C087007A67A9 /* SearchStoryView.swift in Sources */,
+				84EE849626BBD9810094DE7E /* Formatter+Extension.swift in Sources */,
 				845DF35A26AE5D810069DE10 /* CategoryItemSimpleView.swift in Sources */,
 				84393B02267C9639005101FD /* ChapterListView.swift in Sources */,
 				8446F9DA262578FF0098635A /* StoryThumbnailView.swift in Sources */,

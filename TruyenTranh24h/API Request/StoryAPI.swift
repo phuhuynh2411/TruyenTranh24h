@@ -11,12 +11,15 @@ import Combine
 class StoryAPI: API {
     static let shared = StoryAPI()
     
-    private func buildRequest(url: URL) -> URLRequest {
-        return getRequest(url: url)
+    private func buildRequest(url: URL, limit: Int? = 6) -> URLRequest {
+        let urlWithParas = addQueryItems(limit: limit, to: url)
+        let request = getRequest(url: urlWithParas)
+        
+        return request
     }
     
-    private func getStories(url: URL) -> AnyPublisher<Entry<ResponseData>, Error> {
-        let request =  buildRequest(url: url)
+    private func getStories(url: URL, limit: Int? = nil) -> AnyPublisher<Entry<ResponseData>, Error> {
+        let request =  buildRequest(url: url, limit: limit)
         
         return self.send(request: request)
             .eraseToAnyPublisher()
@@ -24,6 +27,36 @@ class StoryAPI: API {
     
     func getFeatureStories() -> AnyPublisher<[Story], Error> {
         return getStories(url: URLSetting.storyFeature)
+            .tryMap { try self.validate(entry: $0) }
+            .eraseToAnyPublisher()
+    }
+    
+    func getRecommendStories() -> AnyPublisher<[Story], Error> {
+        return getStories(url: URLSetting.recommendStoryURL)
+            .tryMap { try self.validate(entry: $0) }
+            .eraseToAnyPublisher()
+    }
+    
+    func getMaybeYouLikeStories() -> AnyPublisher<[Story], Error> {
+        return getStories(url: URLSetting.maybeYouLikeURL)
+            .tryMap { try self.validate(entry: $0) }
+            .eraseToAnyPublisher()
+    }
+    
+    func getHotStories() -> AnyPublisher<[Story], Error> {
+        return getStories(url: URLSetting.hotStoryURL, limit: 10)
+            .tryMap { try self.validate(entry: $0) }
+            .eraseToAnyPublisher()
+    }
+    
+    func getTrailerStories() -> AnyPublisher<[Story], Error> {
+        return getStories(url: URLSetting.trailerStoryURL)
+            .tryMap { try self.validate(entry: $0) }
+            .eraseToAnyPublisher()
+    }
+    
+    func getStories() -> AnyPublisher<[Story], Error> {
+        return getStories(url: URLSetting.storyURL, limit: 20)
             .tryMap { try self.validate(entry: $0) }
             .eraseToAnyPublisher()
     }
