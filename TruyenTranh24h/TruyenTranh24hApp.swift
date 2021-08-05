@@ -9,11 +9,13 @@ import SwiftUI
 
 @main
 struct TruyenTranh24hApp: App {
+    @State var textValue = "1234"
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            //ContentView()
             //CategoryItemView(category: SampleData.categories()[0])
             //CommicView(stories: SampleData.stories(), title: "Top commic")
+            OTPTextField(textValue: $textValue)
         }
     }
 }

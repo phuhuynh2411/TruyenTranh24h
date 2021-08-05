@@ -58,3 +58,5 @@ last-name = "Last name";
 confirm-password = "Confirm password";
 enter-email = "Enter email";
 send = "Send";
+confirm-otp = "Confirm OTP";
+otp-email-text = "Enter the OTP code we just sent you through your email address";

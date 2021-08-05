@@ -92,6 +92,8 @@
 		84A454DC26720F69002499B2 /* TrailerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A454DB26720F69002499B2 /* TrailerView.swift */; };
 		84CFF93D262598CD0034CACB /* SampleDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF93C262598CD0034CACB /* SampleDataTest.swift */; };
 		84D563A426AF060D006127DF /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D563A326AF060D006127DF /* ForgotPasswordView.swift */; };
+		84D563A626AF0959006127DF /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D563A526AF0959006127DF /* OTPView.swift */; };
+		84D563A826AF0C3C006127DF /* OTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D563A726AF0C3C006127DF /* OTPTextField.swift */; };
 		84D6A2A6266A03FC0029B8D1 /* SearchFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D6A2A5266A03FC0029B8D1 /* SearchFieldView.swift */; };
 		84D6A2A8266A10100029B8D1 /* HotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D6A2A7266A10100029B8D1 /* HotView.swift */; };
 /* End PBXBuildFile section */
@@ -196,6 +198,8 @@
 		84A454DB26720F69002499B2 /* TrailerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerView.swift; sourceTree = "<group>"; };
 		84CFF93C262598CD0034CACB /* SampleDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDataTest.swift; sourceTree = "<group>"; };
 		84D563A326AF060D006127DF /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		84D563A526AF0959006127DF /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
+		84D563A726AF0C3C006127DF /* OTPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPTextField.swift; sourceTree = "<group>"; };
 		84D6A2A5266A03FC0029B8D1 /* SearchFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFieldView.swift; sourceTree = "<group>"; };
 		84D6A2A7266A10100029B8D1 /* HotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -269,6 +273,8 @@
 				845DF36326AE70F40069DE10 /* RegisterLoginView.swift */,
 				840A858126AE8F1E00FDEF38 /* TextFieldView.swift */,
 				84D563A326AF060D006127DF /* ForgotPasswordView.swift */,
+				84D563A526AF0959006127DF /* OTPView.swift */,
+				84D563A726AF0C3C006127DF /* OTPTextField.swift */,
 				84393AFE267C9516005101FD /* Comment */,
 			);
 			path = View;
@@ -551,6 +557,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D563A626AF0959006127DF /* OTPView.swift in Sources */,
 				84120C8926314EFD00FECA00 /* URLSetting.swift in Sources */,
 				841B5949267D8C2E00037126 /* BackButtonView.swift in Sources */,
 				841B594B267D928C00037126 /* AllCommentsView.swift in Sources */,
@@ -559,6 +566,7 @@
 				8479C3B82673184B00CCBDB0 /* SearchCategoryView.swift in Sources */,
 				845DF36026AE65CE0069DE10 /* ProfileView.swift in Sources */,
 				84D6A2A8266A10100029B8D1 /* HotView.swift in Sources */,
+				84D563A826AF0C3C006127DF /* OTPTextField.swift in Sources */,
 				8430B9FE267728790028DE29 /* CommentView.swift in Sources */,
 				84534D182668D6F500376726 /* HorizontalCategoryView.swift in Sources */,
 				8479C3C026733D2A00CCBDB0 /* Commic3ColumnView.swift in Sources */,
