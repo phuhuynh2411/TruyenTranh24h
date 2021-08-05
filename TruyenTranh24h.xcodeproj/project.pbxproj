@@ -96,6 +96,7 @@
 		84D563A826AF0C3C006127DF /* OTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D563A726AF0C3C006127DF /* OTPTextField.swift */; };
 		84D6A2A6266A03FC0029B8D1 /* SearchFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D6A2A5266A03FC0029B8D1 /* SearchFieldView.swift */; };
 		84D6A2A8266A10100029B8D1 /* HotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D6A2A7266A10100029B8D1 /* HotView.swift */; };
+		84EE846926BB9A8C0094DE7E /* NewPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE846826BB9A8C0094DE7E /* NewPasswordView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -202,6 +203,7 @@
 		84D563A726AF0C3C006127DF /* OTPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPTextField.swift; sourceTree = "<group>"; };
 		84D6A2A5266A03FC0029B8D1 /* SearchFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFieldView.swift; sourceTree = "<group>"; };
 		84D6A2A7266A10100029B8D1 /* HotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotView.swift; sourceTree = "<group>"; };
+		84EE846826BB9A8C0094DE7E /* NewPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +277,7 @@
 				84D563A326AF060D006127DF /* ForgotPasswordView.swift */,
 				84D563A526AF0959006127DF /* OTPView.swift */,
 				84D563A726AF0C3C006127DF /* OTPTextField.swift */,
+				84EE846826BB9A8C0094DE7E /* NewPasswordView.swift */,
 				84393AFE267C9516005101FD /* Comment */,
 			);
 			path = View;
@@ -611,6 +614,7 @@
 				845DF35626AE5C150069DE10 /* CategoryView.swift in Sources */,
 				849C3C5226A9213F008906C4 /* ListStoryThumbnailView.swift in Sources */,
 				84A454DA267208FB002499B2 /* TrailerViewItem.swift in Sources */,
+				84EE846926BB9A8C0094DE7E /* NewPasswordView.swift in Sources */,
 				844698BB267732790081E6BA /* StarView.swift in Sources */,
 				849B5BBF2678A2BB009ECDD7 /* LineView.swift in Sources */,
 				8405F223267B343E004B1CC0 /* HeaderBackgroundView.swift in Sources */,
