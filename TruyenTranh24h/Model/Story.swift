@@ -37,4 +37,8 @@ struct Story: Codable, Identifiable, Equatable {
     var imageURLString: String {
         URLSetting.baseImageURL.appendingPathComponent(featureImage.toBase64()).absoluteString
     }
+    
+    static func placeholder(id: Int) -> Story {
+        Story(id: id, userId: 0, title: "", subTitle: "", isHot: true, isFeature: true, isAdult: true, featureImage: "", description: "", createdAt: Date(), trailerImage: "")
+    }
 }

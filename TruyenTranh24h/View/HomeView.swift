@@ -38,14 +38,10 @@ struct HomeView: View {
     fileprivate func suggestedMightLikeViews() -> some View {
         return Group {
             // Suggested stories
-            if let recommendStories = viewModel.recommendStories {
-                Commic2ColumnView(stories: recommendStories, title: "suggested-story", thumbnailHeight: 132.0)
-            }
+            Commic2ColumnView(stories:  $viewModel.recommendStories, title: "suggested-story", thumbnailHeight: 132.0)
             
             // You might like story section
-            if let maybeYouLikeStories = viewModel.maybeYouLikeStories {
-                Commic2ColumnView(stories: maybeYouLikeStories, title: "you-might-like", thumbnailHeight: 132.0)
-            }
+            Commic2ColumnView(stories: $viewModel.maybeYouLikeStories, title: "you-might-like", thumbnailHeight: 132.0)
         }
         .padding(EdgeInsets(top: 0, leading: self.padding, bottom: 0, trailing: self.padding))
     }
@@ -53,47 +49,32 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             RefreshableScrollView(refreshing: $viewModel.refresh, action: {
-                // add your code here
-                // remmber to set the refresh to false
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    viewModel.refresh = false
-                }
+                viewModel.fetchData(isPullToRefresh: true)
             }) {
                 VStack(spacing: 20) {
-                    // Top views
                     topViews()
                         .padding(.top)
-
                     // Carousel view
-                    if let carouselItems = viewModel.carouselItems {
-                        CarouselView(items: carouselItems,
+                    CarouselView(items: $viewModel.carouselItems,
                                      slideIndicator: false,
                                      height: 130,
                                      isFullWidth: false)
-                    }
 
                     // Category view
-                    HorizontalCategoryView(categories: SampleData.categories())
-
+                    HorizontalCategoryView(categories: $viewModel.categories)
+                        
                     // Suggested and Might like views
                     suggestedMightLikeViews()
 
                     // Hot view
-                    if let hotStories = viewModel.hotStories {
-                        HotView(stories: hotStories, title: "very-hot")
-                            .offset(x: self.padding)
-                    }
+                    HotView(stories: $viewModel.hotStories, title: "very-hot")
 
                     // Trailer stories
-                    if let trailerStories = viewModel.trailerStories, trailerStories.count > 0 {
-                        TrailerView(stories: trailerStories, title: "comming-soon-title")
-                    }
+                    TrailerView(stories: $viewModel.trailerStories, title: "comming-soon-title")
 
                     // Daily update
-                    if let dailyUpdateStories = viewModel.dailyUpdateStories {
-                        Commic2ColumnView(stories: dailyUpdateStories, title: "daily-update", thumbnailHeight: 132.0)
+                    Commic2ColumnView(stories: $viewModel.dailyUpdateStories, title: "daily-update", thumbnailHeight: 132.0)
                             .padding(EdgeInsets(top: 0, leading: self.padding, bottom: 0, trailing: self.padding))
-                    }
                 }
                 .padding(.bottom, 16)
             }

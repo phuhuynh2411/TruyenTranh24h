@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Commic2ColumnView: View {
-    @State var stories: [Story]
+    @Binding var stories: [Story]
     @State var title: String? = nil
     @State var thumbnailHeight: CGFloat? = nil
     @State var moreButton = true
@@ -17,10 +17,17 @@ struct Commic2ColumnView: View {
     private let thumbnailWidth: CGFloat = UIScreen.main.bounds.width/2 - 16
     
     @State private var showStoryDetail = false
+    @State private var placeholders: [Story] = {
+        var stories: [Story] = []
+        for i in 0..<6 {
+            stories.append(Story.placeholder(id: i))
+        }
+        return stories
+    }()
     
     var body: some View {
-        let column1Stories = stories.prefix(stories.count/2)
-        let column2Stories = stories.suffix(from: stories.count/2)
+        let column1Stories = stories.count > 0 ? stories.prefix(stories.count/2) : placeholders.prefix(placeholders.count/2)
+        let column2Stories = stories.count > 0 ? stories.suffix(from: stories.count/2): placeholders.suffix(from: placeholders.count/2)
         
         VStack {
             VStack {
@@ -34,6 +41,7 @@ struct Commic2ColumnView: View {
                         
                         Spacer()
                     }
+                    .unredacted()
                 }
                 
                 // grid of image
@@ -72,6 +80,8 @@ struct Commic2ColumnView: View {
                 }
             }
         }
+        .redacted(reason: stories.count > 0 ? [] : .placeholder)
+
     }
     
     struct StoryCellView: View {
@@ -97,7 +107,9 @@ struct Commic2ColumnView: View {
 }
 
 struct TopCommic_Previews: PreviewProvider {
+    @State static var stories = SampleData.stories()
+    
     static var previews: some View {
-        Commic2ColumnView(stories: SampleData.stories(), title: "Top commic")
+        Commic2ColumnView(stories: $stories, title: "Top commic")
     }
 }

@@ -8,9 +8,17 @@
 import SwiftUI
 
 struct HotView: View {
-    @State var stories: [Story]
+    @Binding var stories: [Story]
     @State var hotViewSize = CGSize(width: 118, height: 176)
     @State var title: String? = nil
+    
+    @State private var placeholders: [Story] = {
+        var stories: [Story] = []
+        (0..<10).forEach {
+            stories.append(Story.placeholder(id: $0))
+        }
+        return stories
+    }()
     
     var body: some View {
         VStack {
@@ -24,23 +32,28 @@ struct HotView: View {
                     
                     Spacer()
                 }
+                .padding(.leading, 16)
             }
             ScrollView(.horizontal, showsIndicators: false) {
                 // list of horizontal images
                 LazyHStack(){
-                    ForEach(stories) { story in
+                    ForEach(stories.count > 0 ? stories : placeholders) { story in
                         StoryThumbnailView(story: story, thumbnailHeight: 135)
                             .frame(width: hotViewSize.width, height: hotViewSize.height)
                     }
                 }
+                .padding([.leading, .trailing], 16)
+                .redacted(reason: stories.count > 0 ? [] : .placeholder)
             }
         }
     }
 }
 
 struct HotView_Previews: PreviewProvider {
+    @State static var stories = SampleData.stories()
+    
     static var previews: some View {
-        HotView(stories: SampleData.stories(), title: "very-hot")
+        HotView(stories: $stories, title: "very-hot")
             
     }
 }

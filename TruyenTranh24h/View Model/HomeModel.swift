@@ -13,31 +13,35 @@ class HomeModel: ObservableObject {
     @Published private var featureStories = [Story]()
     @Published var refresh: Bool = false
     @Published var searchValue: String = ""
-    @Published var carouselItems: [Carousel]?
-    @Published var recommendStories: [Story]?
-    @Published var maybeYouLikeStories: [Story]?
-    @Published var hotStories: [Story]?
-    @Published var trailerStories: [Story]?
-    @Published var dailyUpdateStories: [Story]?
+    @Published var carouselItems = [Carousel]()
+    @Published var recommendStories = [Story]()
+    @Published var maybeYouLikeStories = [Story]()
+    @Published var hotStories = [Story]()
+    @Published var trailerStories = [Story]()
+    @Published var dailyUpdateStories = [Story]()
+    @Published var categories = [Category]()
 
     init() {
-        getFeatureStories()
-        getRecomendStories()
-        getMaybeYouLikeStories()
-        getHotStories()
-        getTrailerStories()
-        getDailyUpdateStories()
+        fetchData()
     }
     
-    private var featureStream: AnyCancellable?
-    private var recommendStream: AnyCancellable?
-    private var maybeYouLikeStream: AnyCancellable?
-    private var hotStream: AnyCancellable?
-    private var trailerStream: AnyCancellable?
-    private var dailyStream: AnyCancellable?
+    private var dataStream: AnyCancellable?
     
-    private func getFeatureStories() {
-        featureStream = StoryAPI.shared.getFeatureStories()
+    func fetchData(isPullToRefresh: Bool = false) {
+        refresh = isPullToRefresh
+        
+        let pub1 = Publishers
+            .CombineLatest4(
+                StoryAPI.shared.getFeatureStories(),
+                CategoryAPI.shared.getCategories(),
+                StoryAPI.shared.getRecommendStories(),
+                StoryAPI.shared.getMaybeYouLikeStories())
+        let pub2 = Publishers.CombineLatest4(
+                pub1,
+                StoryAPI.shared.getHotStories(),
+                StoryAPI.shared.getTrailerStories(),
+                StoryAPI.shared.getStories())
+        dataStream = pub2
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
             switch completion {
@@ -45,81 +49,28 @@ class HomeModel: ObservableObject {
             case .failure(let error):
                 print(error)
             }
-        }, receiveValue: { stories in
-            self.featureStories = stories
-            self.carouselItems = stories.map { story in
+            self.refresh = false
+                
+        }, receiveValue: { pub1, hotStories, trailerStories, dailyUpdateStories in
+            // feature stories
+            self.featureStories = pub1.0
+            self.carouselItems = pub1.0.map { story in
                 Carousel(id: story.id, stringURL: story.imageURLString)
             }
+            
+            // feature stories
+            self.categories = pub1.1
+            self.recommendStories = pub1.2
+            self.maybeYouLikeStories = pub1.3
+            
+            self.hotStories = hotStories
+            self.trailerStories = trailerStories
+            self.dailyUpdateStories = dailyUpdateStories
+            
+            // stop refreshing
+            self.refresh = false
         })
+            
     }
     
-    private func getRecomendStories() {
-        recommendStream = StoryAPI.shared.getRecommendStories()
-            .receive(on: RunLoop.main)
-            .sink(receiveCompletion: { completion in
-            switch completion {
-            case .finished: break
-            case .failure(let error):
-                print(error)
-            }
-        }, receiveValue: { stories in
-            self.recommendStories = stories
-        })
-    }
-    
-    private func getMaybeYouLikeStories() {
-        maybeYouLikeStream = StoryAPI.shared.getMaybeYouLikeStories()
-            .receive(on: RunLoop.main)
-            .sink(receiveCompletion: { completion in
-            switch completion {
-            case .finished: break
-            case .failure(let error):
-                print(error)
-            }
-        }, receiveValue: { stories in
-            self.maybeYouLikeStories = stories
-        })
-    }
-    
-    private func getHotStories() {
-        hotStream = StoryAPI.shared.getHotStories()
-            .receive(on: RunLoop.main)
-            .sink(receiveCompletion: { completion in
-            switch completion {
-            case .finished: break
-            case .failure(let error):
-                print(error)
-            }
-        }, receiveValue: { stories in
-            self.hotStories = stories
-        })
-    }
-    
-    private func getTrailerStories() {
-        trailerStream = StoryAPI.shared.getTrailerStories()
-            .receive(on: RunLoop.main)
-            .sink(receiveCompletion: { completion in
-            switch completion {
-            case .finished: break
-            case .failure(let error):
-                print(error)
-            }
-        }, receiveValue: { stories in
-            self.trailerStories = stories
-        })
-    }
-    
-    private func getDailyUpdateStories() {
-        dailyStream = StoryAPI.shared.getStories()
-            .receive(on: RunLoop.main)
-            .sink(receiveCompletion: { completion in
-            switch completion {
-            case .finished: break
-            case .failure(let error):
-                print(error)
-            }
-        }, receiveValue: { stories in
-            self.dailyUpdateStories = stories
-        })
-    }
 }

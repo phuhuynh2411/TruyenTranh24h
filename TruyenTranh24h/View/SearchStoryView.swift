@@ -29,7 +29,7 @@ struct SearchStoryView: View {
                     .padding()
                 
                 // Category view
-                HorizontalCategoryView(categories: SampleData.categories())
+               // HorizontalCategoryView(categories: SampleData.categories())
                 LineView()
                 
                 PopularSearchView()

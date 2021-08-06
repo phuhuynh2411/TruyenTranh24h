@@ -18,7 +18,8 @@ struct TestCarouselView: View {
                 ]
     
     var body: some View {
-        CarouselView(items: self.items)
+        //CarouselView(items: self.items)
+        HStack{}
     }
 }
 

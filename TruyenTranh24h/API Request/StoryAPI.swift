@@ -11,14 +11,14 @@ import Combine
 class StoryAPI: API {
     static let shared = StoryAPI()
     
-    private func buildRequest(url: URL, limit: Int? = 6) -> URLRequest {
+    private func buildRequest(url: URL, limit: Int?) -> URLRequest {
         let urlWithParas = addQueryItems(limit: limit, to: url)
         let request = getRequest(url: urlWithParas)
         
         return request
     }
     
-    private func getStories(url: URL, limit: Int? = nil) -> AnyPublisher<Entry<ResponseData>, Error> {
+    private func getStories(url: URL, limit: Int? = 6) -> AnyPublisher<Entry<ResponseData>, Error> {
         let request =  buildRequest(url: url, limit: limit)
         
         return self.send(request: request)

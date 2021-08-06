@@ -9,23 +9,36 @@ import SwiftUI
 
 struct HorizontalCategoryView: View {
     let rows: [GridItem] =
-             Array(repeating: .init(.flexible()), count: 1)
-    @State var categories: [Category]
+        Array(repeating: .init(.flexible()), count: 1)
+    @Binding var categories: [Category]
+    
+    @State var placeholders: [Category] = {
+        var categories: [Category] = []
+        for i in 0...5 {
+            categories.append(Category(id: i, name: "Category \(i)", image: ""))
+        }
+        return categories
+    }()
     
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
+        let count = categories.count > 0 ? categories.count : placeholders.count
+        return ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: rows) {
-                ForEach(categories){ category in
-                    CategoryItemView(category: category)
+                ForEach(0..<count, id: \.self) { i in
+                    CategoryItemView(category: categories.count > 0 ? $categories[i] : $placeholders[i])
                 }
+                .redacted(reason:  self.categories.count == 0 ? .placeholder : [])
             }
             .frame(height: 90)
+            .padding([.leading, .trailing], 16)
         }
     }
 }
 
 struct HorizontalCategoryView_Previews: PreviewProvider {
+    @State static var categories = SampleData.categories()
+    
     static var previews: some View {
-        HorizontalCategoryView(categories: SampleData.categories())
+        HorizontalCategoryView(categories: $categories)
     }
 }

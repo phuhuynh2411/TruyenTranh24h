@@ -19,6 +19,9 @@ class URLSetting {
     static var hotStoryURL: URL { baseURL.appendingPathComponent("stories/hot") }
     static var trailerStoryURL: URL { baseURL.appendingPathComponent("stories/trailers") }
     static var storyURL: URL { baseURL.appendingPathComponent("stories") }
+    
+    // Category
+    static var categoryURL: URL { baseURL.appendingPathComponent("categories") }
 
     static var loginURL: URL { baseURL.appendingPathComponent("stories/features") }
 }
