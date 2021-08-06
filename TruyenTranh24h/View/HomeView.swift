@@ -48,17 +48,16 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView {
-            RefreshableScrollView(refreshing: $viewModel.refresh, action: {
-                viewModel.fetchData(isPullToRefresh: true)
-            }) {
+            ScrollView(.vertical) {
                 VStack(spacing: 20) {
                     topViews()
                         .padding(.top)
+                
                     // Carousel view
-                    CarouselView(items: $viewModel.carouselItems,
-                                     slideIndicator: false,
-                                     height: 130,
-                                     isFullWidth: false)
+                    //CarouselView(items: $viewModel.carouselItems,
+                                    // slideIndicator: false,
+                                    // height: 130,
+                                     //isFullWidth: false)
 
                     // Category view
                     HorizontalCategoryView(categories: $viewModel.categories)
@@ -77,7 +76,7 @@ struct HomeView: View {
                             .padding(EdgeInsets(top: 0, leading: self.padding, bottom: 0, trailing: self.padding))
                 }
                 .padding(.bottom, 16)
-            }
+           }
            
             .navigationBarHidden(true)
         }

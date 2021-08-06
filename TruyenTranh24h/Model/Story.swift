@@ -39,6 +39,8 @@ struct Story: Codable, Identifiable, Equatable {
     }
     
     static func placeholder(id: Int) -> Story {
-        Story(id: id, userId: 0, title: "", subTitle: "", isHot: true, isFeature: true, isAdult: true, featureImage: "", description: "", createdAt: Date(), trailerImage: "")
+        let text = "Nullam id dolor id nibh ultricies nullam quis risus eget urna mollis ornare vel eu leo."
+        let title = String(text.prefix(Int.random(in: 15..<30)))
+        return Story(id: id, userId: 0, title: title, subTitle: "", isHot: true, isFeature: true, isAdult: true, featureImage: "", description: "", createdAt: Date(), trailerImage: "")
     }
 }

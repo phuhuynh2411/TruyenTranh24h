@@ -7,19 +7,26 @@
 
 import SwiftUI
 import RemoteImageView
+import Kingfisher
 
 struct StoryThumbnailFullDetailView: View {
     @State var story: Story
     @State var thumbnailHeight: CGFloat? = nil
+    @State var imageLoaded = false
     
     var body: some View {
         HStack (spacing: 20){
-            RemoteImageView(stringURL: story.featureImage)
+            KFImage(URL(string: story.featureImage), isLoaded: $imageLoaded)
                 .scaledToFill()
                 .frame(width: 150, height: thumbnailHeight)
                 .clipped()
                 .cornerRadius(7.0)
+                .background(Color.red)
             
+            if !imageLoaded {
+                Image("image_placeholder")
+                    .frame(width: 60, height: 60)
+            }
             
             VStack (spacing: 12){
                 HStack {

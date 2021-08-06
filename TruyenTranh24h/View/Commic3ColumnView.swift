@@ -88,7 +88,8 @@ struct Commic3ColumnView: View {
             Button(action: {
                 showStoryDetail.toggle()
             }, label: {
-                StoryThumbnailView(story: story, thumbnailHeight: height)
+                //StoryThumbnailView(story: story, thumbnailHeight: height)
+                Text("Test")
             })
             .buttonStyle(PlainButtonStyle())
             

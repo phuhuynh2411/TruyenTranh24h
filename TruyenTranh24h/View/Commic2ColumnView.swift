@@ -14,7 +14,6 @@ struct Commic2ColumnView: View {
     @State var moreButton = true
     
     @State var pressOnMoreButton = false
-    private let thumbnailWidth: CGFloat = UIScreen.main.bounds.width/2 - 16
     
     @State private var showStoryDetail = false
     @State private var placeholders: [Story] = {
@@ -24,10 +23,9 @@ struct Commic2ColumnView: View {
         }
         return stories
     }()
+    let columns = Array(repeating: GridItem(.flexible(), spacing: 10, alignment: .center), count: 2)
     
     var body: some View {
-        let column1Stories = stories.count > 0 ? stories.prefix(stories.count/2) : placeholders.prefix(placeholders.count/2)
-        let column2Stories = stories.count > 0 ? stories.suffix(from: stories.count/2): placeholders.suffix(from: placeholders.count/2)
         
         VStack {
             VStack {
@@ -43,22 +41,11 @@ struct Commic2ColumnView: View {
                     }
                     .unredacted()
                 }
-                
-                // grid of image
-                HStack {
-                    VStack {
-                        ForEach(column1Stories) { story in
-                            StoryCellView(story: story, height: thumbnailHeight)
-                        }
+                let count = stories.count > 0 ? stories.count : placeholders.count
+                LazyVGrid(columns: columns){
+                    ForEach(0..<count, id: \.self)  { i in
+                        StoryCellView(story: stories.count > 0 ? $stories[i] : $placeholders[i], height: thumbnailHeight)
                     }
-                    .frame(width: thumbnailWidth)
-                    
-                    VStack {
-                        ForEach(column2Stories) { story in
-                            StoryCellView(story: story, height: thumbnailHeight)
-                        }
-                    }
-                    .frame(width: thumbnailWidth)
                 }
                 
                 // See more button
@@ -86,14 +73,16 @@ struct Commic2ColumnView: View {
     
     struct StoryCellView: View {
         @State private var showStoryDetail = false
-        @State var story: Story
+        @Binding var story: Story
         @State var height: CGFloat?
+        @State var width: CGFloat?
         
         var body: some View {
             Button(action: {
                 showStoryDetail.toggle()
             }, label: {
-                StoryThumbnailView(story: story, thumbnailHeight: height)
+                StoryThumbnailView(story: $story)
+                    .frame(height: height, alignment: .center)
             })
             .buttonStyle(PlainButtonStyle())
             

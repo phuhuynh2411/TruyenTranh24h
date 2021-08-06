@@ -14,6 +14,8 @@
 		8405F22B267B514F004B1CC0 /* CacheImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405F22A267B514F004B1CC0 /* CacheImageView.swift */; };
 		840A858226AE8F1E00FDEF38 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A858126AE8F1E00FDEF38 /* TextFieldView.swift */; };
 		840C9509269944C6009DC838 /* ReadStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840C9508269944C6009DC838 /* ReadStoryView.swift */; };
+		8414431326BD26BA00D6B520 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8414431226BD26BA00D6B520 /* SDWebImageSwiftUI */; };
+		8414431626BD294E00D6B520 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8414431526BD294E00D6B520 /* Kingfisher */; };
 		841997F626269C98009BDD4B /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841997F526269C98009BDD4B /* Chapter.swift */; };
 		841B5949267D8C2E00037126 /* BackButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B5948267D8C2E00037126 /* BackButtonView.swift */; };
 		841B594B267D928C00037126 /* AllCommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B594A267D928C00037126 /* AllCommentsView.swift */; };
@@ -215,7 +217,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8414431326BD26BA00D6B520 /* SDWebImageSwiftUI in Frameworks */,
 				849311FC2679FC910011AE5C /* URLImageStore in Frameworks */,
+				8414431626BD294E00D6B520 /* Kingfisher in Frameworks */,
 				8441BB062632A53800F08AD9 /* RefreshableScrollView in Frameworks */,
 				842E33D42636B0FE00A9D7A2 /* CarouselView in Frameworks */,
 				849311FE2679FC910011AE5C /* URLImage in Frameworks */,
@@ -476,6 +480,8 @@
 				842E33D32636B0FE00A9D7A2 /* CarouselView */,
 				849311FB2679FC910011AE5C /* URLImageStore */,
 				849311FD2679FC910011AE5C /* URLImage */,
+				8414431226BD26BA00D6B520 /* SDWebImageSwiftUI */,
+				8414431526BD294E00D6B520 /* Kingfisher */,
 			);
 			productName = TruyenTranh24h;
 			productReference = 8446F9A2262575FF0098635A /* TruyenTranh24h.app */;
@@ -530,6 +536,8 @@
 			packageReferences = (
 				842E33AF2636AA5100A9D7A2 /* XCRemoteSwiftPackageReference "RemoteImageView" */,
 				849311FA2679FC910011AE5C /* XCRemoteSwiftPackageReference "url-image" */,
+				8414431126BD26BA00D6B520 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				8414431426BD294E00D6B520 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 8446F9A3262575FF0098635A /* Products */;
 			projectDirPath = "";
@@ -922,6 +930,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8414431126BD26BA00D6B520 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.2;
+			};
+		};
+		8414431426BD294E00D6B520 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.3.1;
+			};
+		};
 		842E33AF2636AA5100A9D7A2 /* XCRemoteSwiftPackageReference "RemoteImageView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/phuhuynh2411/RemoteImageView.git";
@@ -941,6 +965,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8414431226BD26BA00D6B520 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8414431126BD26BA00D6B520 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+		8414431526BD294E00D6B520 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8414431426BD294E00D6B520 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		842E33B02636AA5100A9D7A2 /* RemoteImageView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 842E33AF2636AA5100A9D7A2 /* XCRemoteSwiftPackageReference "RemoteImageView" */;

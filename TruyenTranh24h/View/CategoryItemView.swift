@@ -6,18 +6,27 @@
 //
 
 import SwiftUI
-import RemoteImageView
+import Kingfisher
 
 struct CategoryItemView: View {
     @Binding var category: Category
+    @State private var isLoaded = false
     
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
-            RemoteImageView(stringURL: category.imageURLString)
-                .frame(width: 46, height: 46)
-                .background(Color.secondary)
-                .aspectRatio(contentMode: .fill)
-                .clipShape(Circle())
+            ZStack {
+                KFImage(URL(string: category.imageURLString), isLoaded: $isLoaded)
+                    .frame(width: 46, height: 46)
+                    .aspectRatio(contentMode: .fill)
+                    .clipShape(Circle())
+                if !isLoaded {
+                    Image("image_placeholder")
+                        .frame(width: 46, height: 46 )
+                        .aspectRatio(contentMode: .fill)
+                        .clipShape(Circle())
+                    
+                }
+            }
             
             Text(category.name)
                 .font(.system(size: 12))

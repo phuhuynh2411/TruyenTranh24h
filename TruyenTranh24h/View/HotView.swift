@@ -36,9 +36,10 @@ struct HotView: View {
             }
             ScrollView(.horizontal, showsIndicators: false) {
                 // list of horizontal images
-                LazyHStack(){
-                    ForEach(stories.count > 0 ? stories : placeholders) { story in
-                        StoryThumbnailView(story: story, thumbnailHeight: 135)
+                let count = stories.count > 0 ? stories.count : placeholders.count
+                LazyHStack {
+                    ForEach(0..<count, id: \.self) { i in
+                        StoryThumbnailView(story: stories.count > 0 ? $stories[i] : $placeholders[i])
                             .frame(width: hotViewSize.width, height: hotViewSize.height)
                     }
                 }

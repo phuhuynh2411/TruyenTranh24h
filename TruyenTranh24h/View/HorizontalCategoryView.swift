@@ -14,8 +14,8 @@ struct HorizontalCategoryView: View {
     
     @State var placeholders: [Category] = {
         var categories: [Category] = []
-        for i in 0...5 {
-            categories.append(Category(id: i, name: "Category \(i)", image: ""))
+        for i in -6...0 {
+            categories.append(Category.placeholder(id: i))
         }
         return categories
     }()
