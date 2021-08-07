@@ -23,7 +23,17 @@ struct SnapCarousel: View {
             items.append(Card(id: i, name: stories[i].title, imageString: stories[i].imageURLString))
         }
         
-        return Canvas {
+        if items.count == 0 {
+            return AnyView(HStack {
+                Spacer()
+                Image("image_placeholder")
+                    .frame(width: 60, height: 60 )
+                    .cornerRadius(7.0)
+                Spacer()
+            })
+        }
+        
+        return AnyView(Canvas {
             /// TODO: find a way to avoid passing same arguments to Carousel and Item
             Carousel(
                 numberOfItems: CGFloat(items.count),
@@ -46,7 +56,7 @@ struct SnapCarousel: View {
                     .animation(.spring())
                 }
             }
-        }
+        })
     }
 }
 

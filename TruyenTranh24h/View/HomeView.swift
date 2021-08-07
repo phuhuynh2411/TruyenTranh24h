@@ -57,6 +57,7 @@ struct HomeView: View {
                     SnapCarousel(stories: $viewModel.featureStories).environmentObject(UIStateModel())
                         .frame(height: 130)
                         .zIndex(1) // move to top
+                        .redacted(reason: viewModel.featureStories.count > 0 ? [] : .placeholder)
                     
                     // Category view
                     HorizontalCategoryView(categories: $viewModel.categories)

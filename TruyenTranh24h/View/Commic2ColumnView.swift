@@ -45,6 +45,7 @@ struct Commic2ColumnView: View {
                 LazyVGrid(columns: columns){
                     ForEach(0..<count, id: \.self)  { i in
                         StoryCellView(story: stories.count > 0 ? $stories[i] : $placeholders[i], height: thumbnailHeight)
+                            .disabled(stories.count == 0)
                     }
                 }
                 
@@ -60,10 +61,12 @@ struct Commic2ColumnView: View {
                                 .background(Color("seeMoreButtonBg"))
                                 .foregroundColor(Color("seeMoreButtonFg"))
                                 .cornerRadius(13.0)
+                                
                         }
                         .navigationBarTitleDisplayMode(.inline)
                         
                     }
+                    .padding(.top, 10)
                 }
             }
         }
