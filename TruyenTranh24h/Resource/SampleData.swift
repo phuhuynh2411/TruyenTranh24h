@@ -80,27 +80,7 @@ struct SampleData {
        
         return stories
     }
-    
-    static func carousels() -> [Carousel] {
-        var carousels = [Carousel]()
 
-        if let asset = NSDataAsset(name: carouselFileName) {
-            // load stories json file
-            let jsonDecoder = JSONDecoder()
-            jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-            
-            do{
-                try carousels = jsonDecoder.decode([Carousel].self, from: asset.data)
-            } catch {
-                print(error.localizedDescription)
-            }
-        } else {
-            print("Could not find the resource file.\(carouselFileName)")
-        }
-       
-        return carousels
-    }
-    
     static func categories() -> [Category] {
         var categories = [Category]()
 

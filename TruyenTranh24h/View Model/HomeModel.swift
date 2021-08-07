@@ -10,10 +10,10 @@ import Combine
 import CarouselView
 
 class HomeModel: ObservableObject {
-    @Published private var featureStories = [Story]()
+    @Published var featureStories = [Story]()
     @Published var refresh: Bool = false
     @Published var searchValue: String = ""
-    @Published var carouselItems = [Carousel]()
+    //@Published var carouselItems = [Carousel]()
     @Published var recommendStories = [Story]()
     @Published var maybeYouLikeStories = [Story]()
     @Published var hotStories = [Story]()
@@ -54,10 +54,7 @@ class HomeModel: ObservableObject {
         }, receiveValue: { pub1, hotStories, trailerStories, dailyUpdateStories in
             // feature stories
             self.featureStories = pub1.0
-            self.carouselItems = pub1.0.map { story in
-                Carousel(id: story.id, stringURL: story.imageURLString)
-            }
-            
+
             // feature stories
             self.categories = pub1.1
             self.recommendStories = pub1.2

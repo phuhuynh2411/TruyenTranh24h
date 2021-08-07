@@ -19,6 +19,8 @@ struct CategoryItemView: View {
                     .frame(width: 46, height: 46)
                     .aspectRatio(contentMode: .fill)
                     .clipShape(Circle())
+                    .allowsHitTesting(false)
+                
                 if !isLoaded {
                     Image("image_placeholder")
                         .frame(width: 46, height: 46 )

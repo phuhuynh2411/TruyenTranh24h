@@ -54,11 +54,10 @@ struct HomeView: View {
                         .padding(.top)
                 
                     // Carousel view
-                    //CarouselView(items: $viewModel.carouselItems,
-                                    // slideIndicator: false,
-                                    // height: 130,
-                                     //isFullWidth: false)
-
+                    SnapCarousel(stories: $viewModel.featureStories).environmentObject(UIStateModel())
+                        .frame(height: 130)
+                        .zIndex(1) // move to top
+                    
                     // Category view
                     HorizontalCategoryView(categories: $viewModel.categories)
                         

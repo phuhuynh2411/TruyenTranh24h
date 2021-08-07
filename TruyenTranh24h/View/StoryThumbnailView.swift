@@ -21,8 +21,8 @@ struct StoryThumbnailView: View {
                 VStack(alignment: .center, spacing: 10) {
                     ZStack {
                         KFImage(URL(string: story.imageURLString)!, isLoaded: $isLoaded)
-                            .scaledToFill()
                             .frame(width: proxy.size.width, height: imageHeight )
+                            .scaledToFill()
                             .clipped()
                             .cornerRadius(7.0)
                         if !isLoaded {
