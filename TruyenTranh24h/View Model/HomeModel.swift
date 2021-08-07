@@ -41,6 +41,11 @@ class HomeModel: ObservableObject {
         getHotStories()
         getTrailerStories()
         getDailyUpdateStories()
+        
+        // stop refresing
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.refresh = false
+        }
     }
         
     private func getFeatureStories() {

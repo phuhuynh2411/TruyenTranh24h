@@ -30,7 +30,7 @@ struct HomeView: View {
                         SearchFieldView(textValue: $viewModel.searchValue, disable: true)
                     }
                 })
-
+                
             }
             .padding(EdgeInsets(top: 0, leading: self.padding, bottom: 0, trailing: self.padding))
     }
@@ -48,11 +48,13 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView(.vertical) {
+            RefreshableScrollView(refreshing: $viewModel.refresh, action: {
+                viewModel.fetchData()
+            }) {
                 VStack(spacing: 20) {
                     topViews()
                         .padding(.top)
-                
+                    
                     // Carousel view
                     SnapCarousel(stories: $viewModel.featureStories).environmentObject(UIStateModel())
                         .frame(height: 130)
@@ -61,23 +63,22 @@ struct HomeView: View {
                     
                     // Category view
                     HorizontalCategoryView(categories: $viewModel.categories)
-                        
+                    
                     // Suggested and Might like views
                     suggestedMightLikeViews()
-
+                    
                     // Hot view
                     HotView(stories: $viewModel.hotStories, title: "very-hot")
-
+                    
                     // Trailer stories
                     TrailerView(stories: $viewModel.trailerStories, title: "comming-soon-title")
-
+                    
                     // Daily update
                     Commic2ColumnView(stories: $viewModel.dailyUpdateStories, title: "daily-update", thumbnailHeight: 132.0)
-                            .padding(EdgeInsets(top: 0, leading: self.padding, bottom: 0, trailing: self.padding))
+                        .padding(EdgeInsets(top: 0, leading: self.padding, bottom: 0, trailing: self.padding))
                 }
                 .padding(.bottom, 16)
-           }
-           
+            }
             .navigationBarHidden(true)
         }
         .accentColor( .black)
