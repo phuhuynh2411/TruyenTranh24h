@@ -6,35 +6,67 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct CategoryView: View {
-    @State var searchValue: String = ""
-    @State var stories: [Story] = SampleData.stories()
+    @ObservedObject var viewModel: CategoryModel
+    
+    @State var placeholders: [Story] = {
+        var stories: [Story] = []
+        (0..<10).forEach { i in
+            stories.append(Story.placeholder(id: i))
+        }
+        return stories
+    }()
     
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            VStack(alignment: .leading) {
-                HorizontalCategorySimpleView(categories: SampleData.categories())
+        
+        VStack(alignment: .leading) {
+            
+            if let categories = viewModel.categories {
+                HorizontalCategorySimpleView(categories: categories, selectedCategory: $viewModel.selectedCategory)
                     .frame(height: 50)
-                
-                //search field
-                SearchFieldView(textValue: $searchValue)
-                    .padding(.bottom)
-                
-                ForEach(stories) { story in
-                    StoryThumbnailFullDetailView(story: story, thumbnailHeight: 132)
-                }
-                
+                    .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+
             }
-            .padding(EdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 16))
-            // navigation settings
-            .navigationBarHidden(true)
+            
+            //search field
+            SearchFieldView(textValue: $viewModel.searchValue)
+                .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+            
+            ScrollView {
+                LazyVStack {
+                    if let stories = viewModel.stories {
+                        listStoryView(stories: stories)
+                    } else {
+                        listStoryView(stories: placeholders)
+                            .redacted(reason: .placeholder)
+                    }
+                }
+                .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+            }
+        }
+
+        // navigation settings
+        .navigationBarHidden(true)
+        
+    }
+    
+    func listStoryView(stories: [Story]) -> some View {
+        ForEach(stories) { story in
+            StoryThumbnailFullDetailView(story: story)
+                .frame(height: 132)
+                .onAppear {
+                    if story == stories.suffix(3).first {
+                        viewModel.loadMoreStory()
+                    }
+                }
         }
     }
     
     struct CategoryView_Previews: PreviewProvider {
         static var previews: some View {
-            CategoryView()
+            CategoryView(viewModel: CategoryModel())
         }
     }
 }

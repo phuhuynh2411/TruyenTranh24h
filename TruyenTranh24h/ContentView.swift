@@ -19,7 +19,7 @@ struct ContentView: View {
                     Text("home")
                 }
             
-            CategoryView()
+            CategoryView(viewModel: CategoryModel())
                 .tabItem {
                     Image("category-1")
                         .renderingMode(.template)

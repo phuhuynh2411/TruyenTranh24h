@@ -15,51 +15,63 @@ struct StoryThumbnailFullDetailView: View {
     @State var imageLoaded = false
     
     var body: some View {
-        HStack (spacing: 20){
-            KFImage(URL(string: story.featureImage), isLoaded: $imageLoaded)
+        ZStack {
+            GeometryReader { proxy in
+                HStack (spacing: 20) {
+                    imageView(proxy: proxy)
+                    detailsView
+                }
+            }
+        }
+    }
+    
+    func imageView(proxy: GeometryProxy) -> some View {
+        ZStack {
+            KFImage(URL(string: story.imageURLString), isLoaded: $imageLoaded)
                 .scaledToFill()
-                .frame(width: 150, height: thumbnailHeight)
+                .frame(width: 120, height: proxy.size.height)
                 .clipped()
                 .cornerRadius(7.0)
-                .background(Color.red)
             
             if !imageLoaded {
                 Image("image_placeholder")
                     .frame(width: 60, height: 60)
             }
-            
-            VStack (spacing: 12){
-                HStack {
-                    Text(story.title)
-                        .font(.system(size: 13, weight: .medium))
-                    Spacer()
-                }
-                
-                HStack {
-                    Text("author")
-                    Text("Truong vo ki")
-                    Spacer()
-                }
-                .font(.system(size: 12, weight: .regular))
-                
-                ViewLikeLoveView()
-                
+        }
+    }
+    
+    var detailsView: some View {
+        VStack (spacing: 12){
+            HStack {
+                Text(story.title)
+                    .font(.system(size: 13, weight: .medium))
                 Spacer()
-                HStack {
-                    Text("Cap nhat den 98")
-                        .font(.system(size: 12, weight: .regular))
-                        .italic()
-                        .foregroundColor(Color("categoryTextFg"))
-                    Spacer()
-                }
-               
+            }
+            
+            HStack {
+                Text("author")
+                Text(story.author)
+                Spacer()
+            }
+            .font(.system(size: 12, weight: .regular))
+            
+            ViewLikeLoveView(story: $story)
+            
+            Spacer()
+            HStack {
+                Text("Cap nhat den 98")
+                    .font(.system(size: 12, weight: .regular))
+                    .italic()
+                    .foregroundColor(Color("categoryTextFg"))
+                Spacer()
             }
         }
-            
     }
 }
 
 private struct ViewLikeLoveView: View {
+    @Binding var story: Story
+    
     var body: some View {
         HStack (spacing: 20){
             // view
@@ -69,7 +81,7 @@ private struct ViewLikeLoveView: View {
                     .frame(width: 16, height: 9)
                     .foregroundColor(Color("categoryTextFg"))
                 
-                Text("1.560")
+                Text("\(story.totalViews)")
                     .font(.system(size: 9, weight: .regular))
                     .foregroundColor(Color("categoryTextFg"))
             }
@@ -79,7 +91,7 @@ private struct ViewLikeLoveView: View {
                     .resizable()
                     .frame(width: 12, height: 10)
                 
-                Text("150")
+                Text("\(story.totalLikes)")
                     .font(.system(size: 9, weight: .regular))
                     .foregroundColor(Color("categoryTextFg"))
             }
@@ -99,8 +111,9 @@ private struct ViewLikeLoveView: View {
 }
 
 struct StoryThumbnailFullDetailView_Previews: PreviewProvider {
+    @State static var story = SampleData.stories()[0]
     static var previews: some View {
-        StoryThumbnailFullDetailView(story: SampleData.stories()[0], thumbnailHeight: 150)
+        StoryThumbnailFullDetailView(story: story)
             .frame(height: 150)
     }
 }

@@ -22,6 +22,9 @@ class URLSetting {
     
     // Category
     static var categoryURL: URL { baseURL.appendingPathComponent("categories") }
+    static func storiesByCategoryURL(categoryId: Int) -> URL {
+        baseURL.appendingPathComponent("categories/\(categoryId)/stories")
+    }
 
     static var loginURL: URL { baseURL.appendingPathComponent("stories/features") }
 }

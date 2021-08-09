@@ -11,15 +11,9 @@ import Combine
 class StoryAPI: API {
     static let shared = StoryAPI()
     
-    private func buildRequest(url: URL, limit: Int?) -> URLRequest {
-        let urlWithParas = addQueryItems(limit: limit, to: url)
-        let request = getRequest(url: urlWithParas)
-        
-        return request
-    }
-    
-    private func getStories(url: URL, limit: Int? = 6) -> AnyPublisher<Entry<ResponseData>, Error> {
-        let request =  buildRequest(url: url, limit: limit)
+    private func getStories(url: URL, limit: Int? = nil, page: Int? = nil) -> AnyPublisher<Entry<ResponseData>, Error> {
+        let urlWithParas = addQueryItems(page: page, limit: limit, to: url)
+        let request =  getRequest(url: urlWithParas)
         
         return self.send(request: request)
             .eraseToAnyPublisher()
@@ -32,13 +26,13 @@ class StoryAPI: API {
     }
     
     func getRecommendStories() -> AnyPublisher<[Story], Error> {
-        return getStories(url: URLSetting.recommendStoryURL)
+        return getStories(url: URLSetting.recommendStoryURL, limit: 6)
             .tryMap { try self.validate(entry: $0) }
             .eraseToAnyPublisher()
     }
     
     func getMaybeYouLikeStories() -> AnyPublisher<[Story], Error> {
-        return getStories(url: URLSetting.maybeYouLikeURL)
+        return getStories(url: URLSetting.maybeYouLikeURL, limit: 6)
             .tryMap { try self.validate(entry: $0) }
             .eraseToAnyPublisher()
     }
@@ -50,13 +44,19 @@ class StoryAPI: API {
     }
     
     func getTrailerStories() -> AnyPublisher<[Story], Error> {
-        return getStories(url: URLSetting.trailerStoryURL)
+        return getStories(url: URLSetting.trailerStoryURL, limit: 10)
             .tryMap { try self.validate(entry: $0) }
             .eraseToAnyPublisher()
     }
     
     func getStories() -> AnyPublisher<[Story], Error> {
         return getStories(url: URLSetting.storyURL, limit: 20)
+            .tryMap { try self.validate(entry: $0) }
+            .eraseToAnyPublisher()
+    }
+    
+    func getStories(by category: Category, page: Int? = nil) -> AnyPublisher<[Story], Error> {
+        return getStories(url: URLSetting.storiesByCategoryURL(categoryId: category.id), page: page)
             .tryMap { try self.validate(entry: $0) }
             .eraseToAnyPublisher()
     }

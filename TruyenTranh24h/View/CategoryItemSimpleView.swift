@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct CategoryItemSimpleView: View {
-    @State var category: Category
-    @State var isSelected: Bool = false
+    var category: Category
+    var isSelected: Bool = false
     
     var body: some View {
         Text(category.name)
