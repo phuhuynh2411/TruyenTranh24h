@@ -27,10 +27,10 @@ struct HorizontalCategoryView: View {
                 ForEach(showPlaceholder ? placeholders : categories){ category in
                     CategoryItemView(category: category)
                 }
-                .redacted(reason: showPlaceholder ? .placeholder : [])
             }
             .frame(height: 90)
             .padding([.leading, .trailing], 16)
+            .redacted(reason: showPlaceholder ? .placeholder : [])
         }
     }
 }

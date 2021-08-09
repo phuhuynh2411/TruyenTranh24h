@@ -18,7 +18,7 @@ struct Commic2ColumnView: View {
     var showStoryDetail = false
     var placeholders: [Story] = {
         var stories: [Story] = []
-        for i in 0..<6 {
+        for i in -6..<0 {
             stories.append(Story.placeholder(id: i))
         }
         return stories
@@ -27,34 +27,30 @@ struct Commic2ColumnView: View {
     var showPlaceholder = false
     
     var body: some View {
-        
         VStack {
-            VStack {
-                // Title
-                if let t = title {
-                    HStack {
-                        Text(LocalizedStringKey(t))
-                            .multilineTextAlignment(.leading)
-                            .foregroundColor(Color("mainTitleText"))
-                            .font(.system(size: 14, weight: .medium))
-                        
-                        Spacer()
-                    }
-                    .unredacted()
+            // Title
+            if let t = title {
+                HStack {
+                    Text(LocalizedStringKey(t))
+                        .multilineTextAlignment(.leading)
+                        .foregroundColor(Color("mainTitleText"))
+                        .font(.system(size: 14, weight: .medium))
+                    
+                    Spacer()
                 }
-                
-                LazyVGrid(columns: columns){
-                    storyView(stories: showPlaceholder ? placeholders : stories ?? [])
-                }
-                
-                // See more button
-                if moreButton {
-                    moreButtonView
-                }
+                .unredacted()
+            }
+            
+            LazyVGrid(columns: columns){
+                storyView(stories: showPlaceholder ? placeholders : stories ?? [])
+            }
+            
+            // See more button
+            if moreButton {
+                moreButtonView
             }
         }
         .redacted(reason: showPlaceholder ? .placeholder : [])
-
     }
     
     var moreButtonView: some View {

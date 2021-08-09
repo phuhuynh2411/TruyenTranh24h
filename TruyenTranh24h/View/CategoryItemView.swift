@@ -10,25 +10,19 @@ import Kingfisher
 
 struct CategoryItemView: View {
     var category: Category
-    @State private var isLoaded = false
     
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
-            ZStack {
-                KFImage(URL(string: category.imageURLString), isLoaded: $isLoaded)
-                    .frame(width: 46, height: 46)
-                    .aspectRatio(contentMode: .fill)
-                    .clipShape(Circle())
-                    .allowsHitTesting(false)
-                
-                if !isLoaded {
+            KFImage(URL(string: category.imageURLString))
+                .placeholder({
                     Image("image_placeholder")
                         .frame(width: 46, height: 46 )
                         .aspectRatio(contentMode: .fill)
                         .clipShape(Circle())
-                    
-                }
-            }
+                })
+                .frame(width: 46, height: 46)
+                .aspectRatio(contentMode: .fill)
+                .clipShape(Circle())
             
             Text(category.name)
                 .font(.system(size: 12))
@@ -36,6 +30,7 @@ struct CategoryItemView: View {
                 .frame(height: 30, alignment: .top)
             
         }
+        .allowsHitTesting(false)
         .frame(width: 70, height: 90)
     }
 }
@@ -47,7 +42,7 @@ struct CategoryItemView_Previews: PreviewProvider {
             CategoryItemView(category: category)
             
             CategoryItemView(category: category)
-
+            
             CategoryItemView(category: category)
         }
     }

@@ -56,7 +56,7 @@ struct HomeView: View {
                         .padding(.top)
                     
                     // Carousel view
-                    SnapCarousel(stories: viewModel.featureStories ?? [],
+                    SnapCarousel(stories: viewModel.featureStories,
                                  showPlaceholder: viewModel.featureStories == nil).environmentObject(UIStateModel())
                         .frame(height: 130)
                         .zIndex(1) // move to top

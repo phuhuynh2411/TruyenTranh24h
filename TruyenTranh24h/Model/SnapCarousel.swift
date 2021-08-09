@@ -11,7 +11,7 @@ import Kingfisher
 
 struct SnapCarousel: View {
     @EnvironmentObject var UIState: UIStateModel
-    var stories: [Story]
+    var stories: [Story]?
     var showPlaceholder = false
     
     var body: some View {
@@ -20,10 +20,12 @@ struct SnapCarousel: View {
         let cardHeight: CGFloat = 130
         
         var items: [Card] = []
-        for i in 0..<stories.count {
-            items.append(Card(id: i, name: stories[i].title, imageString: stories[i].imageURLString))
+        if let stories = self.stories {
+            for i in 0..<stories.count{
+                items.append(Card(id: i, name: stories[i].title, imageString: stories[i].imageURLString))
+            }
         }
-        
+            
         if showPlaceholder {
             return AnyView(HStack {
                 Spacer()

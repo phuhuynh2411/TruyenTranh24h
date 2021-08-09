@@ -11,26 +11,24 @@ import Kingfisher
 struct StoryThumbnailView: View {
     var story: Story
     private let textHeight: CGFloat = 40
-    @State var isLoaded = false
     
     var body: some View {
         ZStack {
             GeometryReader { proxy in
                 let imageHeight = proxy.size.height - textHeight > 0 ? proxy.size.height - textHeight : 10
-
+                
                 VStack(alignment: .center, spacing: 10) {
                     ZStack {
-                        KFImage(URL(string: story.imageURLString)!, isLoaded: $isLoaded)
+                        KFImage(URL(string: story.imageURLString)!)
+                            .placeholder({
+                                Image("image_placeholder")
+                                    .frame(width: 60, height: 60 )
+                                    .cornerRadius(7.0)
+                            })
                             .frame(width: proxy.size.width, height: imageHeight )
                             .scaledToFill()
                             .clipped()
                             .cornerRadius(7.0)
-                        if !isLoaded {
-                            Image("image_placeholder")
-                                .frame(width: 60, height: 60 )
-                                .cornerRadius(7.0)
-                            
-                        }
                     }
                     
                     // Story name
@@ -41,40 +39,39 @@ struct StoryThumbnailView: View {
                 }
             }
         }
-        
-        
     }
+    
 }
 
 struct StoryThumbnail_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-//            HStack {
-//                StoryThumbnailView(story: SampleData.stories()[0])
-//                    .environment(\.locale, .init(identifier: "us"))
-//                    .frame(width: 109, height: 168)
-//
-//                StoryThumbnailView(story: SampleData.stories()[1])
-//                    .environment(\.locale, .init(identifier: "us"))
-//                    .frame(width: 109, height: 168)
-//
-//                StoryThumbnailView(story: SampleData.stories()[2])
-//                    .environment(\.locale, .init(identifier: "us"))
-//                    .frame(width: 109, height: 168)
-//            }
+            //            HStack {
+            //                StoryThumbnailView(story: SampleData.stories()[0])
+            //                    .environment(\.locale, .init(identifier: "us"))
+            //                    .frame(width: 109, height: 168)
+            //
+            //                StoryThumbnailView(story: SampleData.stories()[1])
+            //                    .environment(\.locale, .init(identifier: "us"))
+            //                    .frame(width: 109, height: 168)
+            //
+            //                StoryThumbnailView(story: SampleData.stories()[2])
+            //                    .environment(\.locale, .init(identifier: "us"))
+            //                    .frame(width: 109, height: 168)
+            //            }
             
             // hot story
-//            HStack {
-//                StoryThumbnailView(story: SampleData.stories()[1])
-//                    .environment(\.locale, .init(identifier: "vi"))
-//                    .frame(width: 250, height: 100)
-//                    .background(Color.green)
-//                
-//                StoryThumbnailView(story: SampleData.stories()[1])
-//                    .environment(\.locale, .init(identifier: "vi"))
-//                    .frame(width: 250, height: 100)
-//                    .background(Color.green)
-//            }
+            //            HStack {
+            //                StoryThumbnailView(story: SampleData.stories()[1])
+            //                    .environment(\.locale, .init(identifier: "vi"))
+            //                    .frame(width: 250, height: 100)
+            //                    .background(Color.green)
+            //
+            //                StoryThumbnailView(story: SampleData.stories()[1])
+            //                    .environment(\.locale, .init(identifier: "vi"))
+            //                    .frame(width: 250, height: 100)
+            //                    .background(Color.green)
+            //            }
             
         }
     }
