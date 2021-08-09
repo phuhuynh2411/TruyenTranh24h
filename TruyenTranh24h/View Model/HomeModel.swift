@@ -33,19 +33,27 @@ class HomeModel: ObservableObject {
     private var dailyStream: AnyCancellable?
     private var categoryStream: AnyCancellable?
     
+    @Published var isError: Bool = false
+    var error: Error?
+    
     func fetchData(isPullToRefresh: Bool = false) {
         getFeatureStories()
         getCategories()
         getRecomendStories()
         getMaybeYouLikeStories()
         getHotStories()
-        getTrailerStories()
+        //getTrailerStories()
         getDailyUpdateStories()
         
         // stop refresing
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.refresh = false
         }
+    }
+    
+    func setError(error: Error) {
+        self.error = error
+        isError = true
     }
         
     private func getFeatureStories() {
@@ -56,6 +64,7 @@ class HomeModel: ObservableObject {
             case .finished: break
             case .failure(let error):
                 print(error)
+                self.setError(error: error)
             }
         }, receiveValue: { stories in
             self.featureStories = stories
@@ -70,6 +79,7 @@ class HomeModel: ObservableObject {
             case .finished: break
             case .failure(let error):
                 print(error)
+                self.setError(error: error)
             }
         }, receiveValue: { stories in
             self.recommendStories = stories
@@ -84,6 +94,7 @@ class HomeModel: ObservableObject {
             case .finished: break
             case .failure(let error):
                 print(error)
+                self.setError(error: error)
             }
         }, receiveValue: { stories in
             self.maybeYouLikeStories = stories
@@ -98,6 +109,7 @@ class HomeModel: ObservableObject {
             case .finished: break
             case .failure(let error):
                 print(error)
+                self.setError(error: error)
             }
         }, receiveValue: { stories in
             self.hotStories = stories
@@ -112,6 +124,7 @@ class HomeModel: ObservableObject {
             case .finished: break
             case .failure(let error):
                 print(error)
+                self.setError(error: error)
             }
         }, receiveValue: { stories in
             self.trailerStories = stories
@@ -126,6 +139,7 @@ class HomeModel: ObservableObject {
             case .finished: break
             case .failure(let error):
                 print(error)
+                self.setError(error: error)
             }
         }, receiveValue: { stories in
             self.dailyUpdateStories = stories
@@ -140,6 +154,7 @@ class HomeModel: ObservableObject {
             case .finished: break
             case .failure(let error):
                 print(error)
+                self.setError(error: error)
             }
         }, receiveValue: { categories in
             self.categories = categories

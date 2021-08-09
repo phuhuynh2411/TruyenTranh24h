@@ -9,6 +9,7 @@ import SwiftUI
 import RefreshableScrollView
 import CarouselView
 import UIKit
+import AlertToast
 
 struct HomeView: View {
     @ObservedObject var viewModel: HomeModel
@@ -85,6 +86,10 @@ struct HomeView: View {
             .navigationBarHidden(true)
         }
         .accentColor( .black)
+        // Handel error
+        .toast(isPresenting: $viewModel.isError) {
+            AlertToast(type: .regular, title: "Error", subTitle: viewModel.error?.localizedDescription)
+        }
     }
 }
 

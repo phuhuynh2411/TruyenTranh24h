@@ -33,6 +33,7 @@
 		84393AFD267C9155005101FD /* CommentInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84393AFC267C9155005101FD /* CommentInputView.swift */; };
 		84393B00267C953E005101FD /* ChapterItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84393AFF267C953E005101FD /* ChapterItemView.swift */; };
 		84393B02267C9639005101FD /* ChapterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84393B01267C9639005101FD /* ChapterListView.swift */; };
+		843F76DD26C106A400DA865B /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 843F76DC26C106A400DA865B /* AlertToast */; };
 		8441BB062632A53800F08AD9 /* RefreshableScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 8441BB052632A53800F08AD9 /* RefreshableScrollView */; };
 		844698B926772EEF0081E6BA /* StoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844698B826772EEF0081E6BA /* StoryHeaderView.swift */; };
 		844698BB267732790081E6BA /* StarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844698BA267732790081E6BA /* StarView.swift */; };
@@ -224,6 +225,7 @@
 				8414431626BD294E00D6B520 /* Kingfisher in Frameworks */,
 				8441BB062632A53800F08AD9 /* RefreshableScrollView in Frameworks */,
 				842E33D42636B0FE00A9D7A2 /* CarouselView in Frameworks */,
+				843F76DD26C106A400DA865B /* AlertToast in Frameworks */,
 				849311FE2679FC910011AE5C /* URLImage in Frameworks */,
 				842E33B12636AA5100A9D7A2 /* RemoteImageView in Frameworks */,
 			);
@@ -485,6 +487,7 @@
 				849311FD2679FC910011AE5C /* URLImage */,
 				8414431226BD26BA00D6B520 /* SDWebImageSwiftUI */,
 				8414431526BD294E00D6B520 /* Kingfisher */,
+				843F76DC26C106A400DA865B /* AlertToast */,
 			);
 			productName = TruyenTranh24h;
 			productReference = 8446F9A2262575FF0098635A /* TruyenTranh24h.app */;
@@ -541,6 +544,7 @@
 				849311FA2679FC910011AE5C /* XCRemoteSwiftPackageReference "url-image" */,
 				8414431126BD26BA00D6B520 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				8414431426BD294E00D6B520 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				843F76DB26C106A400DA865B /* XCRemoteSwiftPackageReference "AlertToast" */,
 			);
 			productRefGroup = 8446F9A3262575FF0098635A /* Products */;
 			projectDirPath = "";
@@ -958,6 +962,14 @@
 				minimumVersion = 1.0.2;
 			};
 		};
+		843F76DB26C106A400DA865B /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
 		849311FA2679FC910011AE5C /* XCRemoteSwiftPackageReference "url-image" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/phuhuynh2411/url-image.git";
@@ -987,6 +999,11 @@
 		842E33D32636B0FE00A9D7A2 /* CarouselView */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CarouselView;
+		};
+		843F76DC26C106A400DA865B /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 843F76DB26C106A400DA865B /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
 		};
 		8441BB052632A53800F08AD9 /* RefreshableScrollView */ = {
 			isa = XCSwiftPackageProductDependency;

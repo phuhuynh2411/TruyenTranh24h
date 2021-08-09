@@ -91,6 +91,10 @@ class API {
     }
     
     internal func send<T: Codable> (request: URLRequest) -> AnyPublisher<T, Error> {
+        print("----API Request----")
+        print("URL: \(String(describing: request.url?.absoluteURL))")
+        print("Method: \(request.httpMethod ?? "")")
+        print("--------")
         return publisher
             .dataTaskPublisher(for: request)
             .tryMap { try self.validate($0.data, $0.response) }
