@@ -38,10 +38,10 @@ struct HomeView: View {
     fileprivate func suggestedMightLikeViews() -> some View {
         return Group {
             // Suggested stories
-            Commic2ColumnView(stories:  $viewModel.recommendStories, title: "suggested-story", thumbnailHeight: 132.0)
+            Commic2ColumnView(stories: viewModel.recommendStories, title: "suggested-story", thumbnailHeight: 132.0, showPlaceholder: viewModel.recommendStories == nil)
             
             // You might like story section
-            Commic2ColumnView(stories: $viewModel.maybeYouLikeStories, title: "you-might-like", thumbnailHeight: 132.0)
+            Commic2ColumnView(stories: viewModel.maybeYouLikeStories, title: "you-might-like", thumbnailHeight: 132.0, showPlaceholder: viewModel.maybeYouLikeStories == nil)
         }
         .padding(EdgeInsets(top: 0, leading: self.padding, bottom: 0, trailing: self.padding))
     }
@@ -56,25 +56,28 @@ struct HomeView: View {
                         .padding(.top)
                     
                     // Carousel view
-                    SnapCarousel(stories: $viewModel.featureStories).environmentObject(UIStateModel())
+                    SnapCarousel(stories: viewModel.featureStories ?? [],
+                                 showPlaceholder: viewModel.featureStories == nil).environmentObject(UIStateModel())
                         .frame(height: 130)
                         .zIndex(1) // move to top
-                        .redacted(reason: viewModel.featureStories.count > 0 ? [] : .placeholder)
                     
                     // Category view
-                    HorizontalCategoryView(categories: $viewModel.categories)
+                    HorizontalCategoryView(categories: viewModel.categories ?? [], showPlaceholder: viewModel.categories == nil)
                     
                     // Suggested and Might like views
                     suggestedMightLikeViews()
                     
                     // Hot view
-                    HotView(stories: $viewModel.hotStories, title: "very-hot")
+                    HotView(stories: viewModel.hotStories ?? [], title: "very-hot", showPlaceholder: viewModel.hotStories == nil)
                     
                     // Trailer stories
-                    TrailerView(stories: $viewModel.trailerStories, title: "comming-soon-title")
+                    //TrailerView(stories: $viewModel.trailerStories, title: "comming-soon-title")
                     
                     // Daily update
-                    Commic2ColumnView(stories: $viewModel.dailyUpdateStories, title: "daily-update", thumbnailHeight: 132.0)
+                    Commic2ColumnView(stories: viewModel.dailyUpdateStories,
+                                      title: "daily-update",
+                                      thumbnailHeight: 132.0,
+                                      showPlaceholder: viewModel.dailyUpdateStories == nil)
                         .padding(EdgeInsets(top: 0, leading: self.padding, bottom: 0, trailing: self.padding))
                 }
                 .padding(.bottom, 16)

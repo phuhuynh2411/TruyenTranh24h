@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct CategoryItemView: View {
-    @Binding var category: Category
+    var category: Category
     @State private var isLoaded = false
     
     var body: some View {
@@ -44,11 +44,11 @@ struct CategoryItemView_Previews: PreviewProvider {
     @State static var category = SampleData.categories()[0]
     static var previews: some View {
         HStack {
-            CategoryItemView(category: $category)
+            CategoryItemView(category: category)
             
-            CategoryItemView(category: $category)
+            CategoryItemView(category: category)
 
-            CategoryItemView(category: $category)
+            CategoryItemView(category: category)
         }
     }
 }

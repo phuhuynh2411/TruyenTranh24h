@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct StoryThumbnailView: View {
-    @Binding var story: Story
+    var story: Story
     private let textHeight: CGFloat = 40
     @State var isLoaded = false
     

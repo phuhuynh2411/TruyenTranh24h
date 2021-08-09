@@ -11,7 +11,8 @@ import Kingfisher
 
 struct SnapCarousel: View {
     @EnvironmentObject var UIState: UIStateModel
-    @Binding var stories: [Story]
+    var stories: [Story]
+    var showPlaceholder = false
     
     var body: some View {
         let spacing: CGFloat = 16
@@ -23,14 +24,16 @@ struct SnapCarousel: View {
             items.append(Card(id: i, name: stories[i].title, imageString: stories[i].imageURLString))
         }
         
-        if items.count == 0 {
+        if showPlaceholder {
             return AnyView(HStack {
                 Spacer()
                 Image("image_placeholder")
                     .frame(width: 60, height: 60 )
                     .cornerRadius(7.0)
                 Spacer()
-            })
+            }
+            .redacted(reason: .placeholder)
+            )
         }
         
         return AnyView(Canvas {

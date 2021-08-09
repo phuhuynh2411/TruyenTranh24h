@@ -10,9 +10,10 @@ import SwiftUI
 struct HorizontalCategoryView: View {
     let rows: [GridItem] =
         Array(repeating: .init(.flexible()), count: 1)
-    @Binding var categories: [Category]
+    var categories: [Category]
+    var showPlaceholder = false
     
-    @State var placeholders: [Category] = {
+    var placeholders: [Category] = {
         var categories: [Category] = []
         for i in -6...0 {
             categories.append(Category.placeholder(id: i))
@@ -21,13 +22,12 @@ struct HorizontalCategoryView: View {
     }()
     
     var body: some View {
-        let count = categories.count > 0 ? categories.count : placeholders.count
         return ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: rows) {
-                ForEach(0..<count, id: \.self) { i in
-                    CategoryItemView(category: categories.count > 0 ? $categories[i] : $placeholders[i])
+                ForEach(showPlaceholder ? placeholders : categories){ category in
+                    CategoryItemView(category: category)
                 }
-                .redacted(reason:  self.categories.count == 0 ? .placeholder : [])
+                .redacted(reason: showPlaceholder ? .placeholder : [])
             }
             .frame(height: 90)
             .padding([.leading, .trailing], 16)
@@ -39,6 +39,6 @@ struct HorizontalCategoryView_Previews: PreviewProvider {
     @State static var categories = SampleData.categories()
     
     static var previews: some View {
-        HorizontalCategoryView(categories: $categories)
+        HorizontalCategoryView(categories: categories)
     }
 }

@@ -10,15 +10,15 @@ import Combine
 import CarouselView
 
 class HomeModel: ObservableObject {
-    @Published var featureStories = [Story]()
+    @Published var featureStories: [Story]?
     @Published var refresh: Bool = false
     @Published var searchValue: String = ""
-    @Published var recommendStories = [Story]()
-    @Published var maybeYouLikeStories = [Story]()
-    @Published var hotStories = [Story]()
+    @Published var recommendStories: [Story]?
+    @Published var maybeYouLikeStories: [Story]?
+    @Published var hotStories: [Story]?
     @Published var trailerStories = [Story]()
-    @Published var dailyUpdateStories = [Story]()
-    @Published var categories = [Category]()
+    @Published var dailyUpdateStories: [Story]?
+    @Published var categories: [Category]?
 
     init() {
         fetchData()
