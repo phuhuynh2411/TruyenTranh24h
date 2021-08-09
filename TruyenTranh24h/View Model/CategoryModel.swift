@@ -15,10 +15,12 @@ class CategoryModel: ObservableObject {
     @Published var categories: [Category]?
     @Published var selectedCategory: Category?
     private var currentPage: Int = 1
+    @Published var isRefreshing = false
     
     var categoryStream: AnyCancellable?
     var storiesStream: AnyCancellable?
     var selectedCategoryStream: AnyCancellable?
+    var searchStream: AnyCancellable?
     
     init() {
         getCategories()
@@ -27,12 +29,33 @@ class CategoryModel: ObservableObject {
             guard let c = category else { return }
             self.change(category: c)
         })
+        
+        searchStream = $searchValue
+            .debounce(for: 0.5, scheduler: RunLoop.main)
+            .sink(receiveValue: { value in
+            print("Search value: \(value)")
+        })
     }
     
     private func change(category: Category) {
         currentPage = 1
         stories = nil
         self.getStories(by: category)
+    }
+    
+    func refetchData() {
+        // refresh categories
+        categories = nil
+        getCategories()
+        
+        // refresh stories
+        stories = nil
+        currentPage = 1
+        guard let category = selectedCategory else { return }
+        self.getStories(by: category)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.isRefreshing = false
+        }
     }
     
     private func getCategories() {
@@ -47,7 +70,7 @@ class CategoryModel: ObservableObject {
         }, receiveValue: { categories in
             self.categories = categories
             if let firstCategory = categories.first {
-                self.selectedCategory = firstCategory
+                self.selectedCategory = (self.selectedCategory == nil) ? firstCategory : self.selectedCategory
             }
         })
     }

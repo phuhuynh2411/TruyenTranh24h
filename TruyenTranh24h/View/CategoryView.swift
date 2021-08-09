@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UIKit
+import RefreshableScrollView
 
 struct CategoryView: View {
     @ObservedObject var viewModel: CategoryModel
@@ -19,6 +20,14 @@ struct CategoryView: View {
         return stories
     }()
     
+    var categoryPlaceholders: [Category] = {
+        var categories: [Category] = []
+        (0..<10).forEach { i in
+            categories.append(Category.placeholder(id: i))
+        }
+        return categories
+    }()
+    
     var body: some View {
         
         VStack(alignment: .leading) {
@@ -27,14 +36,22 @@ struct CategoryView: View {
                 HorizontalCategorySimpleView(categories: categories, selectedCategory: $viewModel.selectedCategory)
                     .frame(height: 50)
                     .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
-
+                
+            } else {
+                HorizontalCategorySimpleView(categories: categoryPlaceholders, selectedCategory: $viewModel.selectedCategory)
+                    .frame(height: 50)
+                    .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+                    .redacted(reason: .placeholder)
             }
             
             //search field
             SearchFieldView(textValue: $viewModel.searchValue)
                 .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
             
-            ScrollView {
+            
+            RefreshableScrollView(refreshing: $viewModel.isRefreshing, action: {
+                viewModel.refetchData()
+            }) {
                 LazyVStack {
                     if let stories = viewModel.stories {
                         listStoryView(stories: stories)
@@ -46,7 +63,7 @@ struct CategoryView: View {
                 .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
             }
         }
-
+        
         // navigation settings
         .navigationBarHidden(true)
         
