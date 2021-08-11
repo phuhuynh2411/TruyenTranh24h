@@ -12,7 +12,8 @@ struct Chapter: Codable, Identifiable {
     let title: String
     
     let releasedDate: Date?
-    
+    let createdAt: Date
+    let updatedAt: Date
     var formattedRelasedDate: String {
         guard let date = releasedDate else { return "" }
         let dateFormatter = DateFormatter()

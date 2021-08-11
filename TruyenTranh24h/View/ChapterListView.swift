@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct ChapterListView: View {
-    @State var chapters: [Chapter]
+    var story: Story
     @State private var selectedFilter: ChapterFilter = .newest
     
     var body: some View {
         VStack {
             HStack {
-                Text("Updated to chapter 102")
-                    .font(.system(size: 13, weight: .bold))
-                    .foregroundColor(.black)
+                if let lastChapter = story.lastChapter {
+                    Text("update-to \(lastChapter.title)")
+                        .font(.system(size: 13, weight: .bold))
+                        .foregroundColor(.black)
+                }
                 
                 Spacer()
                 
@@ -26,7 +28,7 @@ struct ChapterListView: View {
                             .font(.system(size: 10, weight: .light))
                             .foregroundColor(selectedFilter == .newest ? Color("mainTitleText") : Color("dateChaperItemFg"))
                     })
-                   
+                    
                     Text("|")
                         .font(.system(size: 10, weight: .light))
                         .foregroundColor(Color("dateChaperItemFg"))
@@ -39,14 +41,15 @@ struct ChapterListView: View {
                 }
             }
             .padding(EdgeInsets(top: 25, leading: 16, bottom: 25, trailing: 16))
-            
-            ForEach(chapters){ chapter in
-                ChapterItemView(chapter: chapter)
-                    .frame(height: 50)
-                    .padding(.leading, 16)
-                    .padding(.trailing, 16)
-                
-                LineView()
+            if let chapters = story.chapters {
+                ForEach(chapters){ chapter in
+                    ChapterItemView(chapter: chapter)
+                        .frame(height: 50)
+                        .padding(.leading, 16)
+                        .padding(.trailing, 16)
+                    
+                    LineView()
+                }
             }
         }
     }
@@ -59,6 +62,6 @@ struct ChapterListView: View {
 
 struct ChapterListView_Previews: PreviewProvider {
     static var previews: some View {
-        ChapterListView(chapters: SampleData.chapters())
+        ChapterListView(story: SampleData.stories()[0])
     }
 }

@@ -9,14 +9,11 @@ import SwiftUI
 import URLImage
 import RemoteImageView
 import Combine
+import AlertToast
 
 struct StoryView: View {
-    @State var story: Story
-    @State private var offset = CGFloat.zero {
-        didSet {
-            print("did set \(offset)")
-        }
-    }
+    @EnvironmentObject var viewModel: StoryViewModel
+    @State private var offset = CGFloat.zero
     @State private var showBackButton = false
     @State private var selectedTab: StoryTab = .content
     @State private var imageBackgroundHeight: CGFloat = 250
@@ -36,13 +33,13 @@ struct StoryView: View {
                     ScrollView(showsIndicators: false) {
                         VStack {
                             // Title
-                            StoryHeaderView(story: story)
+                            StoryHeaderView(story: viewModel.story)
                                 .frame(height: 140)
                             
                             // Tab view
                             TabView(selectedTab: $selectedTab)
                             if selectedTab == .content {
-                                StoryContentView(story: $story)
+                                StoryContentView()
                                     .padding(.top, 16)
                             } else {
                                 StoryChapterView()
@@ -66,11 +63,15 @@ struct StoryView: View {
             
         }
         .background(headerBackgroundView)
+        // Handel error
+        .toast(isPresenting: $viewModel.isError) {
+            AlertToast(type: .regular, title: "Error", subTitle: viewModel.error?.localizedDescription)
+        }
     }
     
     var headerBackgroundView: some View {
         VStack {
-            HeaderBackgroundView(height: $imageBackgroundHeight, stringURL: story.featureImage)
+            HeaderBackgroundView(height: $imageBackgroundHeight, stringURL: viewModel.story.imageURLString)
                 .offset(y: -60 )
             Spacer()
         }
@@ -98,11 +99,11 @@ struct StoryView: View {
         }
         .background(
             HStack {
-                CacheImageView(stringURL: story.featureImage)
+                CacheImageView(stringURL: viewModel.story.imageURLString)
                     .frame(width: 30, height: 30)
                     .clipShape(Circle())
 
-                Text(story.title)
+                Text(viewModel.story.title)
                     .font(.system(size: 13, weight: .bold))
                     .foregroundColor(.black)
             }
@@ -172,7 +173,7 @@ struct StoryView: View {
     }
     
     struct StoryContentView: View {
-        @Binding var story: Story
+        @EnvironmentObject var viewModel: StoryViewModel
         @State var comments = SampleData.comments().prefix(5)
         @State var commentValue: String = ""
         
@@ -186,7 +187,7 @@ struct StoryView: View {
         var body: some View {
             VStack (spacing: 20){
                 // Story summary
-                StorySummary(story: $story)
+                StorySummary(story: $viewModel.story)
                     .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                 
                 LineView()
@@ -220,18 +221,22 @@ struct StoryView: View {
                         .font(.system(size: 13, weight: .bold))
                         .foregroundColor(.black)
                     
-                    Commic3ColumnView(stories: SampleData.stories()
-                                      , thumbnailHeight: 130
-                                      , moreButton: false)
+                CommicView(stories: viewModel.relatedStories,
+                           thumbnailHeight: 130,
+                           moreButton: false,
+                           showPlaceholder: viewModel.relatedStories == nil)
                 }
+                .padding([.leading, .trailing], 16)
             }
             
         }
     }
     
     struct StoryChapterView: View {
+        @EnvironmentObject var viewModel: StoryViewModel
+        
         var body: some View {
-            ChapterListView(chapters: SampleData.chapters())
+            ChapterListView(story: viewModel.story)
         }
     }
     
@@ -244,7 +249,7 @@ struct StoryView: View {
         var body: some View {
             VStack(alignment: .leading, spacing: 26) {
                 // Update on text
-                Text("Maecenas sed diam eget risus varius blandit sit amet non magna.")
+                Text(story.title)
                     .font(.system(size: 12, weight: .bold))
                     .foregroundColor(Color("mainTitleText"))
                 
@@ -254,7 +259,7 @@ struct StoryView: View {
                         .font(.system(size: 12, weight: .regular))
                         .foregroundColor(Color("summaryTextFg"))
                     
-                    Text(story.title)
+                    Text(story.author)
                         .font(.system(size: 12, weight: .light))
                         .italic()
                         .foregroundColor(Color("summaryTextFg"))
@@ -266,7 +271,7 @@ struct StoryView: View {
                         .font(.system(size: 12, weight: .regular))
                         .foregroundColor(Color("summaryTextFg"))
                     
-                    Text(story.title)
+                    Text(story.listCategory)
                         .font(.system(size: 12, weight: .light))
                         .italic()
                         .foregroundColor(Color("summaryTextFg"))
@@ -279,7 +284,7 @@ struct StoryView: View {
                     
                     // Description
                     VStack (alignment: .leading, spacing: 10) {
-                        Text(readMore == true ? story.description : story.description.words(numberOfWords) + "...")
+                        Text(readMore == true ? story.nonHTMLDescription : story.nonHTMLDescription.words(numberOfWords) + "...")
                             .foregroundColor(Color("descriptionFg"))
                             .font(.system(size: 12, weight: .light))
                             .lineSpacing(8)
@@ -287,7 +292,7 @@ struct StoryView: View {
                             //.frame(height: (readMore == true ? 200 : 100))
                             
                         // Show read more button only if the number of words is more than 50
-                        if story.description.wordCounts > numberOfWords {
+                        if story.nonHTMLDescription.wordCounts > numberOfWords {
                             Button(action: {
                                 readMore.toggle()
                             }, label: {
@@ -309,7 +314,7 @@ struct StoryView: View {
 struct StoryView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            StoryView(story: SampleData.stories()[1])
+            //StoryView(viewModel: StoryViewModel(story: SampleData.stories()[0]))
         }
 //
 //        NavigationView {

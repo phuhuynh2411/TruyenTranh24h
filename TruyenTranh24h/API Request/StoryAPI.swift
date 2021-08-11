@@ -11,8 +11,8 @@ import Combine
 class StoryAPI: API {
     static let shared = StoryAPI()
     
-    private func getStories(url: URL, limit: Int? = nil, page: Int? = nil, search: String? = nil) -> AnyPublisher<Entry<ResponseData>, Error> {
-        let urlWithParas = addQueryItems(page: page, limit: limit, search: search, to: url)
+    private func getStories<R>(url: URL, limit: Int? = nil, page: Int? = nil, search: String? = nil, with: String? = nil) -> AnyPublisher<Entry<R>, Error> {
+        let urlWithParas = addQueryItems(page: page, limit: limit, search: search, with: with, to: url)
         let request =  getRequest(url: urlWithParas)
         
         return self.send(request: request)
@@ -61,12 +61,30 @@ class StoryAPI: API {
             .eraseToAnyPublisher()
     }
     
+    func getStoryDetail(by id: Int, with: String? = nil) -> AnyPublisher<Story, Error> {
+        return getStories(url: URLSetting.storyDetailByIdURL(id: id), with: with)
+            .tryCompactMap { try self.storyDetail(entry: $0) }
+            .eraseToAnyPublisher()
+    }
+    
+    func getRelatedStories(by story: Story) -> AnyPublisher<[Story], Error> {
+        return getStories(url: URLSetting.relatedStoriesURL(id: story.id))
+            .tryMap { try self.validate(entry: $0) }
+            .eraseToAnyPublisher()
+    }
+    
     internal func validate(entry: Entry<ResponseData>) throws -> [Story] {
         return entry.data?.data ?? []
+    }
+    
+    internal func storyDetail(entry: Entry<Story>) throws -> Story? {
+        return entry.data
     }
     
     // MARK: - ResponseData
     struct ResponseData: Codable {
         let data: [Story]
     }
+    
+    struct StoryDetailResponse: Codable {}
 }

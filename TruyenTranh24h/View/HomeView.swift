@@ -39,10 +39,10 @@ struct HomeView: View {
     fileprivate func suggestedMightLikeViews() -> some View {
         return Group {
             // Suggested stories
-            Commic2ColumnView(stories: viewModel.recommendStories, title: "suggested-story", thumbnailHeight: 132.0, showPlaceholder: viewModel.recommendStories == nil)
+            CommicView(stories: viewModel.recommendStories, title: "suggested-story", thumbnailHeight: 132.0, showPlaceholder: viewModel.recommendStories == nil)
             
             // You might like story section
-            Commic2ColumnView(stories: viewModel.maybeYouLikeStories, title: "you-might-like", thumbnailHeight: 132.0, showPlaceholder: viewModel.maybeYouLikeStories == nil)
+            CommicView(stories: viewModel.maybeYouLikeStories, title: "you-might-like", thumbnailHeight: 132.0, showPlaceholder: viewModel.maybeYouLikeStories == nil)
         }
         .padding(EdgeInsets(top: 0, leading: self.padding, bottom: 0, trailing: self.padding))
     }
@@ -75,7 +75,7 @@ struct HomeView: View {
                     //TrailerView(stories: $viewModel.trailerStories, title: "comming-soon-title")
                     
                     // Daily update
-                    Commic2ColumnView(stories: viewModel.dailyUpdateStories,
+                    CommicView(stories: viewModel.dailyUpdateStories,
                                       title: "daily-update",
                                       thumbnailHeight: 132.0,
                                       showPlaceholder: viewModel.dailyUpdateStories == nil)

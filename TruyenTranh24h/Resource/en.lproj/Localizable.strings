@@ -64,3 +64,4 @@ confirm = "Confirm";
 dont-receive-email = "You don't receive email?";
 re-send = "Resend";
 new-password = "New Password";
+"update-to %@" = "Update to %@";

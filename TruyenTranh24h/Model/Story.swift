@@ -47,6 +47,19 @@ struct Story: Codable, Identifiable, Equatable {
         let title = String(text.prefix(Int.random(in: 15..<30)))
         return Story(id: id, userId: 0, title: title, subTitle: "", isHot: true, isFeature: true, isAdult: true, featureImage: "", description: "", createdAt: Date(), trailerImage: "", author: "", totalViews: 0, totalLikes: 0)
     }
+    
+    var categories: [Category]? = nil
+    var listCategory: String {
+        return categories?.compactMap{ $0.name }.joined(separator: ", ") ?? ""
+    }
+    
+    var chapters: [Chapter]? = nil
+    var lastChapter: Chapter? = nil
+    var favorites: [User]? = nil
+    
+    var nonHTMLDescription: String {
+        description.removeHTMLTags()
+    }
 }
 
 /*

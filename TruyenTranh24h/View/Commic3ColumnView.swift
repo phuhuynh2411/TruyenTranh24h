@@ -95,7 +95,7 @@ struct Commic3ColumnView: View {
             
             .fullScreenCover(isPresented: $showStoryDetail, content: {
                 NavigationView {
-                    StoryView(story: story)
+                    StoryView().environmentObject(StoryViewModel(story: story))
                 }
             })
         }

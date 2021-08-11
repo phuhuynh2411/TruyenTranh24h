@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import RemoteImageView
+import Kingfisher
 
 struct StoryHeaderView: View {
     @State var story: Story
@@ -18,7 +18,7 @@ struct StoryHeaderView: View {
            // Spacer()
             HStack (alignment: .center) {
                 // thumbnail
-                RemoteImageView(stringURL: story.featureImage)
+                KFImage(URL(string: story.imageURLString))
                     .scaledToFit()
                     .frame(width: 91, height: 109)
                     .clipped()
@@ -40,7 +40,7 @@ struct StoryHeaderView: View {
                                 .resizable()
                                 .frame(width: 16, height: 9)
                             
-                            Text("1.560")
+                            Text("\(story.totalViews)")
                                 .font(.system(size: 9, weight: .regular))
                                 .foregroundColor(.white)
                         }
@@ -50,7 +50,7 @@ struct StoryHeaderView: View {
                                 .resizable()
                                 .frame(width: 12, height: 10)
                             
-                            Text("150")
+                            Text("\(story.totalLikes)")
                                 .font(.system(size: 9, weight: .regular))
                                 .foregroundColor(.white)
                         }
@@ -60,7 +60,7 @@ struct StoryHeaderView: View {
                                 .resizable()
                                 .frame(width: 11, height: 10)
                             
-                            Text("950")
+                            Text("\(story.favorites?.count ?? 0)")
                                 .font(.system(size: 9, weight: .regular))
                                 .foregroundColor(.white)
                         }
@@ -78,9 +78,8 @@ struct StoryHeaderView: View {
     }
     
     var background: some View {
-        RemoteImageView(stringURL: story.featureImage)
+        KFImage(URL(string: story.imageURLString))
             .scaledToFill()
-            //.aspectRatio(contentMode: .fill)
             .frame(width: UIScreen.main.bounds.width, height: height)
             .clipped()
             .background(Color.black)

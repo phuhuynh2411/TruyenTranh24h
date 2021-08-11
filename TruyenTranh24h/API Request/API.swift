@@ -119,7 +119,7 @@ class API {
     
      - Returns: A new URL included the query items
      */
-    internal func addQueryItems(page: Int? = nil, limit: Int? = nil, search: String? = nil, to url: URL) -> URL {
+    internal func addQueryItems(page: Int? = nil, limit: Int? = nil, search: String? = nil, with: String? = nil, to url: URL) -> URL {
         var urlComponent = URLComponents(url: url, resolvingAgainstBaseURL: true)!
         urlComponent.queryItems = []
         if let page = page {
@@ -130,6 +130,9 @@ class API {
         }
         if let search = search {
             urlComponent.queryItems?.append(URLQueryItem(name: "search", value: "\(search)") )
+        }
+        if let with = with {
+            urlComponent.queryItems?.append(URLQueryItem(name: "with", value: "\(with)") )
         }
         
         // Remove an extra question mark at the end of the URL if the query item is empty.

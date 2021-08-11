@@ -7,12 +7,14 @@
 
 import SwiftUI
 
-struct Commic2ColumnView: View {
+struct CommicView: View {
     var stories: [Story]?
     var title: String? = nil
-    var thumbnailHeight: CGFloat? = nil
+    var thumbnailHeight: CGFloat
     var moreButton = true
-    
+    var numberOfColumns = 2
+    var showPlaceholder = false
+
     @State var pressOnMoreButton = false
     
     var showStoryDetail = false
@@ -23,10 +25,9 @@ struct Commic2ColumnView: View {
         }
         return stories
     }()
-    let columns = Array(repeating: GridItem(.flexible(), spacing: 10, alignment: .center), count: 2)
-    var showPlaceholder = false
-    
+   
     var body: some View {
+        let columns = Array(repeating: GridItem(.flexible(), spacing: 10, alignment: .center), count: numberOfColumns)
         VStack {
             // Title
             if let t = title {
@@ -96,7 +97,7 @@ struct Commic2ColumnView: View {
             
             .fullScreenCover(isPresented: $showStoryDetail, content: {
                 NavigationView {
-                    StoryView(story: story)
+                    StoryView().environmentObject(StoryViewModel(story: story))
                 }
             })
         }
@@ -107,6 +108,6 @@ struct TopCommic_Previews: PreviewProvider {
     @State static var stories = SampleData.stories()
     
     static var previews: some View {
-        Commic2ColumnView(stories: stories)
+        CommicView(stories: stories, thumbnailHeight: 200)
     }
 }
