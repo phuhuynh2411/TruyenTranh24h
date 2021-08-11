@@ -34,6 +34,10 @@ class CategoryModel: ObservableObject {
             .debounce(for: 0.5, scheduler: RunLoop.main)
             .sink(receiveValue: { value in
             print("Search value: \(value)")
+                self.currentPage = 1
+                self.stories = nil
+                guard let c = self.selectedCategory else { return }
+                self.getStories(by: c, search: value)
         })
     }
     
@@ -75,8 +79,8 @@ class CategoryModel: ObservableObject {
         })
     }
     
-    private func getStories(by category: Category) {
-        storiesStream = StoryAPI.shared.getStories(by: category, page: currentPage)
+    private func getStories(by category: Category, search: String? = nil) {
+        storiesStream = StoryAPI.shared.getStories(by: category, page: currentPage, search: search)
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { completion in
             switch completion {
@@ -98,7 +102,7 @@ class CategoryModel: ObservableObject {
     }
     
     func loadMoreStory() {
-        guard let category = selectedCategory else { return }
+        guard let category = selectedCategory, (stories?.count ?? 0) > 0 else { return }
         getStories(by: category)
         print("\(category.name) is loading more stories at page \(currentPage)")
     }

@@ -11,8 +11,8 @@ import Combine
 class StoryAPI: API {
     static let shared = StoryAPI()
     
-    private func getStories(url: URL, limit: Int? = nil, page: Int? = nil) -> AnyPublisher<Entry<ResponseData>, Error> {
-        let urlWithParas = addQueryItems(page: page, limit: limit, to: url)
+    private func getStories(url: URL, limit: Int? = nil, page: Int? = nil, search: String? = nil) -> AnyPublisher<Entry<ResponseData>, Error> {
+        let urlWithParas = addQueryItems(page: page, limit: limit, search: search, to: url)
         let request =  getRequest(url: urlWithParas)
         
         return self.send(request: request)
@@ -55,8 +55,8 @@ class StoryAPI: API {
             .eraseToAnyPublisher()
     }
     
-    func getStories(by category: Category, page: Int? = nil) -> AnyPublisher<[Story], Error> {
-        return getStories(url: URLSetting.storiesByCategoryURL(categoryId: category.id), page: page)
+    func getStories(by category: Category, page: Int? = nil, search: String? = nil) -> AnyPublisher<[Story], Error> {
+        return getStories(url: URLSetting.storiesByCategoryURL(categoryId: category.id), page: page, search: search)
             .tryMap { try self.validate(entry: $0) }
             .eraseToAnyPublisher()
     }
