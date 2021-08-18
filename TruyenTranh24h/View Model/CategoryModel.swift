@@ -21,6 +21,8 @@ class CategoryModel: ObservableObject {
     var storiesStream: AnyCancellable?
     var selectedCategoryStream: AnyCancellable?
     var searchStream: AnyCancellable?
+    @Published var isError: Bool = false
+    var error: Error?
     
     init() {
         getCategories()
@@ -70,6 +72,7 @@ class CategoryModel: ObservableObject {
             case .finished: break
             case .failure(let error):
                 print(error)
+                self.setError(error: error)
             }
         }, receiveValue: { categories in
             self.categories = categories
@@ -87,6 +90,7 @@ class CategoryModel: ObservableObject {
             case .finished: break
             case .failure(let error):
                 print(error)
+                self.setError(error: error)
             }
         }, receiveValue: { stories in
             if self.stories == nil {
@@ -105,5 +109,10 @@ class CategoryModel: ObservableObject {
         guard let category = selectedCategory, (stories?.count ?? 0) > 0 else { return }
         getStories(by: category)
         print("\(category.name) is loading more stories at page \(currentPage)")
+    }
+    
+    func setError(error: Error) {
+        self.error = error
+        isError = true
     }
 }

@@ -9,13 +9,13 @@ import Foundation
 
 struct Comment: Codable, Identifiable {
     let id: Int
-    let userId: Int
+    let userId: Int?
     let body: String
     let createdAt: Date
     let avatarUrl: String?
     let parentId: Int?
-    let children: [Comment]
-    let user: User
+    let children: [Comment]?
+    let user: User?
     
     var formattedDate: String {
         let dateFormatter = DateFormatter()

@@ -8,6 +8,7 @@
 import SwiftUI
 import UIKit
 import RefreshableScrollView
+import AlertToast
 
 struct CategoryView: View {
     @ObservedObject var viewModel: CategoryModel
@@ -66,6 +67,9 @@ struct CategoryView: View {
         
         // navigation settings
         .navigationBarHidden(true)
+        .toast(isPresenting: $viewModel.isError) {
+            AlertToast(type: .regular, title: "Error", subTitle: viewModel.error?.localizedDescription)
+        }
         
     }
     

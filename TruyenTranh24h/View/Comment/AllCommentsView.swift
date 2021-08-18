@@ -9,12 +9,11 @@ import SwiftUI
 import RemoteImageView
 
 struct AllCommentsView: View {
-    @State private var selectedFilter: CommentFilter = .newest
+    @State private var selectedFilter: CommentFilter = .oldest
     var comments: [Comment]?
     @State var inputText: String = ""
-    
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
+    @EnvironmentObject var storyViewModel: StoryViewModel
+        
     private var leftImage: AnyView {
         let image = RemoteImageView(stringURL: "")
             .frame(width: 32, height: 32)
@@ -24,10 +23,15 @@ struct AllCommentsView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
+            TopView()
+                .frame(height: 50)
+            
             // Filter section
             HStack(spacing: 16) {
                 Spacer()
-                Button(action: {}, label: {
+                Button(action: {
+                    storyViewModel.sortCommentNewest()
+                }, label: {
                     Text("newest")
                         .font(.system(size: 10, weight: .light))
                         .foregroundColor(selectedFilter == .newest ? Color("mainTitleText") : Color("dateChaperItemFg"))
@@ -37,7 +41,9 @@ struct AllCommentsView: View {
                     .font(.system(size: 10, weight: .light))
                     .foregroundColor(Color("dateChaperItemFg"))
                 
-                Button(action: {}, label: {
+                Button(action: {
+                    storyViewModel.sortCommentOldest()
+                }, label: {
                     Text("oldest")
                         .font(.system(size: 10, weight: .light))
                         .foregroundColor(selectedFilter == .oldest ? Color("mainTitleText") : Color("dateChaperItemFg"))
@@ -55,10 +61,7 @@ struct AllCommentsView: View {
         }
         .padding(EdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 16))
         // navigation setting
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarTitle("all-comments")
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: navItemsView)
+        .navigationBarHidden(true)
 
     }
     
@@ -67,27 +70,32 @@ struct AllCommentsView: View {
         case oldest
     }
     
-    var navItemsView: some View {
-        HStack {
-            BackButtonView()
-                .foregroundColor(.gray)
-            
-                .onTapGesture {
-                    presentationMode.wrappedValue.dismiss()
+    private struct TopView: View {
+        @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+        
+        var body: some View {
+            ZStack {
+                HStack {
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        BackButtonView()
+                            .foregroundColor(.gray)
+                    })
+                    .buttonStyle(PlainButtonStyle())
+                    Spacer()
                 }
-            .padding(.leading, 16)
-            
-            Spacer()
-        }
-        .frame(width: UIScreen.main.bounds.width)
-        .background(
-            HStack {
-                Text("all-comments")
-                    .font(.system(size: 13, weight: .bold))
-                    .foregroundColor(.black)
+                
+                HStack {
+                    Spacer()
+                    Text("all-comments")
+                        .font(.system(size: 14, weight: .bold))
+                        .foregroundColor(.black)
+                    
+                    Spacer()
+                }
             }
-        )
-        //.background(Color.red)
+        }
     }
 }
 
