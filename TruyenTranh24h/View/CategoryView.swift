@@ -71,13 +71,37 @@ struct CategoryView: View {
     
     func listStoryView(stories: [Story]) -> some View {
         ForEach(stories) { story in
-            StoryThumbnailFullDetailView(story: story)
-                .frame(height: 132)
+            StoryCellView(story: story, height: 132)
                 .onAppear {
                     if story == stories.suffix(3).first {
                         viewModel.loadMoreStory()
                     }
                 }
+        }
+    }
+    
+    struct StoryCellView: View {
+        @State private var showStoryDetail = false
+        @EnvironmentObject var viewModel: CategoryModel
+        
+        var story: Story
+        var height: CGFloat?
+        
+        var body: some View {
+            Button(action: {
+                showStoryDetail.toggle()
+            }, label: {
+                StoryThumbnailFullDetailView(story: story)
+                    .frame(height: height, alignment: .center)
+                    
+            })
+            .buttonStyle(PlainButtonStyle())
+            
+            .fullScreenCover(isPresented: $showStoryDetail, content: {
+                NavigationView {
+                    StoryView().environmentObject(StoryViewModel(story: story))
+                }
+            })
         }
     }
     

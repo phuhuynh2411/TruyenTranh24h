@@ -10,7 +10,7 @@ import RemoteImageView
 
 struct AllCommentsView: View {
     @State private var selectedFilter: CommentFilter = .newest
-    @State var comments: [Comment]
+    var comments: [Comment]?
     @State var inputText: String = ""
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -46,7 +46,7 @@ struct AllCommentsView: View {
             
             // Comments
             ScrollView(showsIndicators: false) {
-                CommentView(comments: comments)
+                CommentView(comments: comments ?? [])
             }
             .padding(.top, 16)
             

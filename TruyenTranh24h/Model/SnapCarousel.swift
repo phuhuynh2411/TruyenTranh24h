@@ -45,14 +45,14 @@ struct SnapCarousel: View {
                 spacing: spacing,
                 widthOfHiddenCards: widthOfHiddenCards
             ) {
-                ForEach(items, id: \.self.id) { item in
+                ForEach(0..<items.count, id: \.self) { index in
                     Item(
-                        _id: Int(item.id),
+                        _id: items[index].id,
                         spacing: spacing,
                         widthOfHiddenCards: widthOfHiddenCards,
                         cardHeight: cardHeight
                     ) {
-                        ItemView(card: item)
+                        ItemView(story: stories?[index] ?? .placeholder(id: 0))
                     }
                     .foregroundColor(Color.white)
                     .background(Color("surface"))
@@ -66,28 +66,39 @@ struct SnapCarousel: View {
 }
 
 struct ItemView: View {
-    @State private var isLoaded = false
-    @State var card: Card
+    var story: Story
+    @State private var showStoryDetail = false
     
     var body: some View {
         ZStack {
             GeometryReader { proxy in
                 ZStack {
-                    KFImage(URL(string: card.imageString)!)
-                        .placeholder({
-                            Image("image_placeholder")
-                                .frame(width: 60, height: 60 )
-                                .cornerRadius(7.0)
-                        })
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: proxy.size.width, height: proxy.size.height )
-                        .clipped()
-                        .cornerRadius(7.0)
+                    Button(action: {
+                        showStoryDetail.toggle()
+                    }, label: {
+                        KFImage(URL(string: story.imageURLString))
+                            .placeholder({
+                                Image("image_placeholder")
+                                    .frame(width: 60, height: 60 )
+                                    .cornerRadius(7.0)
+                            })
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: proxy.size.width, height: proxy.size.height )
+                            .clipped()
+                            .cornerRadius(7.0)
+                    })
+                    .buttonStyle(PlainButtonStyle())
+                    
+                    .fullScreenCover(isPresented: $showStoryDetail, content: {
+                        NavigationView {
+                            StoryView().environmentObject(StoryViewModel(story: story))
+                        }
+                    })
+                    
                 }
             }
         }
-        
     }
 }
 

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import RemoteImageView
+import Kingfisher
 
 struct CommentItemView: View {
     @State var comment: Comment
@@ -15,18 +15,24 @@ struct CommentItemView: View {
     var body: some View {
         HStack(spacing: 16) {
             // avatar
-            RemoteImageView(stringURL: comment.avatar ?? "")
+            KFImage(URL(string: comment.avatarUrl ?? ""))
+                .placeholder({
+                    Image("image_placeholder")
+                        .frame(width: 60, height: 60 )
+                        .cornerRadius(7.0)
+                })
+                .resizable()
                 .frame(width: 32, height: 32)
                 .clipShape(Circle())
             
             VStack(alignment: .leading, spacing: 10) {
                 // title
-                Text(comment.userName)
+                Text(comment.user.name)
                     .font(.system(size: 12, weight: .medium))
                     .foregroundColor(.black)
                 
                 // description
-                Text(comment.comment)
+                Text(comment.body)
                     .font(.system(size: 12, weight: .regular))
                     .foregroundColor(Color("commentDescriptionTextFg"))
                 

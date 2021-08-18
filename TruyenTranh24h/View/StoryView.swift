@@ -44,8 +44,6 @@ struct StoryView: View {
                             } else {
                                 StoryChapterView()
                             }
-                            
-                            
                         }
                         .scrollOffSet(offset: $offset.onChange { changeScrollOffset($0) })
                     }
@@ -174,7 +172,6 @@ struct StoryView: View {
     
     struct StoryContentView: View {
         @EnvironmentObject var viewModel: StoryViewModel
-        @State var comments = SampleData.comments().prefix(5)
         @State var commentValue: String = ""
         
         private var leftImage: AnyView {
@@ -186,27 +183,21 @@ struct StoryView: View {
         
         var body: some View {
             VStack (spacing: 20){
-                // Story summary
+                let first5Comments = viewModel.comments?.prefix(5) ?? []
+                // Story summary[]
                 StorySummary(story: $viewModel.story)
                     .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                 
                 LineView()
                 // Comments
-                CommentView(comments: Array(comments))
+                CommentView(comments: Array(first5Comments))
                     .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                 
                 // All comments section
-//                Button(action: {
-//
-//                }, label: {
-//                    Text("all-comments (\(comments.count.description))")
-//                        .font(.system(size: 12, weight: .light))
-//                        .foregroundColor(Color("mainTitleText"))
-//                })
                 NavigationLink (
-                    destination: AllCommentsView(comments: SampleData.comments())){
+                    destination: AllCommentsView(comments: viewModel.comments)) {
                     
-                    Text("all-comments (\(comments.count.description))")
+                    Text("all-comments (\(viewModel.comments?.count.description ?? 0.description))")
                         .font(.system(size: 12, weight: .light))
                         .foregroundColor(Color("mainTitleText"))
                 }

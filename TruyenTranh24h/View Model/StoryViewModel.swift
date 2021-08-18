@@ -13,15 +13,18 @@ class StoryViewModel: ObservableObject {
     @Published var relatedStories: [Story]?
     
     @Published var isError: Bool = false
+    @Published var comments: [Comment]?
     var error: Error?
     
     private var storyDetailStream: AnyCancellable?
     private var relatedStoriesStream: AnyCancellable?
+    private var storyCommentStream: AnyCancellable?
     
     init(story: Story) {
         self.story = story
         getStoryDetail()
         getRelatedStories()
+        getStoryComments()
     }
     
     func setError(error: Error) {
@@ -56,6 +59,21 @@ class StoryViewModel: ObservableObject {
             }
         }, receiveValue: { relatedStories in
             self.relatedStories = relatedStories
+        })
+    }
+    
+    private func getStoryComments() {
+        storyCommentStream = StoryAPI.shared.getStoryComments(by: story)
+            .receive(on: RunLoop.main)
+            .sink(receiveCompletion: { completion in
+            switch completion {
+            case .finished: break
+            case .failure(let error):
+                print(error)
+                self.setError(error: error)
+            }
+        }, receiveValue: { storyComments in
+            self.comments = storyComments
         })
     }
 }

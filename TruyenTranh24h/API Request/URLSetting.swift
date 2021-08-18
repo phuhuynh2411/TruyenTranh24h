@@ -33,6 +33,10 @@ class URLSetting {
         baseURL.appendingPathComponent("stories/\(id)/related")
     }
     
+    static func storyCommentsULR(id: Int) -> URL {
+        baseURL.appendingPathComponent("stories/\(id)/comments")
+    }
+    
     ///stories/{story}/related
 
     static var loginURL: URL { baseURL.appendingPathComponent("stories/features") }

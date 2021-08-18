@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CommentView: View {
-    @State var comments: [Comment]
+    var comments: [Comment]
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {

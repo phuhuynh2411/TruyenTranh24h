@@ -73,8 +73,18 @@ class StoryAPI: API {
             .eraseToAnyPublisher()
     }
     
+    func getStoryComments(by story: Story) -> AnyPublisher<[Comment], Error> {
+        return getStories(url: URLSetting.storyCommentsULR(id: story.id))
+            .tryMap { try self.validateComment(entry: $0) }
+            .eraseToAnyPublisher()
+    }
+    
     internal func validate(entry: Entry<ResponseData>) throws -> [Story] {
         return entry.data?.data ?? []
+    }
+    
+    internal func validateComment(entry: Entry<[Comment]>) throws -> [Comment] {
+        return entry.data ?? []
     }
     
     internal func storyDetail(entry: Entry<Story>) throws -> Story? {
