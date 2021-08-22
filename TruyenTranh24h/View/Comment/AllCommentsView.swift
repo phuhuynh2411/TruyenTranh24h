@@ -10,9 +10,8 @@ import RemoteImageView
 
 struct AllCommentsView: View {
     @State private var selectedFilter: CommentFilter = .oldest
-    var comments: [Comment]?
     @State var inputText: String = ""
-    @EnvironmentObject var storyViewModel: StoryViewModel
+    @EnvironmentObject var allCommentModel: AllCommentModel
         
     private var leftImage: AnyView {
         let image = RemoteImageView(stringURL: "")
@@ -30,7 +29,8 @@ struct AllCommentsView: View {
             HStack(spacing: 16) {
                 Spacer()
                 Button(action: {
-                    storyViewModel.sortCommentNewest()
+                    allCommentModel.sortCommentNewest()
+                    selectedFilter = .newest
                 }, label: {
                     Text("newest")
                         .font(.system(size: 10, weight: .light))
@@ -42,7 +42,8 @@ struct AllCommentsView: View {
                     .foregroundColor(Color("dateChaperItemFg"))
                 
                 Button(action: {
-                    storyViewModel.sortCommentOldest()
+                    allCommentModel.sortCommentOldest()
+                    selectedFilter = .oldest
                 }, label: {
                     Text("oldest")
                         .font(.system(size: 10, weight: .light))
@@ -52,7 +53,7 @@ struct AllCommentsView: View {
             
             // Comments
             ScrollView(showsIndicators: false) {
-                CommentView(comments: comments ?? [])
+                CommentView(comments: allCommentModel.comments ?? [])
             }
             .padding(.top, 16)
             
@@ -102,7 +103,7 @@ struct AllCommentsView: View {
 struct AllCommentsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            AllCommentsView(comments:  SampleData.comments())
+            AllCommentsView()
         }
     }
 }

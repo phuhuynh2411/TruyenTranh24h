@@ -21,7 +21,7 @@ struct SnapCarousel: View {
         
         var items: [Card] = []
         if let stories = self.stories {
-            for i in 0..<stories.count{
+            for i in 0..<stories.count {
                 items.append(Card(id: i, name: stories[i].title, imageString: stories[i].imageURLString))
             }
         }
@@ -39,7 +39,6 @@ struct SnapCarousel: View {
         }
         
         return AnyView(Canvas {
-            /// TODO: find a way to avoid passing same arguments to Carousel and Item
             Carousel(
                 numberOfItems: CGFloat(items.count),
                 spacing: spacing,

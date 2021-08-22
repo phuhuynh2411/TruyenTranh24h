@@ -195,7 +195,7 @@ struct StoryView: View {
                 
                 // All comments section
                 NavigationLink (
-                    destination: AllCommentsView(comments: viewModel.comments)) {
+                    destination: AllCommentsView().environmentObject(AllCommentModel(comments: viewModel.originalComments ?? [] ) ) ) {
                     
                     Text("all-comments (\(viewModel.comments?.count.description ?? 0.description))")
                         .font(.system(size: 12, weight: .light))

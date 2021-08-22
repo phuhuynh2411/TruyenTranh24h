@@ -82,6 +82,7 @@
 		84A1693F2628310F001831AD /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A1693E2628310F001831AD /* TestView.swift */; };
 		84A454DA267208FB002499B2 /* TrailerViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A454D9267208FB002499B2 /* TrailerViewItem.swift */; };
 		84A454DC26720F69002499B2 /* TrailerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A454DB26720F69002499B2 /* TrailerView.swift */; };
+		84C1005B26D22C6400B24007 /* AllCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1005A26D22C6400B24007 /* AllCommentModel.swift */; };
 		84CFF93D262598CD0034CACB /* SampleDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF93C262598CD0034CACB /* SampleDataTest.swift */; };
 		84D563A426AF060D006127DF /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D563A326AF060D006127DF /* ForgotPasswordView.swift */; };
 		84D563A626AF0959006127DF /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D563A526AF0959006127DF /* OTPView.swift */; };
@@ -193,6 +194,7 @@
 		84A1693E2628310F001831AD /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		84A454D9267208FB002499B2 /* TrailerViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerViewItem.swift; sourceTree = "<group>"; };
 		84A454DB26720F69002499B2 /* TrailerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerView.swift; sourceTree = "<group>"; };
+		84C1005A26D22C6400B24007 /* AllCommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCommentModel.swift; sourceTree = "<group>"; };
 		84CFF93C262598CD0034CACB /* SampleDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDataTest.swift; sourceTree = "<group>"; };
 		84D563A326AF060D006127DF /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		84D563A526AF0959006127DF /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
@@ -462,6 +464,7 @@
 				84EE849326BBCD6D0094DE7E /* HomeModel.swift */,
 				847940EF26BE780E0098B2C3 /* CategoryModel.swift */,
 				8498965B26C3AFFE00829952 /* StoryViewModel.swift */,
+				84C1005A26D22C6400B24007 /* AllCommentModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -659,6 +662,7 @@
 				842A24E4263946F70092A45A /* InfiniteProgressView.swift in Sources */,
 				84EE848526BBC83A0094DE7E /* StoryAPI.swift in Sources */,
 				844698B926772EEF0081E6BA /* StoryHeaderView.swift in Sources */,
+				84C1005B26D22C6400B24007 /* AllCommentModel.swift in Sources */,
 				84EE848226BBC8170094DE7E /* API.swift in Sources */,
 				84534D142668CCE500376726 /* CategoryItemView.swift in Sources */,
 				842A24E6263947F70092A45A /* RefreshView.swift in Sources */,

@@ -14,6 +14,7 @@ class StoryViewModel: ObservableObject {
     
     @Published var isError: Bool = false
     @Published var comments: [Comment]?
+    var originalComments: [Comment]?
     var error: Error?
     
     private var storyDetailStream: AnyCancellable?
@@ -73,7 +74,29 @@ class StoryViewModel: ObservableObject {
                 self.setError(error: error)
             }
         }, receiveValue: { storyComments in
-            self.comments = storyComments
+            self.originalComments = storyComments
+            self.sortCommentOldest()
         })
+    }
+    
+    private func addSubComments(comments: [Comment]?) {
+        var allComments: [Comment] = []
+        comments?.forEach { comment in
+            allComments.append(comment)
+            comment.children?.forEach { subComment in
+                allComments.append(subComment)
+            }
+        }
+        self.comments = allComments
+    }
+    
+    func sortCommentNewest() {
+        let comments = originalComments?.sorted(by: { $0.createdAt > $1.createdAt})
+        addSubComments(comments: comments)
+    }
+    
+    func sortCommentOldest() {
+        let comments = originalComments?.sorted(by: { $0.createdAt < $1.createdAt})
+        addSubComments(comments: comments)
     }
 }

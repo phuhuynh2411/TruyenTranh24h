@@ -27,7 +27,7 @@ struct CommentItemView: View {
             
             VStack(alignment: .leading, spacing: 10) {
                 // title
-                Text(comment.user.name)
+                Text(comment.user?.name ?? "")
                     .font(.system(size: 12, weight: .medium))
                     .foregroundColor(.black)
                 
@@ -43,11 +43,13 @@ struct CommentItemView: View {
                         .foregroundColor(Color("commentDateFg"))
                     
                     // answer button
-                    Button(action: {}, label: {
-                        Text("answer")
-                            .font(.system(size: 9, weight: .regular))
-                            .foregroundColor(Color("answerButtonFg"))
-                    })
+                    if comment.parentId == nil {
+                        Button(action: {}, label: {
+                            Text("answer")
+                                .font(.system(size: 9, weight: .regular))
+                                .foregroundColor(Color("answerButtonFg"))
+                        })
+                    }
                     
                 }
                 // line view
