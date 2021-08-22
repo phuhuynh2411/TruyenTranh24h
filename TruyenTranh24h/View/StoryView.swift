@@ -51,7 +51,7 @@ struct StoryView: View {
                     
                     // toolbar
                     LineView()
-                    StoryToolbarView()
+                    StoryToolbarView(story: $viewModel.story)
                         .frame(height: 34)
                         .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
                 }

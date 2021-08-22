@@ -6,16 +6,16 @@
 //
 
 import SwiftUI
-import RemoteImageView
+import Kingfisher
 
 struct ReadStoryView: View {
-    @State var stories: [Story]
+    @EnvironmentObject var readStoryModel: ReadStoryModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var showComment = false
     
     var body: some View {
         ZStack {
-            EquatableView(content: ListImageView(stories: $stories))
+            EquatableView(content: ListImageView(images: readStoryModel.chapter.images ?? []))
             
             // Comment input view
             if showComment {
@@ -52,16 +52,18 @@ struct ReadStoryView: View {
     struct ListImageView: View, Equatable {
         
         static func == (lhs: ReadStoryView.ListImageView, rhs: ReadStoryView.ListImageView) -> Bool {
-            lhs.stories == rhs.stories
+            lhs.images == rhs.images
         }
         
-        @Binding var stories: [Story]
+        var images: [String]
         
         var body: some View {
             ScrollView {
                 LazyVStack {
-                    ForEach(stories){ story in
-                        RemoteImageView(stringURL: story.featureImage)
+                    ForEach(0..<images.count, id: \.self){ index in
+                        KFImage(URL(string: images[index]))
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
                     }
                 }
             }
@@ -71,7 +73,8 @@ struct ReadStoryView: View {
     struct CommentView: View {
         @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
         @State var inputText: String = ""
-
+        @EnvironmentObject var readStoryModel: ReadStoryModel
+        
         var body: some View {
             // Comment input view
             VStack {
@@ -104,7 +107,9 @@ struct ReadStoryView: View {
                     CommentInputView(textValue: $inputText, badgeText: "", leftImage: self.commentIcon)
                         .padding(EdgeInsets(top: 10, leading: 16, bottom: 0, trailing: 16))
                     HStack {
-                        Button(action: {}, label: {
+                        Button(action: {
+                            self.readStoryModel.preChapter()
+                        }, label: {
                             Image("back")
                         })
                         
@@ -114,7 +119,9 @@ struct ReadStoryView: View {
                         })
                         
                         Spacer()
-                        Button(action: {}, label: {
+                        Button(action: {
+                            self.readStoryModel.nextChapter()
+                        }, label: {
                             Image("next")
                         })
                     }
@@ -140,6 +147,6 @@ struct ReadStoryView: View {
 
 struct ReadStoryView_Previews: PreviewProvider {
     static var previews: some View {
-        ReadStoryView(stories: SampleData.stories())
+        ReadStoryView()
     }
 }

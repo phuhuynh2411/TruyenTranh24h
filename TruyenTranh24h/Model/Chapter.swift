@@ -22,4 +22,5 @@ struct Chapter: Codable, Identifiable {
         
         return dateFormatter.string(from: date)
     }
+    let images: [String]?
 }

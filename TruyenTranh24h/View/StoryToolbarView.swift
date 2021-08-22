@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct StoryToolbarView: View {
+    @Binding var story: Story
+    
     var body: some View {
         HStack {
             Button(action: {}, label: {
@@ -55,35 +57,44 @@ struct StoryToolbarView: View {
             })
             .frame(maxWidth: .infinity)
             
-            Button(action: {
-                
-            }, label: {
-                NavigationLink( destination: ReadStoryView(stories: SampleData.stories())){
-                    VStack {
-                        Spacer()
-                        
-                        Text("read-now")
-                            .font(.system(size: 13, weight: .medium))
-                            .foregroundColor(.white)
-                        
-                        Spacer()
-                    }
-                    .frame(width: 150)
-                    .background(Color("readNowBg"))
-                    .cornerRadius(17)
-                    .navigationBarHidden(true)
-
-                }
-            })
-            
+            readNowButtonView
         }
         .frame(maxWidth: .infinity)
+    }
+    
+    var readNowButtonView: some View {
+        Group {
+            if let chapter = story.chapters?.first {
+                Button(action: {
+                    
+                }, label: {
+                    NavigationLink( destination: ReadStoryView().environmentObject(ReadStoryModel(chapter: chapter, story: story))){
+                        VStack {
+                            Spacer()
+                            
+                            Text("read-now")
+                                .font(.system(size: 13, weight: .medium))
+                                .foregroundColor(.white)
+                            
+                            Spacer()
+                        }
+                        .frame(width: 150)
+                        .background(Color("readNowBg"))
+                        .cornerRadius(17)
+                        .navigationBarHidden(true)
+                        
+                    }
+                })
+            }
+        }
     }
 }
 
 struct StoryToolbarView_Previews: PreviewProvider {
+    @State static var story = SampleData.stories()[0]
+    
     static var previews: some View {
-        StoryToolbarView()
+        StoryToolbarView(story: $story)
             .frame(height: 34)
     }
 }

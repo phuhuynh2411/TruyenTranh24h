@@ -37,6 +37,10 @@ class URLSetting {
         baseURL.appendingPathComponent("stories/\(id)/comments")
     }
     
+    static func chapterImagesURL(id: Int) -> URL {
+        baseURL.appendingPathComponent("chapters/\(id)/images")
+    }
+    
     ///stories/{story}/related
 
     static var loginURL: URL { baseURL.appendingPathComponent("stories/features") }
