@@ -78,7 +78,7 @@ struct ReadStoryView: View {
         var body: some View {
             // Comment input view
             VStack {
-                HStack {
+                ZStack {
                     HStack {
                         BackButtonView()
                             .foregroundColor(.white)
@@ -100,6 +100,14 @@ struct ReadStoryView: View {
                             .opacity(0.5)
                             .offset(y: -70)
                     )
+                    
+                    HStack {
+                        Spacer()
+                        Text(readStoryModel.chapter.title)
+                            .foregroundColor(.white)
+                            .font(.system(size: 14, weight: .regular, design: .default))
+                        Spacer()
+                    }
                 }
             
                 Spacer()
@@ -114,8 +122,14 @@ struct ReadStoryView: View {
                         })
                         
                         Spacer()
+                        
                         Button(action: {}, label: {
-                            Image("list")
+                            NavigationLink(
+                                destination: ChapterListMainView()
+                                    .environmentObject(ListChapterViewModel.sortChaptersNewest(story: readStoryModel.story)),
+                                label: {
+                                    Image("list")
+                                })
                         })
                         
                         Spacer()

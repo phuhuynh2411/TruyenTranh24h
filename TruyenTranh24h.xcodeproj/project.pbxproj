@@ -85,6 +85,8 @@
 		84C1005B26D22C6400B24007 /* AllCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1005A26D22C6400B24007 /* AllCommentModel.swift */; };
 		84C1005D26D2324300B24007 /* ChapterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1005C26D2324300B24007 /* ChapterAPI.swift */; };
 		84C1005F26D2339700B24007 /* ReadyStoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1005E26D2339700B24007 /* ReadyStoryModel.swift */; };
+		84C1922E26D8894C0015BD94 /* ChapterListMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1922D26D8894C0015BD94 /* ChapterListMainView.swift */; };
+		84C1923026D88A260015BD94 /* ListChapterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1922F26D88A260015BD94 /* ListChapterViewModel.swift */; };
 		84CFF93D262598CD0034CACB /* SampleDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CFF93C262598CD0034CACB /* SampleDataTest.swift */; };
 		84D563A426AF060D006127DF /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D563A326AF060D006127DF /* ForgotPasswordView.swift */; };
 		84D563A626AF0959006127DF /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D563A526AF0959006127DF /* OTPView.swift */; };
@@ -199,6 +201,8 @@
 		84C1005A26D22C6400B24007 /* AllCommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCommentModel.swift; sourceTree = "<group>"; };
 		84C1005C26D2324300B24007 /* ChapterAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterAPI.swift; sourceTree = "<group>"; };
 		84C1005E26D2339700B24007 /* ReadyStoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyStoryModel.swift; sourceTree = "<group>"; };
+		84C1922D26D8894C0015BD94 /* ChapterListMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterListMainView.swift; sourceTree = "<group>"; };
+		84C1922F26D88A260015BD94 /* ListChapterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChapterViewModel.swift; sourceTree = "<group>"; };
 		84CFF93C262598CD0034CACB /* SampleDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDataTest.swift; sourceTree = "<group>"; };
 		84D563A326AF060D006127DF /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		84D563A526AF0959006127DF /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
@@ -282,6 +286,7 @@
 				849B5BBE2678A2BB009ECDD7 /* LineView.swift */,
 				84393AFF267C953E005101FD /* ChapterItemView.swift */,
 				84393B01267C9639005101FD /* ChapterListView.swift */,
+				84C1922D26D8894C0015BD94 /* ChapterListMainView.swift */,
 				840C9508269944C6009DC838 /* ReadStoryView.swift */,
 				8477BA8326A2C087007A67A9 /* SearchStoryView.swift */,
 				8477BA8526A2C574007A67A9 /* GrayButtonView.swift */,
@@ -471,6 +476,7 @@
 				8498965B26C3AFFE00829952 /* StoryViewModel.swift */,
 				84C1005A26D22C6400B24007 /* AllCommentModel.swift */,
 				84C1005E26D2339700B24007 /* ReadyStoryModel.swift */,
+				84C1922F26D88A260015BD94 /* ListChapterViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -631,6 +637,7 @@
 				84D563A426AF060D006127DF /* ForgotPasswordView.swift in Sources */,
 				84EE847926BBC8170094DE7E /* APIDataTaskPublisher.swift in Sources */,
 				8479C3BE26733A0600CCBDB0 /* ViewMoreView.swift in Sources */,
+				84C1923026D88A260015BD94 /* ListChapterViewModel.swift in Sources */,
 				8405F22B267B514F004B1CC0 /* CacheImageView.swift in Sources */,
 				840A858226AE8F1E00FDEF38 /* TextFieldView.swift in Sources */,
 				845ABE8C26BC1D7400A33A2C /* CategoryAPI.swift in Sources */,
@@ -672,6 +679,7 @@
 				844698B926772EEF0081E6BA /* StoryHeaderView.swift in Sources */,
 				84C1005B26D22C6400B24007 /* AllCommentModel.swift in Sources */,
 				84EE848226BBC8170094DE7E /* API.swift in Sources */,
+				84C1922E26D8894C0015BD94 /* ChapterListMainView.swift in Sources */,
 				84534D142668CCE500376726 /* CategoryItemView.swift in Sources */,
 				842A24E6263947F70092A45A /* RefreshView.swift in Sources */,
 				84EE847C26BBC8170094DE7E /* URLSetting.swift in Sources */,

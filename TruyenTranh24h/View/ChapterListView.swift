@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ChapterListView: View {
-    var story: Story
     @State private var selectedFilter: ChapterFilter = .newest
+    @ObservedObject var chapterListModelView: ListChapterViewModel
     
     var body: some View {
         VStack {
             HStack {
-                if let lastChapter = story.lastChapter {
+                if let lastChapter = chapterListModelView.story.lastChapter {
                     Text("update-to \(lastChapter.title)")
                         .font(.system(size: 13, weight: .bold))
                         .foregroundColor(.black)
@@ -23,7 +23,12 @@ struct ChapterListView: View {
                 Spacer()
                 
                 HStack(spacing: 16) {
-                    Button(action: {}, label: {
+                    Button(action: {
+                        chapterListModelView.sortChaptersNewest {
+                            selectedFilter = .newest
+                        }
+
+                    }, label: {
                         Text("newest")
                             .font(.system(size: 10, weight: .light))
                             .foregroundColor(selectedFilter == .newest ? Color("mainTitleText") : Color("dateChaperItemFg"))
@@ -33,7 +38,12 @@ struct ChapterListView: View {
                         .font(.system(size: 10, weight: .light))
                         .foregroundColor(Color("dateChaperItemFg"))
                     
-                    Button(action: {}, label: {
+                    Button(action: {
+                        chapterListModelView.sortChaptersOldest {
+                            selectedFilter = .oldest
+                        }
+
+                    }, label: {
                         Text("oldest")
                             .font(.system(size: 10, weight: .light))
                             .foregroundColor(selectedFilter == .oldest ? Color("mainTitleText") : Color("dateChaperItemFg"))
@@ -41,7 +51,8 @@ struct ChapterListView: View {
                 }
             }
             .padding(EdgeInsets(top: 25, leading: 16, bottom: 25, trailing: 16))
-            if let chapters = story.chapters {
+            
+            if let chapters = chapterListModelView.chapters {
                 ForEach(chapters){ chapter in
                     ChapterItemView(chapter: chapter)
                         .frame(height: 50)
@@ -62,6 +73,6 @@ struct ChapterListView: View {
 
 struct ChapterListView_Previews: PreviewProvider {
     static var previews: some View {
-        ChapterListView(story: SampleData.stories()[0])
+        ChapterListView(chapterListModelView: ListChapterViewModel(story: SampleData.stories()[0]))
     }
 }

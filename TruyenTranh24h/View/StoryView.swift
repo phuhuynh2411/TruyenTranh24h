@@ -227,7 +227,7 @@ struct StoryView: View {
         @EnvironmentObject var viewModel: StoryViewModel
         
         var body: some View {
-            ChapterListView(story: viewModel.story)
+            ChapterListView(chapterListModelView: ListChapterViewModel(story:  viewModel.story))
         }
     }
     

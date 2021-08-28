@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChapterItemView: View {
-    @State var chapter: Chapter
+    var chapter: Chapter
     
     var body: some View {
         VStack(alignment: .center) {
